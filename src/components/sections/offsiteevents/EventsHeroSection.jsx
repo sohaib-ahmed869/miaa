@@ -32,16 +32,21 @@ export default function EventsHeroSection() {
         className="w-full pb-10 md:pb-14"
       >
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr_1fr] gap-3 md:gap-4 w-full items-stretch">
-          {HERO_PHOTOS.map((photo, i) => (
-            <motion.div
-              key={i}
-              {...staggerItem}
-              className="h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden bg-cover bg-center"
-              style={{ backgroundImage: `url(${photo.src})` }}
-              role="img"
-              aria-label={photo.alt}
-            />
-          ))}
+          {HERO_PHOTOS.map((photo, i) => {
+            const isMiddle = i === 1
+            return (
+              <motion.div
+                key={i}
+                {...staggerItem}
+                className={`h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden bg-cover bg-center ${
+                  isMiddle ? "" : "hidden md:block"
+                }`}
+                style={{ backgroundImage: `url(${photo.src})` }}
+                role="img"
+                aria-label={photo.alt}
+              />
+            )
+          })}
         </div>
       </motion.div>
     </section>

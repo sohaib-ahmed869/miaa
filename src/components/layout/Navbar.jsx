@@ -34,28 +34,47 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar (always visible) — Follow CTA + hamburger */}
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-10">
-          <div className="flex items-center justify-end h-20 md:h-24 gap-3">
-            <Link
-              to="/support-us"
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2.5 bg-secondary-terra text-white text-[10px] font-bold tracking-[0.15em] uppercase rounded hover:bg-secondary-rust transition-colors duration-200"
+      {/* Top-of-page CTAs (Gala + Follow) — absolute so they scroll away with the page */}
+      <div className="absolute top-0 right-0 z-40 px-3 md:px-4 pointer-events-none">
+        <div className="flex items-center justify-end h-20 md:h-24 gap-3 md:gap-5">
+          <Link
+            to="/gala-dinner"
+            className="pointer-events-auto hidden md:inline-flex items-center gap-1.5 px-4 py-3 bg-primary/60 backdrop-blur-sm text-white text-[10px] font-bold tracking-[0.15em] uppercase rounded hover:bg-primary/80 transition-colors duration-200"
+          >
+            Gala Dinner
+            <ArrowUpRight size={12} strokeWidth={2.5} />
+          </Link>
+          <Link
+            to="/support-us"
+            className="pointer-events-auto hidden md:inline-flex items-center gap-1.5 px-4 py-3 bg-secondary-terra text-white text-[10px] font-bold tracking-[0.15em] uppercase rounded hover:bg-secondary-rust transition-colors duration-200"
+          >
+            Follow Our Journey
+            <ArrowUpRight size={12} strokeWidth={2.5} />
+          </Link>
+          {/* Reserve the hamburger slot here so the CTAs sit left of it at the top of the page */}
+          <span className="w-[80px] h-[48px]" aria-hidden="true" />
+        </div>
+      </div>
+
+      {/* Hamburger — always sticky, sits in the same top-right corner */}
+      <div className="fixed top-0 right-0 z-50 px-3 md:px-4">
+        <div className="flex items-center justify-end h-20 md:h-24">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="bg-accent-cream rounded-xl px-7 py-3 shadow-md hover:bg-white transition-colors"
+            aria-label="Open menu"
+          >
+            <svg
+              width="34"
+              height="14"
+              viewBox="0 0 34 14"
+              fill="none"
+              aria-hidden="true"
             >
-              Follow Our Journey
-              <ArrowUpRight size={12} strokeWidth={2.5} />
-            </Link>
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="text-primary px-3 py-2.5 bg-white rounded hover:bg-white/90 transition-colors"
-              aria-label="Open menu"
-            >
-              <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <line x1="0" y1="2" x2="20" y2="2" />
-                <line x1="0" y1="12" x2="20" y2="12" />
-              </svg>
-            </button>
-          </div>
+              <rect x="0" y="1" width="34" height="3" rx="1.5" fill="#C15C45" />
+              <rect x="0" y="10" width="34" height="3" rx="1.5" fill="#C15C45" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -100,10 +119,35 @@ export default function Navbar() {
                   </Link>
                   <button
                     onClick={() => setMenuOpen(false)}
-                    className="text-white p-2.5 bg-white/10 rounded hover:bg-white/20 transition-colors"
+                    className="bg-accent-cream rounded-xl px-7 py-3 shadow-md hover:bg-white transition-colors"
                     aria-label="Close menu"
                   >
-                    <X size={20} />
+                    <svg
+                      width="34"
+                      height="14"
+                      viewBox="0 0 34 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <line
+                        x1="2"
+                        y1="2"
+                        x2="32"
+                        y2="12"
+                        stroke="#C15C45"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                      />
+                      <line
+                        x1="2"
+                        y1="12"
+                        x2="32"
+                        y2="2"
+                        stroke="#C15C45"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>

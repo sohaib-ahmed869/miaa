@@ -58,7 +58,9 @@ export default function ArchitectureSection() {
             </p>
 
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1072ktfGFYxJMQHalRFTKSyhICR5ONtEo/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer noopener"
               className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-secondary-terra text-white text-[11px] font-semibold tracking-[0.15em] uppercase rounded-sm hover:bg-secondary-rust transition-colors"
             >
               Download

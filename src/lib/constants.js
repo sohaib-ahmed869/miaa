@@ -3,7 +3,6 @@ export const NAV_LINKS = [
   { label: "About Us", path: "/about" },
   { label: "Islamic Art in Australia", path: "/islamic-art" },
   { label: "MIAA Offsite Events", path: "/offsite-events" },
-  { label: "Sydney Muslim Writers Festival", path: "/events" },
   { label: "Education & Community Engagement", path: "/community-engagement" },
   { label: "Timeline & Construction", path: "/timeline" },
   { label: "Updates & Blogs", path: "/blog" },
@@ -21,9 +20,9 @@ export const FOOTER_LINKS = [
 ]
 
 export const SOCIAL_LINKS = [
-  { label: "Instagram", url: "https://www.instagram.com/mabornemuseumislamicart/", icon: "instagram" },
-  { label: "Facebook", url: "https://www.facebook.com/MIAA", icon: "facebook" },
-  { label: "YouTube", url: "https://www.youtube.com/@MIAA", icon: "youtube" },
+  { label: "Instagram", url: "https://www.instagram.com/museumofislamicartaustralia/", icon: "instagram" },
+  { label: "Facebook", url: "https://www.facebook.com/miaaustralia.org", icon: "facebook" },
+  { label: "YouTube", url: "https://www.youtube.com/@MuseumofIslamicArtAustralia", icon: "youtube" },
 ]
 
 export const ACKNOWLEDGMENT_TEXT =

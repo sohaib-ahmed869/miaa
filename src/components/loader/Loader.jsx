@@ -119,18 +119,18 @@ export default function Loader({ onComplete }) {
       ref={containerRef}
       className="fixed inset-0 z-[9999] flex flex-col items-center bg-bg-deep"
     >
-      {/* Gallery strip - positioned 15% from top */}
-      <div className="flex items-center justify-between w-[80%] mx-auto mt-[8vh]">
+      {/* Gallery strip - mobile centers tightly, desktop spreads across 80% */}
+      <div className="flex items-center justify-center gap-1.5 md:justify-between md:gap-0 w-full md:w-[80%] px-3 md:px-0 mx-auto mt-[8vh]">
         {galleryImages.map((src, i) => (
           <div
             key={i}
-            className="loader-frame opacity-0 flex-shrink-0 border-[5px] border-[#C15C45] bg-[#C15C45] overflow-hidden"
+            className="loader-frame opacity-0 flex-shrink-0 border-[3px] md:border-[5px] border-[#C15C45] bg-[#C15C45] overflow-hidden"
             style={{ lineHeight: 0, fontSize: 0 }}
           >
             <img
               src={src}
               alt=""
-              className="block w-[50px] h-[50px] md:w-[70px] md:h-[70px] object-cover scale-[1.15]"
+              className="block w-[32px] h-[32px] md:w-[70px] md:h-[70px] object-cover scale-[1.15]"
             />
           </div>
         ))}

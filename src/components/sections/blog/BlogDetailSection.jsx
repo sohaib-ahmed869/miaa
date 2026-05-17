@@ -107,7 +107,7 @@ export default function BlogDetailSection({ article }) {
           className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16"
         >
           <img
-            src={blogImages[article.image]}
+            src={article.imageUrl || blogImages[article.image]}
             alt={article.title}
             className="w-full h-auto object-contain"
           />
@@ -211,7 +211,7 @@ export default function BlogDetailSection({ article }) {
                   <Link to={`/blog/${post.slug}`} className="block mb-4 overflow-hidden">
                     <div className="aspect-[16/10] overflow-hidden rounded-lg">
                       <img
-                        src={blogImages[post.image]}
+                        src={post.imageUrl || blogImages[post.image]}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

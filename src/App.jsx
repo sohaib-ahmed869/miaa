@@ -15,10 +15,41 @@ import SupportUs from "./pages/SupportUs"
 import GalaDinner from "./pages/GalaDinner"
 import GalaDinnerTicketing from "./pages/GalaDinnerTicketing"
 
+import AdminLayout from "./admin/components/AdminLayout"
+import ProtectedRoute from "./admin/components/ProtectedRoute"
+import Login from "./admin/pages/Login"
+import Dashboard from "./admin/pages/Dashboard"
+import EventsAdmin from "./admin/pages/EventsAdmin"
+import PreviousEventsAdmin from "./admin/pages/PreviousEventsAdmin"
+import TeamAdmin from "./admin/pages/TeamAdmin"
+import ContactAdmin from "./admin/pages/ContactAdmin"
+import NewsletterAdmin from "./admin/pages/NewsletterAdmin"
+import BlogAdmin from "./admin/pages/BlogAdmin"
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Admin (no public Layout) */}
+        <Route path="/admin/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Dashboard />} />
+          <Route path="events" element={<EventsAdmin />} />
+          <Route path="previous-events" element={<PreviousEventsAdmin />} />
+          <Route path="team" element={<TeamAdmin />} />
+          <Route path="blog" element={<BlogAdmin />} />
+          <Route path="contact" element={<ContactAdmin />} />
+          <Route path="newsletter" element={<NewsletterAdmin />} />
+        </Route>
+
+        {/* Public site */}
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />

@@ -2,11 +2,10 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight, ChevronDown, Check } from "lucide-react"
 import { fadeInLeft, fadeInRight } from "../../../lib/motion"
+import { api } from "../../../lib/api"
 
 import heroBgPattern from "../../../assets/images/GalaDinner/herobgpattern.png"
 import bgMask from "../../../assets/images/Ticketing/bgmask.png"
-
-const API_URL = import.meta.env.VITE_API_URL
 
 const DIETARY = [
   "No dietary requirements",
@@ -58,36 +57,36 @@ export default function TicketHeroSection() {
     setSubmitting(true)
     setError(null)
 
-    const payload = {
-      title: form.title,
-      firstName: form.firstName,
-      surname: form.surname,
-      postNominals: form.postNominals,
-      email: form.email,
-      phone: form.phone,
-      dietary: form.dietary,
-      guestCount: form.hasGuest ? form.guestCount : 0,
-      accessRequirements: form.accessRequirements,
-      donation: donationVal,
-      buyTable: form.buyTable,
-      ticketPrice,
-      total,
-    }
+    // Buy a table = 10 seats; otherwise primary attendee + (optional) 1 guest
+    const quantity = form.buyTable
+      ? 10
+      : 1 + (form.hasGuest ? Math.max(1, Number(form.guestCount) || 1) : 0)
+
+    const notesParts = []
+    if (form.title) notesParts.push(`Title: ${form.title}`)
+    if (form.postNominals) notesParts.push(`Post-nominals: ${form.postNominals}`)
+    if (form.accessRequirements) notesParts.push(`Access: ${form.accessRequirements}`)
+    if (donationVal) notesParts.push(`Additional donation: $${donationVal}`)
+    const notes = notesParts.join(" · ")
 
     try {
-      const res = await fetch(`${API_URL}/tickets`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      // Hand the form data to our backend which talks to Tickets Tailor.
+      // It returns the hosted-checkout URL with buyer details prefilled —
+      // we then redirect the customer there to complete payment on TT.
+      const { checkoutUrl } = await api.galaCheckout({
+        firstName: form.firstName,
+        lastName: form.surname,
+        email: form.email,
+        phone: form.phone,
+        quantity,
+        dietary: form.dietary,
+        notes,
       })
-
-      if (!res.ok) throw new Error("Booking failed")
-
-      setSubmitted(true)
-      setForm(INITIAL_FORM)
+      if (!checkoutUrl) throw new Error("Could not start checkout")
+      // Hard-redirect to Tickets Tailor's hosted checkout
+      window.location.href = checkoutUrl
     } catch (err) {
-      setError(err.message)
-    } finally {
+      setError(err.message || "Could not start checkout. Please try again.")
       setSubmitting(false)
     }
   }
@@ -425,7 +424,7 @@ export default function TicketHeroSection() {
                 </div>
 
                 <p className="text-xs text-white/60 leading-relaxed">
-                  • For other Sponsorship Opportunities please see the <a href="#" className="text-accent-wheat underline hover:text-white transition-colors">MIAA Inaugural Gala Sponsors downloadable pdf</a>.
+                  • For other Sponsorship Opportunities please see the <a href="https://drive.google.com/file/d/1072ktfGFYxJMQHalRFTKSyhICR5ONtEo/view?usp=sharing" target="_blank" rel="noreferrer noopener" className="text-accent-wheat underline hover:text-white transition-colors">MIAA Inaugural Gala Sponsors downloadable pdf</a>.
                   <br />
                   • The Gala ticket is non-transferable and non-refundable. For enquiries, please contact the MIAA team directly.
                 </p>

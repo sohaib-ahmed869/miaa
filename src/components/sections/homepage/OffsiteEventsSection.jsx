@@ -3,13 +3,15 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { Link } from "react-router-dom"
 import { fadeInUp, staggerContainer, staggerItem } from "../../../lib/motion"
+import { useCMS } from "../../../hooks/useCMS"
+import { api } from "../../../lib/api"
 
 import offsiteImg1 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-01.png"
 import offsiteImg2 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-02.png"
 import offsiteImg3 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-03.png"
 import offsiteImg4 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-04.png"
 
-const upcomingEvents = [
+const FALLBACK_EVENTS = [
   {
     date: "07.02.26",
     location: "At Gallery A, MIAA",
@@ -36,7 +38,7 @@ const upcomingEvents = [
   },
 ]
 
-const previousEvents = [
+const FALLBACK_PREVIOUS = [
   { title: "Event Title Lorem Ipsum Dolor Sit Amet", image: offsiteImg4 },
   { title: "Event Title Lorem Ipsum Dolor Sit Amet", image: offsiteImg4 },
   { title: "Event Title Lorem Ipsum Dolor Sit Amet", image: offsiteImg4 },
@@ -45,6 +47,15 @@ const previousEvents = [
 
 export default function OffsiteEventsSection() {
   const [hoveredPrev, setHoveredPrev] = useState(null)
+
+  const { data: upcomingEvents } = useCMS(
+    () => api.events({ category: "homepage" }),
+    FALLBACK_EVENTS
+  )
+  const { data: previousEvents } = useCMS(
+    () => api.previousEvents({ surface: "homepage" }),
+    FALLBACK_PREVIOUS
+  )
 
   return (
     <section className="py-16 md:py-24 bg-bg-deep">
@@ -73,7 +84,7 @@ export default function OffsiteEventsSection() {
         >
           {upcomingEvents.map((event, i) => (
             <motion.div
-              key={i}
+              key={event._id || i}
               {...staggerItem}
               className="group md:px-6 first:md:pl-0 last:md:pr-0"
             >
@@ -87,12 +98,10 @@ export default function OffsiteEventsSection() {
                 </p>
               </div>
 
-              {/* Divider line */}
-
               {/* Image */}
               <div className="aspect-[4/3] overflow-hidden mb-5">
                 <img
-                  src={event.image}
+                  src={event.imageUrl || event.image}
                   alt={event.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -124,7 +133,7 @@ export default function OffsiteEventsSection() {
               <div className="flex flex-col divide-y divide-white/15 border-y border-white/15">
                 {previousEvents.map((event, i) => (
                   <div
-                    key={i}
+                    key={event._id || i}
                     onMouseEnter={() => setHoveredPrev(i)}
                     onMouseLeave={() => setHoveredPrev(null)}
                     className="cursor-pointer py-4 relative"
@@ -150,7 +159,7 @@ export default function OffsiteEventsSection() {
                           className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[180px] h-[120px] rounded overflow-hidden z-10 pointer-events-none"
                         >
                           <img
-                            src={event.image}
+                            src={event.imageUrl || event.image}
                             alt=""
                             className="w-full h-full object-cover"
                           />

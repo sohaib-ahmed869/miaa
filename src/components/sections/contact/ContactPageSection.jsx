@@ -51,13 +51,36 @@ const SOCIALS = [
   { Icon: FacebookIcon, label: "Facebook", url: "https://www.facebook.com/" },
 ]
 
+import { api } from "../../../lib/api"
+
 export default function ContactPageSection() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
+    if (submitting) return
+    setError("")
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const payload = {
+      fullName: data.get("fullName"),
+      email: data.get("email"),
+      topic: data.get("topic") || "",
+      message: data.get("message"),
+      source: "contact-page",
+    }
+    setSubmitting(true)
+    try {
+      await api.submitContact(payload)
+      setSubmitted(true)
+      form.reset()
+    } catch (err) {
+      setError(err.message || "Could not submit. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -127,6 +150,7 @@ export default function ContactPageSection() {
                     </label>
                     <input
                       type="text"
+                      name="fullName"
                       placeholder="Enter your full name"
                       required
                       className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
@@ -138,6 +162,7 @@ export default function ContactPageSection() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Enter your email address"
                       required
                       className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
@@ -150,6 +175,7 @@ export default function ContactPageSection() {
                     Topic
                   </label>
                   <select
+                    name="topic"
                     defaultValue=""
                     required
                     className="w-full bg-transparent field-dotted-line text-sm text-white/30 focus:text-white focus:outline-none transition-colors appearance-none cursor-pointer"
@@ -174,6 +200,7 @@ export default function ContactPageSection() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     placeholder="Enter your message"
                     rows={4}
                     required
@@ -181,12 +208,16 @@ export default function ContactPageSection() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-secondary-terra" role="alert">{error}</p>
+                )}
                 <div>
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-1.5 px-6 py-3 bg-secondary-terra text-white text-xs font-semibold tracking-wider uppercase rounded hover:bg-secondary-rust transition-colors duration-200"
+                    disabled={submitting}
+                    className="inline-flex items-center gap-1.5 px-6 py-3 bg-secondary-terra text-white text-xs font-semibold tracking-wider uppercase rounded hover:bg-secondary-rust disabled:opacity-60 transition-colors duration-200"
                   >
-                    Send Message
+                    {submitting ? "Sending…" : "Send Message"}
                     <ArrowUpRight size={13} strokeWidth={2.5} />
                   </button>
                 </div>

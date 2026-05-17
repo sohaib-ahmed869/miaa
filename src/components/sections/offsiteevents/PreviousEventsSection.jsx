@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
+import { Link } from "react-router-dom"
 import { fadeInUp } from "../../../lib/motion"
+import { useCMS } from "../../../hooks/useCMS"
+import { api } from "../../../lib/api"
 
 import offsiteImg4 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-04.png"
 
-const previousEvents = [
+const FALLBACK_PREVIOUS = [
   { title: "Event Title Lorem Ipsum Dolor Sit Amet", image: offsiteImg4 },
   { title: "Event Title Lorem Ipsum Dolor Sit Amet", image: offsiteImg4 },
   { title: "Event Title Lorem Ipsum Dolor Sit Amet", image: offsiteImg4 },
@@ -15,6 +18,10 @@ const previousEvents = [
 
 export default function PreviousEventsSection() {
   const [hoveredPrev, setHoveredPrev] = useState(null)
+  const { data: previousEvents } = useCMS(
+    () => api.previousEvents({ surface: "offsite" }),
+    FALLBACK_PREVIOUS
+  )
 
   return (
     <section className="py-16 md:py-24 bg-bg">
@@ -33,7 +40,7 @@ export default function PreviousEventsSection() {
               <div className="flex flex-col divide-y divide-primary/15 border-y border-primary/15">
                 {previousEvents.map((event, i) => (
                   <div
-                    key={i}
+                    key={event._id || i}
                     onMouseEnter={() => setHoveredPrev(i)}
                     onMouseLeave={() => setHoveredPrev(null)}
                     className="cursor-pointer py-4 relative"
@@ -59,7 +66,7 @@ export default function PreviousEventsSection() {
                           className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[180px] h-[120px] rounded overflow-hidden z-10 pointer-events-none shadow-lg"
                         >
                           <img
-                            src={event.image}
+                            src={event.imageUrl || event.image}
                             alt=""
                             className="w-full h-full object-cover"
                           />
@@ -71,13 +78,13 @@ export default function PreviousEventsSection() {
               </div>
 
               <div className="mt-6">
-                <a
-                  href="#"
+                <Link
+                  to="/offsite-events"
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-secondary-terra text-white text-[11px] font-semibold tracking-[0.15em] uppercase rounded-sm hover:bg-secondary-rust transition-colors"
                 >
                   View Now
                   <ArrowUpRight size={13} strokeWidth={2.5} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

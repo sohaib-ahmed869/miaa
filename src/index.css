@@ -64,7 +64,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #FFFFFF;
+  /* Match the loader + hero teal so there's never a white flash between scenes */
+  background-color: #214952;
   color: #1B1E1E;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -111,6 +112,23 @@ img {
 }
 .hero-float {
   animation: hero-float 6s ease-in-out infinite;
+}
+
+/* Admin form input */
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  color: #0f172a;
+  background: #ffffff;
+}
+.input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-color: #475569;
 }
 
 /* Reusable hidden-scrollbar utility */

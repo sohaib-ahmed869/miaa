@@ -112,7 +112,7 @@ export default function BlogGridSection({
                   <Link to={`/blog/${post.slug}`} className="block mb-4 overflow-hidden">
                     <div className="aspect-[16/10] overflow-hidden rounded-lg">
                       <img
-                        src={blogImages[post.image]}
+                        src={post.imageUrl || blogImages[post.image]}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

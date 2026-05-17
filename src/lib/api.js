@@ -1,0 +1,64 @@
+// Tiny fetch wrapper for the MIAA backend.
+// Configure the base URL with `VITE_API_URL` in `.env.local`; defaults to localhost:4000.
+
+const BASE = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "")
+
+async function request(path, { method = "GET", body, headers, signal } = {}) {
+  const res = await fetch(`${BASE}${path}`, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      ...(headers || {}),
+    },
+    body: body ? JSON.stringify(body) : undefined,
+    signal,
+  })
+  const text = await res.text()
+  let data
+  try {
+    data = text ? JSON.parse(text) : null
+  } catch {
+    data = text
+  }
+  if (!res.ok) {
+    const err = new Error(
+      (data && (data.error || data.message)) || `Request failed (${res.status})`
+    )
+    err.status = res.status
+    err.data = data
+    throw err
+  }
+  return data
+}
+
+export const api = {
+  // public reads
+  events: (params = {}) => {
+    const qs = new URLSearchParams(params).toString()
+    return request(`/api/events${qs ? `?${qs}` : ""}`)
+  },
+  previousEvents: (params = {}) => {
+    const qs = new URLSearchParams(params).toString()
+    return request(`/api/previous-events${qs ? `?${qs}` : ""}`)
+  },
+  team: () => request(`/api/team`),
+
+  // public writes
+  submitContact: (payload) => request(`/api/contact`, { method: "POST", body: payload }),
+  subscribeNewsletter: (email, source = "footer") =>
+    request(`/api/newsletter`, { method: "POST", body: { email, source } }),
+
+  // image url helper for items with a private S3 `key`
+  signGet: (key) => request(`/api/uploads/sign-get?key=${encodeURIComponent(key)}`),
+
+  // Gala Dinner / Tickets Tailor
+  galaEvent: () => request(`/api/gala/event`),
+  galaCheckout: (payload) => request(`/api/gala/checkout`, { method: "POST", body: payload }),
+
+  // Blog (public)
+  blogList: (params = {}) => {
+    const qs = new URLSearchParams(params).toString()
+    return request(`/api/blog${qs ? `?${qs}` : ""}`)
+  },
+  blogBySlug: (slug) => request(`/api/blog/${encodeURIComponent(slug)}`),
+}

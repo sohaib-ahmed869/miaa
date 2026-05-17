@@ -1,10 +1,12 @@
 import { motion } from "framer-motion"
 import { staggerContainer, staggerItem } from "../../../lib/motion"
+import { useCMS } from "../../../hooks/useCMS"
+import { api } from "../../../lib/api"
 import directorPortrait from "../../../assets/images/About/team-potrait-director.png"
 import malePortrait from "../../../assets/images/About/team-portrait-male.png"
 import femalePortrait from "../../../assets/images/About/team-portrait-female.png"
 
-const PEOPLE = [
+const FALLBACK_PEOPLE = [
   { name: "Prof Mehmet Ozalp", role: "Director", img: directorPortrait },
   { name: "Orhan Kaba", role: "Design Consultant", img: malePortrait },
   { name: "Dr Nur Shkembi OAM", role: "Artistic Director & Curator", img: femalePortrait },
@@ -60,6 +62,8 @@ function QuatrefoilPortrait({ src, alt }) {
 }
 
 export default function PeopleSection() {
+  const { data: people } = useCMS(() => api.team(), FALLBACK_PEOPLE)
+
   return (
     <section className="bg-accent-cream pt-12 md:pt-16 pb-12 md:pb-16">
       {/* Section label + dotted divider */}
@@ -93,15 +97,18 @@ export default function PeopleSection() {
 
         <motion.div
           {...staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-3 md:divide-x md:divide-primary/15 gap-y-12 md:gap-y-16"
+          className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-primary/15 gap-y-10 md:gap-y-16"
         >
-          {PEOPLE.map((person, i) => (
+          {people.map((person, i) => (
             <motion.div
-              key={`${person.name}-${i}`}
+              key={person._id || `${person.name}-${i}`}
               {...staggerItem}
               className="flex flex-col items-center text-center md:px-6"
             >
-              <QuatrefoilPortrait src={person.img} alt={person.name} />
+              <QuatrefoilPortrait
+                src={person.photoUrl || person.img || femalePortrait}
+                alt={person.name}
+              />
               <p className="text-primary text-base md:text-[17px] font-semibold leading-tight mt-5">
                 {person.name}
               </p>

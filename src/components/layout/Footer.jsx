@@ -1,6 +1,8 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { ACKNOWLEDGMENT_TEXT } from "../../lib/constants"
+import { api } from "../../lib/api"
 import { fadeInUp } from "../../lib/motion"
 import footerLogo from "../../assets/images/Homepage/Footer Logo.png"
 import footerPattern from "../../assets/images/Homepage/Footer Pattern.png"
@@ -39,6 +41,14 @@ function FacebookIcon() {
   )
 }
 
+function YouTubeIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+  )
+}
+
 function DottedDivider() {
   return (
     <div
@@ -59,6 +69,62 @@ const footerLinks = [
   { label: "MIAA Timeline & Construction", path: "/timeline" },
   { label: "Contact Us", path: "/contact" },
 ]
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState("idle") // idle | submitting | success | error
+  const [message, setMessage] = useState("")
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    if (status === "submitting" || !email) return
+    setStatus("submitting")
+    setMessage("")
+    try {
+      await api.subscribeNewsletter(email, "footer")
+      setStatus("success")
+      setMessage("Thanks — you're on the list.")
+      setEmail("")
+    } catch (err) {
+      setStatus("error")
+      setMessage(err.message || "Could not subscribe.")
+    }
+  }
+
+  return (
+    <div className="flex flex-col gap-2">
+      <form onSubmit={onSubmit} className="flex gap-0">
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email address"
+          className="flex-1 md:flex-none md:w-44 px-3 py-2 bg-white border border-primary/20 border-r-0 rounded-l-md text-xs text-primary placeholder:text-primary/40 focus:outline-none focus:border-primary/40 transition-colors"
+        />
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="px-3 py-2 rounded-r-md hover:opacity-80 transition-colors disabled:opacity-60"
+          style={{ backgroundColor: "#38717A" }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 10 4 15 9 20" />
+            <path d="M20 4v7a4 4 0 0 1-4 4H4" />
+          </svg>
+        </button>
+      </form>
+      {message && (
+        <p
+          className={`text-[11px] ${status === "error" ? "text-secondary-terra" : "text-primary/70"}`}
+          role="status"
+        >
+          {message}
+        </p>
+      )}
+    </div>
+  )
+}
 
 export default function Footer() {
   return (
@@ -151,19 +217,23 @@ export default function Footer() {
                 </p>
               </div>
               <div className="flex gap-2">
-                {[TikTokIcon, XIcon, InstagramIcon, FacebookIcon].map(
-                  (Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="w-9 h-9 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-all duration-200"
-                      style={{ backgroundColor: "#38717A" }}
-                      aria-label="Social link"
-                    >
-                      <Icon />
-                    </a>
-                  )
-                )}
+                {[
+                  { Icon: InstagramIcon, label: "Instagram", url: "https://www.instagram.com/museumofislamicartaustralia/" },
+                  { Icon: FacebookIcon, label: "Facebook", url: "https://www.facebook.com/miaaustralia.org" },
+                  { Icon: YouTubeIcon, label: "YouTube", url: "https://www.youtube.com/@MuseumofIslamicArtAustralia" },
+                ].map(({ Icon, label, url }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={label}
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-all duration-200"
+                    style={{ backgroundColor: "#38717A" }}
+                  >
+                    <Icon />
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -179,26 +249,7 @@ export default function Footer() {
                   Get news and updates from the Museum of Islamic Art Australia.
                 </p>
               </div>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex gap-0"
-              >
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  className="flex-1 md:flex-none md:w-44 px-3 py-2 bg-white border border-primary/20 border-r-0 rounded-l-md text-xs text-primary placeholder:text-primary/40 focus:outline-none focus:border-primary/40 transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="px-3 py-2 rounded-r-md hover:opacity-80 transition-colors"
-                  style={{ backgroundColor: "#38717A" }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="9 10 4 15 9 20" />
-                    <path d="M20 4v7a4 4 0 0 1-4 4H4" />
-                  </svg>
-                </button>
-              </form>
+              <NewsletterForm />
             </div>
 
             <div className="my-6 md:my-8"><DottedDivider /></div>

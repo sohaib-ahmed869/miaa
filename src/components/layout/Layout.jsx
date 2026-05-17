@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import Loader from "../loader/Loader"
+import ScrollToTop from "./ScrollToTop"
 import smallLogo from "../../assets/images/Homepage/smalllogo.png"
 
 export default function Layout() {
@@ -13,6 +14,8 @@ export default function Layout() {
 
   return (
     <>
+      <ScrollToTop />
+
       {/* Show loader only on first visit to home */}
       <AnimatePresence>
         {loading && isHome && (
@@ -20,15 +23,12 @@ export default function Layout() {
         )}
       </AnimatePresence>
 
-      <div
-        className={
-          loading && isHome ? "opacity-0" : "opacity-100 transition-opacity duration-500"
-        }
-      >
-        {/* Fixed logo top-left - appears after loader lands here */}
+      {/* Page always rendered at full opacity — the loader (z-9999) covers it while loading, then fades to reveal it without a white flash */}
+      <div>
+        {/* Logo top-left — absolute so it scrolls away with the page (only the hamburger stays sticky) */}
         <Link
           to="/"
-          className="fixed top-4 sm:top-5 md:top-6 left-4 sm:left-6 md:left-10 lg:left-16 z-50"
+          className="absolute top-4 sm:top-5 md:top-6 left-4 sm:left-6 md:left-10 lg:left-16 z-50"
         >
           <img
             src={smallLogo}
@@ -39,17 +39,9 @@ export default function Layout() {
 
         <Navbar />
         <main>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Outlet />
-            </motion.div>
-          </AnimatePresence>
+          {/* Pages render directly — section-level Framer Motion handles entrance animations.
+              No route-level opacity fade so the teal body bg never flashes on cream/light pages. */}
+          <Outlet />
         </main>
         <Footer />
       </div>

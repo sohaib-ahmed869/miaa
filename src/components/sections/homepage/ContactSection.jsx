@@ -2,6 +2,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { fadeInLeft, fadeInRight } from "../../../lib/motion"
+import { api } from "../../../lib/api"
 import connectImg from "../../../assets/images/About/connect.png"
 
 const TOPICS = [
@@ -13,11 +14,33 @@ const TOPICS = [
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
+    if (submitting) return
+    setError("")
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const payload = {
+      fullName: data.get("fullName"),
+      email: data.get("email"),
+      topic: data.get("topic") || "",
+      message: data.get("message"),
+      source: "homepage",
+    }
+    setSubmitting(true)
+    try {
+      await api.submitContact(payload)
+      setSubmitted(true)
+      form.reset()
+      setTimeout(() => setSubmitted(false), 6000)
+    } catch (err) {
+      setError(err.message || "Could not submit. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -70,6 +93,7 @@ export default function ContactSection() {
                     </label>
                     <input
                       type="text"
+                      name="fullName"
                       placeholder="Enter your full name"
                       required
                       className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
@@ -81,6 +105,7 @@ export default function ContactSection() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Enter your email address"
                       required
                       className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
@@ -94,6 +119,7 @@ export default function ContactSection() {
                     Topic
                   </label>
                   <select
+                    name="topic"
                     defaultValue=""
                     required
                     className="w-full bg-transparent field-dotted-line text-sm text-white/30 focus:text-white focus:outline-none transition-colors appearance-none cursor-pointer"
@@ -115,6 +141,7 @@ export default function ContactSection() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     placeholder="Enter your message"
                     rows={3}
                     required
@@ -122,13 +149,17 @@ export default function ContactSection() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-secondary-terra" role="alert">{error}</p>
+                )}
                 {/* Submit */}
                 <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-1.5 px-6 py-3 bg-secondary-terra text-white text-xs font-semibold tracking-wider uppercase rounded hover:bg-secondary-rust transition-colors duration-200"
+                    disabled={submitting}
+                    className="inline-flex items-center gap-1.5 px-6 py-3 bg-secondary-terra text-white text-xs font-semibold tracking-wider uppercase rounded hover:bg-secondary-rust disabled:opacity-60 transition-colors duration-200"
                   >
-                    Send Message
+                    {submitting ? "Sending…" : "Send Message"}
                     <ArrowUpRight size={13} strokeWidth={2.5} />
                   </button>
                 </div>

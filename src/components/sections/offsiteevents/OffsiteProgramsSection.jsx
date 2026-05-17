@@ -1,11 +1,13 @@
 import { motion } from "framer-motion"
 import { fadeInUp, staggerContainer, staggerItem } from "../../../lib/motion"
+import { useCMS } from "../../../hooks/useCMS"
+import { api } from "../../../lib/api"
 
 import offsiteImg1 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-01.png"
 import offsiteImg2 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-02.png"
 import offsiteImg3 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-03.png"
 
-const upcomingEvents = [
+const FALLBACK_EVENTS = [
   {
     date: "07.02.26",
     location: "At Gallery A, MIAA",
@@ -33,6 +35,11 @@ const upcomingEvents = [
 ]
 
 export default function OffsiteProgramsSection() {
+  const { data: upcomingEvents } = useCMS(
+    () => api.events({ category: "offsite" }),
+    FALLBACK_EVENTS
+  )
+
   return (
     <section className="py-12 md:py-16 bg-bg-deep">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
@@ -49,7 +56,7 @@ export default function OffsiteProgramsSection() {
         >
           {upcomingEvents.map((event, i) => (
             <motion.div
-              key={i}
+              key={event._id || i}
               {...staggerItem}
               className="group md:px-6 first:md:pl-0 last:md:pr-0"
             >
@@ -66,7 +73,7 @@ export default function OffsiteProgramsSection() {
               {/* Image */}
               <div className="aspect-[4/3] overflow-hidden mb-5">
                 <img
-                  src={event.image}
+                  src={event.imageUrl || event.image}
                   alt={event.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

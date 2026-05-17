@@ -29,7 +29,7 @@ export default function GalaEventDetailsSection() {
               Event Details
             </h2>
             <p className="text-sm text-white/80 leading-relaxed font-medium max-w-md text-justify">
-              Join us on this auspicious occasion, hear from our special guest speakers, enjoy a fine dining experience along with the sights and sounds of Islamic art in the stunning surrounds at the Art Gallery of New South Wales. Your attendance directly supports the building of MIAA. We look forward to welcoming you on the night.
+              Join us on this auspicious occasion, hear from our special guest speakers and entertainment, and enjoy a fine dining experience in the stunning surroundings of the Art Gallery of New South Wales. Your attendance directly supports the building of MIAA. We look forward to welcoming you on the night.
             </p>
           </motion.div>
 
@@ -88,7 +88,9 @@ export default function GalaEventDetailsSection() {
                 </div>
               </div>
               <a
-                href="#"
+                href="https://maps.google.com/?q=Art+Gallery+of+New+South+Wales+Sydney"
+                target="_blank"
+                rel="noreferrer noopener"
                 className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.15em] uppercase text-white hover:text-accent-wheat transition-colors"
               >
                 Open Maps
@@ -104,7 +106,7 @@ export default function GalaEventDetailsSection() {
                 Ticket
               </h3>
               <p className="text-sm text-primary leading-relaxed font-medium">
-                Attendance is by booking only. This is an adult only, no-alcohol and halal friendly event. Book your tickets here
+                Attendance is by booking only. This is an adult only, no-alcohol and halal friendly event. Book your tickets here.
               </p>
             </div>
             <div className="mt-6">

@@ -227,8 +227,43 @@ export default function ProjectTimelineSection() {
           </div>
         </motion.div>
 
-        {/* Timeline rows */}
-        <motion.div {...fadeInUp} className="relative">
+        {/* Mobile timeline — single vertical column with a left-side dotted line */}
+        <motion.div
+          {...fadeInUp}
+          className="md:hidden relative pl-6"
+        >
+          {/* Vertical dotted spine */}
+          <div
+            className="absolute top-2 bottom-2 left-1 w-[2px] pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 1.5px, transparent 1.5px)`,
+              backgroundSize: "3px 6px",
+            }}
+          />
+          <ul className="flex flex-col gap-8">
+            {(TIMELINE_DATA[active] || []).map((m, i) => (
+              <li key={i} className="relative">
+                {/* Terra dot anchored on the spine */}
+                <span
+                  className="absolute -left-[22px] top-1 w-3 h-3 rounded-full"
+                  style={{ background: TERRA }}
+                />
+                <p
+                  className="text-[12px] tracking-[0.1em] uppercase mb-2 font-semibold"
+                  style={{ color: "#D7B893" }}
+                >
+                  {m.date}
+                </p>
+                <p className="text-[13px] text-accent-cream/90 leading-relaxed">
+                  {m.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        {/* Desktop timeline — snake grid (md+) */}
+        <motion.div {...fadeInUp} className="hidden md:block relative">
           {rows.map((row, rowIdx) => {
             const isLastRow = rowIdx === rows.length - 1
             const isEvenRow = rowIdx % 2 === 0
@@ -329,7 +364,9 @@ export default function ProjectTimelineSection() {
         {/* CTA */}
         <motion.div {...fadeInUp} className="flex justify-center mt-12 md:mt-16">
           <a
-            href="#"
+            href="https://www.youtube.com/@MuseumofIslamicArtAustralia"
+            target="_blank"
+            rel="noreferrer noopener"
             className="inline-flex items-center gap-1.5 px-6 py-3 bg-secondary-terra text-white text-[11px] font-semibold tracking-[0.15em] uppercase rounded-sm hover:bg-secondary-rust transition-colors"
           >
             Watch Our First Steps

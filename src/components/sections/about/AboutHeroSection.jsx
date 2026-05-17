@@ -37,11 +37,11 @@ export default function AboutHeroSection() {
           transition={{ duration: 1, delay: 0.6 }}
           className="w-full"
         >
-          <div className="w-full h-[260px] md:h-[420px] lg:h-[520px] overflow-hidden">
+          <div className="w-full h-[420px] md:h-[420px] lg:h-[520px] overflow-hidden">
             <img
               src={heroImg}
               alt="Audience at MIAA event"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center scale-150 md:scale-100"
             />
           </div>
         </motion.div>

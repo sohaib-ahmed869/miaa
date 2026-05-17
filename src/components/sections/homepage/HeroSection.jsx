@@ -83,7 +83,7 @@ export default function HeroSection() {
       {/* Full-width hero image with ornament overlapping */}
       <div className="relative">
         {/* Flower ornament - half above image, half on image, left side */}
-        <div className="hero-ornament-1 absolute -top-[60px] md:-top-[80px] left-[3%] z-20 pointer-events-none">
+        <div className="hero-ornament-1 absolute top-2 md:-top-[80px] left-[3%] z-20 pointer-events-none">
           <img
             src={ornament}
             alt=""
