@@ -13,27 +13,28 @@ import art5 from "../../../assets/images/Homepage/Art in Aus-4.png"
 gsap.registerPlugin(ScrollTrigger)
 
 const PARAGRAPHS = [
+  "Over the last few decades, diverse Muslim communities across Australia have grown and flourished, they have professionalised, established schools, mosques, community centres and organisations. As part of that extraordinary growth, there has been the steady development of a vibrant, tenacious and dedicated creative community, with many established artists and arts workers contributing to the cultural landscape and thriving arts sector both here and abroad.",
+  "In fact, this growth is so significant that we are now able to dedicate a museum, right here in Australia, to Islamic art. This is truly an incredible achievement and indication of the growing cultural significance of Islam in Australia.",
   "The influence of Islamic art on artisans and makers across the globe, is in of itself a great study in cross-cultural exchange, of trade routes and expeditions of the past.",
   "For centuries, Islamic art has been celebrated, even coveted by private collectors and museums alike. However, with that has come the modern day challenge of re/defining and understanding Islamic art in the contemporary era.",
   "In recent years there has been significant traction in the research of modern and contemporary art globally. We endeavor to not only contribute to the broader narrative of Islamic art, right here from Western Sydney, but to become important voices in that conversation.",
-  "In Australia, we are experiencing an exciting and unique development of artistic practice, spanning diverse cultural backgrounds and Islamic heritage inspired by traditional techniques and motifs. Artists are reimagining the past and speaking to Islamic art through contemporary techniques, mediums and modes of storytelling.",
   "MIAA is proud to be part of this historical development, and aims to work alongside artists and other creative practitioners to enrich and educate our communities through art and creativity.",
   "As the Artistic Director of MIAA I look forward to the many conversations and collaborations ahead.",
 ]
 
 const FRAMES = [
-  { src: art5, alt: "Blue sphere artwork", credit: "", top: "8%", left: "4%", size: "w-24 md:w-32 lg:w-44" },
-  { src: art2, alt: "Prayer mat", credit: "", top: "38%", left: "-2%", size: "w-24 md:w-32 lg:w-44" },
-  { src: art3, alt: "Green figurine", credit: "", top: "70%", left: "12%", size: "w-24 md:w-32 lg:w-44" },
-  { src: art1, alt: "Islamic metalwork", credit: "", top: "8%", right: "4%", size: "w-28 md:w-36 lg:w-48" },
+  { src: art5, alt: "Blue sphere artwork", credit: "", top: "16%", left: "4%", size: "w-20 md:w-28 lg:w-36" },
+  { src: art2, alt: "Prayer mat", credit: "", top: "38%", left: "2%", size: "w-20 md:w-28 lg:w-36" },
+  { src: art3, alt: "Green figurine", credit: "", top: "62%", left: "10%", size: "w-20 md:w-28 lg:w-32" },
+  { src: art1, alt: "Islamic metalwork", credit: "", top: "18%", right: "5%", size: "w-24 md:w-32 lg:w-40" },
   {
     src: art4,
     alt: "One Thousand and One and Counting",
     credit: "One Thousand and One and Counting (1004 and counting) —",
     creditAuthor: "Abdullah M Syed",
-    top: "60%",
-    right: "2%",
-    size: "w-28 md:w-36 lg:w-48",
+    top: "55%",
+    right: "3%",
+    size: "w-24 md:w-32 lg:w-40",
   },
 ]
 
@@ -42,14 +43,14 @@ export default function IslamicArtPageSection() {
   const pinRef = useRef(null)
   const wordsRef = useRef([])
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
-  // Flatten paragraphs into word tokens with paragraph index
   const wordTokens = useMemo(() => {
     const tokens = []
     PARAGRAPHS.forEach((para, pIdx) => {
       const words = para.split(/\s+/)
       words.forEach((w, wIdx) => {
-        tokens.push({ word: w, paraIdx: pIdx, wordIdx: wIdx, last: wIdx === words.length - 1 })
+        tokens.push({ word: w, paraIdx: pIdx, wordIdx: wIdx })
       })
     })
     return tokens
@@ -60,11 +61,9 @@ export default function IslamicArtPageSection() {
       const wordEls = wordsRef.current.filter(Boolean)
       if (!wordEls.length) return
 
-      // Initial dim state
       gsap.set(wordEls, { opacity: 0.18 })
 
-      // Pin the section and reveal words as we scroll past it
-      const totalScroll = window.innerHeight * 2.5 // pin duration
+      const totalScroll = window.innerHeight * 2.5
 
       const trigger = ScrollTrigger.create({
         trigger: pinRef.current,
@@ -75,7 +74,6 @@ export default function IslamicArtPageSection() {
         scrub: 0.5,
         onUpdate: (self) => {
           const progress = self.progress
-          // Progress goes 0 -> 1; map to revealing words within a 0.05 - 0.95 band
           const start = 0.05
           const end = 0.95
           const local = Math.min(1, Math.max(0, (progress - start) / (end - start)))
@@ -83,6 +81,7 @@ export default function IslamicArtPageSection() {
           wordEls.forEach((el, idx) => {
             el.style.opacity = idx < targetCount ? "1" : "0.18"
           })
+          setScrollProgress(progress)
         },
       })
 
@@ -96,19 +95,17 @@ export default function IslamicArtPageSection() {
   return (
     <section ref={sectionRef} className="relative bg-bg-deep">
       <div ref={pinRef} className="relative w-full h-screen overflow-hidden">
-        {/* Title — top */}
-        <div className="absolute top-0 left-0 right-0 z-20 pt-28 md:pt-32 px-6 md:px-10 lg:px-16">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-center text-3xl md:text-4xl lg:text-[2.8rem] font-medium text-accent-cream tracking-tight leading-tight"
-          >
-            Islamic Art in Australia
-          </motion.h1>
-        </div>
+        {/* Dotted divider under navbar — matches About hero */}
+        <div
+          className="absolute top-20 md:top-24 left-4 sm:left-6 md:left-10 lg:left-16 right-4 sm:right-6 md:right-10 lg:right-16 h-[2px] pointer-events-none z-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(215,184,147,0.4) 1.5px, transparent 1.5px)",
+            backgroundSize: "8px 3px",
+          }}
+        />
 
-        {/* Frames scattered — same animation pattern as homepage IslamicArtSection */}
+        {/* Frames scattered — to the far left and far right */}
         {FRAMES.map((piece, i) => (
           <motion.div
             key={i}
@@ -148,10 +145,19 @@ export default function IslamicArtPageSection() {
           </motion.div>
         ))}
 
-        {/* Center scrollable text — word-by-word reveal */}
-        <div className="absolute inset-0 z-20 flex items-center justify-center px-4 pt-32 pb-20">
-          <div className="max-w-md md:max-w-lg lg:max-w-xl w-full text-center">
-            <div className="text-[15px] md:text-[16px] lg:text-[17px] text-accent-cream leading-[1.7] tracking-wide space-y-4">
+        {/* Center column — title at top, body text directly below, signature at end */}
+        <div className="absolute inset-0 z-20 flex justify-center pt-28 md:pt-32 pb-12 px-4 pointer-events-none">
+          <div className="w-full max-w-md md:max-w-lg lg:max-w-xl text-center flex flex-col">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-3xl md:text-4xl lg:text-[2.4rem] font-medium text-accent-cream tracking-tight leading-tight mb-6"
+            >
+              Islamic Art in Australia
+            </motion.h1>
+
+            <div className="text-[14px] md:text-[15px] lg:text-base text-accent-cream leading-[1.7] tracking-wide space-y-3 md:space-y-4 text-left md:text-justify">
               {PARAGRAPHS.map((para, pIdx) => {
                 const words = para.split(/\s+/)
                 return (
@@ -174,13 +180,23 @@ export default function IslamicArtPageSection() {
                   </p>
                 )
               })}
-            </div>
 
-            {/* Signature */}
-            <p className="mt-8 font-display italic text-accent-wheat text-2xl md:text-3xl tracking-wide">
-              Dr Nur Shkembi OAM
-            </p>
+              <p className="font-display italic text-accent-wheat text-2xl md:text-3xl tracking-wide pt-3 text-center">
+                Dr Nur Shkembi OAM
+              </p>
+            </div>
           </div>
+        </div>
+
+        {/* Custom scroll indicator — right edge */}
+        <div className="hidden md:block absolute right-4 top-32 bottom-16 w-[2px] bg-accent-wheat/15 z-30 pointer-events-none">
+          <div
+            className="absolute left-0 w-full bg-accent-wheat/80 transition-[height,top] duration-100 ease-out rounded-full"
+            style={{
+              height: "20%",
+              top: `${scrollProgress * 80}%`,
+            }}
+          />
         </div>
       </div>
 

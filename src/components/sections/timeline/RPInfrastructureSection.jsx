@@ -2,56 +2,85 @@ import { motion } from "framer-motion"
 import { fadeInLeft, fadeInRight } from "../../../lib/motion"
 import teamImg from "../../../assets/images/Timeline/rp-infrastructure-team.png"
 
-const RP_TEAM = [
-  { name: "Chris Crick", role: "Executive Director" },
-  { name: "Paul van der Plaat", role: "Project Director" },
-  { name: "Russell Kosko", role: "Senior Project Manager" },
-  { name: "Salma Malik", role: "Assistant Project Manager" },
-]
+function QuatrefoilMarker({ size = 11 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="#C15C45"
+      className="flex-shrink-0"
+    >
+      <circle cx="50" cy="22" r="25" />
+      <circle cx="50" cy="78" r="25" />
+      <circle cx="22" cy="50" r="25" />
+      <circle cx="78" cy="50" r="25" />
+      <rect x="22" y="22" width="56" height="56" rx="4" />
+    </svg>
+  )
+}
 
 export default function RPInfrastructureSection() {
   return (
-    <section className="py-16 md:py-24 bg-bg">
+    <section className="bg-bg pt-16 md:pt-20 pb-16 md:pb-24">
+      {/* Section label + dotted divider */}
+      <div className="px-6 md:px-10 lg:px-16 mb-10 md:mb-12">
+        <div className="flex items-center gap-2 mb-2">
+          <QuatrefoilMarker />
+          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+            Project Management
+          </span>
+        </div>
+        <div
+          className="h-[2px] w-full"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(56,113,122,0.4) 1.5px, transparent 1.5px)",
+            backgroundSize: "8px 3px",
+          }}
+        />
+      </div>
+
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          {/* Left — Photo placeholder */}
+          {/* Left — photo */}
           <motion.div {...fadeInLeft}>
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="overflow-hidden">
               <img
                 src={teamImg}
                 alt="RP Infrastructure team reviewing construction plans"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover block"
               />
             </div>
           </motion.div>
 
-          {/* Right — Heading + body + team */}
-          <motion.div {...fadeInRight}>
-            <h2 className="text-2xl md:text-3xl lg:text-[36px] font-medium text-primary tracking-tight leading-tight mb-6">
+          {/* Right — heading + body paragraphs */}
+          <motion.div {...fadeInRight} className="flex flex-col gap-5">
+            <h2 className="text-3xl md:text-4xl lg:text-[36px] font-medium text-primary tracking-tight leading-[1.1] mb-2">
               About RP Infrastructure
             </h2>
-            <p className="text-sm md:text-[15px] text-primary leading-relaxed mb-6">
+
+            <p className="text-[13px] md:text-sm text-primary leading-relaxed">
               After a rigorous selection process, the project management
-              contract was awarded to RP Infrastructure, a highly reputable and
-              experienced project management team. Their expertise will help
-              guide the MIAA project through each phase of design and delivery
-              with rigour, transparency, and care for the cultural significance
-              of the building.
+              contract was awarded to RP Infrastructure, a highly reputable
+              and experienced project management team with a history of
+              managing major cultural infrastructure projects.
             </p>
 
-            <ul className="flex flex-col gap-2 border-t border-primary/10 pt-5">
-              {RP_TEAM.map((person) => (
-                <li
-                  key={person.name}
-                  className="flex items-baseline justify-between gap-4 text-sm text-primary"
-                >
-                  <span className="font-semibold">{person.name}</span>
-                  <span className="text-primary/60 text-[13px] text-right">
-                    {person.role}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <p className="text-[13px] md:text-sm text-primary leading-relaxed">
+              RP Infrastructure specialises in delivering total solutions
+              through effective planning and project management methodologies.
+              This way we help our clients minimise risk and deliver the right
+              outcomes for each and every project.
+            </p>
+
+            <p className="text-[13px] md:text-sm text-primary leading-relaxed">
+              RPI, in collaboration with our working committees, will manage
+              the construction of the museum. Led by RPI Executive Director
+              Chris Crick, with team members Paul van der Plaat (Project
+              Director), Russell Kosko (Senior Project Manager), and Salma
+              Malik (Assistant Project Manager).
+            </p>
           </motion.div>
         </div>
       </div>

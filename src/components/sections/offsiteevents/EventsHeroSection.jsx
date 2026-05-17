@@ -26,24 +26,21 @@ export default function EventsHeroSection() {
         </motion.h1>
       </div>
 
-      {/* 3-photo strip */}
+      {/* 3-photo strip — full-bleed: 3 equal columns spanning the entire viewport width, no padding */}
       <motion.div
         {...staggerContainer}
-        className="w-full px-6 md:px-10 lg:px-16 pb-10 md:pb-14"
+        className="w-full pb-10 md:pb-14"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr_1fr] gap-3 md:gap-4 w-full items-stretch">
           {HERO_PHOTOS.map((photo, i) => (
             <motion.div
               key={i}
               {...staggerItem}
-              className="aspect-[4/3] overflow-hidden"
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+              className="h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden bg-cover bg-center"
+              style={{ backgroundImage: `url(${photo.src})` }}
+              role="img"
+              aria-label={photo.alt}
+            />
           ))}
         </div>
       </motion.div>

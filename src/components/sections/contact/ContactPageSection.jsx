@@ -61,7 +61,7 @@ export default function ContactPageSection() {
   }
 
   return (
-    <section className="relative bg-bg-deep pt-28 md:pt-32 pb-16 md:pb-24 min-h-screen">
+    <section className="relative bg-bg-deep pt-28 md:pt-32 pb-16 md:pb-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left — Heading + intro + connect */}

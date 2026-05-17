@@ -1,8 +1,10 @@
+import { motion } from "framer-motion"
 import EventsHeroSection from "../components/sections/offsiteevents/EventsHeroSection"
 import OffsiteProgramsSection from "../components/sections/offsiteevents/OffsiteProgramsSection"
 import FamiliesDiscoverSection from "../components/sections/offsiteevents/FamiliesDiscoverSection"
 import PreviousEventsSection from "../components/sections/offsiteevents/PreviousEventsSection"
 import SectionDivider from "../components/ui/SectionDivider"
+import float2 from "../assets/images/About/float2.png"
 
 export default function OffsiteEvents() {
   return (
@@ -12,8 +14,34 @@ export default function OffsiteEvents() {
       <SectionDivider label="Upcoming Events" bg="bg-bg-deep" variant="dark" />
       <OffsiteProgramsSection />
 
+      {/* Boundary float — top-right, viewport edge, partly off-screen */}
+      <div className="relative h-0">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="hero-float pointer-events-none absolute z-40 right-0 top-0 translate-x-1/3 -translate-y-1/2 w-40 md:w-56 lg:w-72"
+        >
+          <img src={float2} alt="" className="w-full h-auto drop-shadow-2xl" />
+        </motion.div>
+      </div>
+
       <SectionDivider label="Discover More" bg="bg-accent-cream" variant="light" />
       <FamiliesDiscoverSection />
+
+      {/* Second boundary float — bottom-left, viewport edge, partly off-screen */}
+      <div className="relative h-0">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          className="hero-float pointer-events-none absolute z-40 left-0 top-0 -translate-x-1/4 -translate-y-3/4 w-40 md:w-56 lg:w-72"
+        >
+          <img src={float2} alt="" className="w-full h-auto drop-shadow-2xl" />
+        </motion.div>
+      </div>
 
       <SectionDivider label="Past Events" bg="bg-bg" variant="light" />
       <PreviousEventsSection />

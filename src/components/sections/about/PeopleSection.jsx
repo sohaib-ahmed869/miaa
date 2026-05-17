@@ -1,14 +1,14 @@
 import { motion } from "framer-motion"
 import { staggerContainer, staggerItem } from "../../../lib/motion"
-import directorImg from "../../../assets/images/About/director-mehmet-ozalp.png"
+import directorPortrait from "../../../assets/images/About/team-potrait-director.png"
 import malePortrait from "../../../assets/images/About/team-portrait-male.png"
 import femalePortrait from "../../../assets/images/About/team-portrait-female.png"
 
 const PEOPLE = [
-  { name: "Prof Mehmet Ozalp", role: "Director", img: directorImg },
+  { name: "Prof Mehmet Ozalp", role: "Director", img: directorPortrait },
   { name: "Orhan Kaba", role: "Design Consultant", img: malePortrait },
   { name: "Dr Nur Shkembi OAM", role: "Artistic Director & Curator", img: femalePortrait },
-  { name: "Zeliha Baydogan", role: "Project Manager", img: femalePortrait },
+  { name: "Zeliha Baydogan", role: "Project Manager", img: directorPortrait },
   { name: "Dr Derya Iner", role: "Research & Education Advisor", img: malePortrait },
   { name: "Raaza Bashir", role: "Project Control Group", img: femalePortrait },
 ]
