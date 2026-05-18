@@ -52,7 +52,7 @@ export default function ParkingSection() {
   const handleMouseUp = () => setDragging(false)
 
   return (
-    <section className="relative py-16 md:py-24 bg-primary overflow-hidden">
+    <section className="relative py-16 md:py-24 3xl:py-32 bg-primary overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <img
@@ -62,24 +62,24 @@ export default function ParkingSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left — heading + parking info */}
           <motion.div {...fadeInLeft}>
-            <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-normal text-accent-cream tracking-tight leading-snug mb-10 md:mb-14 uppercase">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] 3xl:text-[3.2rem] font-normal text-accent-cream tracking-tight leading-snug mb-10 md:mb-14 uppercase">
               Parking
             </h2>
             <div className="flex flex-col divide-y divide-accent-cream/15">
             {PARKING_INFO.map((item) => (
               <div key={item.title} className="py-6 first:pt-0 last:pb-0">
-                <h3 className="font-display text-xl md:text-2xl font-normal text-accent-wheat mb-2">
+                <h3 className="font-display text-xl md:text-2xl 3xl:text-3xl font-normal text-accent-wheat mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm md:text-base text-[#F3EFEB] leading-relaxed">
+                <p className="text-sm md:text-base 3xl:text-lg text-[#F3EFEB] leading-relaxed">
                   {item.body}
                 </p>
                 {item.note && (
-                  <p className="text-sm md:text-base text-[#F3EFEB] leading-relaxed mt-2 italic">
+                  <p className="text-sm md:text-base 3xl:text-lg text-[#F3EFEB] leading-relaxed mt-2 italic">
                     {item.noteLabel && <span className="text-[#F3EFEB] font-semibold not-italic">{item.noteLabel}</span>}
                     {item.note}
                   </p>
@@ -125,11 +125,11 @@ export default function ParkingSection() {
           >
             {/* Top bar */}
             <div className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-accent-wheat/15">
-              <h3 className="font-display text-lg md:text-xl text-accent-cream uppercase tracking-wide">
+              <h3 className="font-display text-lg md:text-xl 3xl:text-2xl text-accent-cream uppercase tracking-wide">
                 Venue Map
               </h3>
               <div className="flex items-center gap-3">
-                <span className="text-xs text-accent-cream/50 mr-2">{Math.round(zoom * 100)}%</span>
+                <span className="text-xs 3xl:text-sm text-accent-cream/50 mr-2">{Math.round(zoom * 100)}%</span>
                 <button
                   onClick={() => { setZoom((z) => Math.min(z + 0.5, 4)); setDrag({ x: 0, y: 0 }) }}
                   className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
@@ -170,7 +170,7 @@ export default function ParkingSection() {
 
             {/* Bottom hint */}
             <div className="px-6 md:px-10 py-3 border-t border-accent-wheat/15 text-center">
-              <p className="text-[11px] text-accent-cream/40 tracking-wider">
+              <p className="text-[11px] 3xl:text-sm text-accent-cream/40 tracking-wider">
                 Drag to pan &middot; Use controls to zoom &middot; Click &times; to close
               </p>
             </div>

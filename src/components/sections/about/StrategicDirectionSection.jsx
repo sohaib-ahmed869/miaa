@@ -85,10 +85,10 @@ export default function StrategicDirectionSection() {
   return (
     <section className="bg-bg-deep pt-12 md:pt-16 pb-12 md:pb-16">
       {/* Section label + dotted divider */}
-      <div className="px-6 md:px-10 lg:px-16 mb-10 md:mb-14">
+      <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Strategic Direction
           </span>
         </div>
@@ -102,13 +102,13 @@ export default function StrategicDirectionSection() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-[42px] font-medium text-accent-cream tracking-tight leading-[1.1] mb-12 md:mb-14 text-center"
+          className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1] mb-12 md:mb-14 text-center"
         >
           Our Strategic Direction
         </motion.h2>
@@ -119,20 +119,20 @@ export default function StrategicDirectionSection() {
         <motion.div
           ref={scrollerRef}
           {...staggerContainer}
-          className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar px-6 md:px-10 lg:px-16 pb-2"
+          className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar px-6 md:px-10 lg:px-16 3xl:px-24 pb-2 3xl:justify-center"
           style={{ scrollbarWidth: "none" }}
         >
           {PILLARS.map((pillar) => (
             <motion.div
               key={pillar.title}
               {...staggerItem}
-              className="bg-bg-teal/25 border border-accent-wheat/15 p-6 flex flex-col gap-4 flex-shrink-0 w-[260px] md:w-[300px] hover:bg-bg-teal/40 transition-colors duration-300"
+              className="bg-bg-teal/25 border border-accent-wheat/15 p-6 3xl:p-8 flex flex-col gap-4 flex-shrink-0 w-[260px] md:w-[300px] 3xl:w-[380px] hover:bg-bg-teal/40 transition-colors duration-300"
             >
-              <img src={pillar.icon} alt="" className="w-10 h-10 object-contain" />
-              <h3 className="text-accent-cream font-semibold text-[15px] md:text-base leading-tight">
+              <img src={pillar.icon} alt="" className="w-10 h-10 3xl:w-14 3xl:h-14 object-contain" />
+              <h3 className="text-accent-cream font-semibold text-[15px] md:text-base 3xl:text-lg leading-tight">
                 {pillar.title}
               </h3>
-              <p className="text-accent-cream/75 text-[13px] leading-relaxed">
+              <p className="text-accent-cream/75 text-[13px] 3xl:text-base leading-relaxed">
                 {pillar.body}
               </p>
             </motion.div>

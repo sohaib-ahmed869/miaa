@@ -25,10 +25,10 @@ export default function JourneySection() {
   return (
     <section className="bg-accent-cream pt-12 md:pt-16 pb-12 md:pb-16">
       {/* Section label + dotted divider */}
-      <div className="px-6 md:px-10 lg:px-16 mb-10 md:mb-14">
+      <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Project Background
           </span>
         </div>
@@ -42,12 +42,12 @@ export default function JourneySection() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Heading + intro paragraph */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 mb-12 md:mb-16">
           <motion.h2
             {...fadeInUp}
-            className="text-3xl md:text-4xl lg:text-[42px] font-medium text-primary tracking-tight leading-[1.1]"
+            className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-[1.1]"
           >
             How the MIAA Journey
             <br />
@@ -56,7 +56,7 @@ export default function JourneySection() {
 
           <motion.p
             {...fadeInUp}
-            className="text-base md:text-[17px] text-primary leading-relaxed"
+            className="text-base md:text-[17px] 3xl:text-xl text-primary leading-relaxed"
           >
             The Museum of Islamic Art Australia is a groundbreaking
             community-led initiative with the vision of establishing a
@@ -90,11 +90,11 @@ export default function JourneySection() {
               <img
                 src={designOrnament}
                 alt=""
-                className="w-16 md:w-20 h-auto"
+                className="w-16 md:w-20 3xl:w-24 h-auto"
               />
             </div>
 
-            <div className="flex flex-col gap-5 text-sm md:text-[14px] text-primary leading-relaxed max-w-md self-end">
+            <div className="flex flex-col gap-5 text-sm md:text-[14px] 3xl:text-base text-primary leading-relaxed max-w-md 3xl:max-w-xl self-end">
               <p>
                 Since securing the WestInvest grant, the MIAA has commenced
                 phase one of its operations, focusing on preparatory work for

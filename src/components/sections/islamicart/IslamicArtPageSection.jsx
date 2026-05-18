@@ -23,10 +23,10 @@ const PARAGRAPHS = [
 ]
 
 const FRAMES = [
-  { src: art5, alt: "Blue sphere artwork", credit: "", top: "16%", left: "4%", size: "w-20 md:w-28 lg:w-36" },
-  { src: art2, alt: "Prayer mat", credit: "", top: "38%", left: "2%", size: "w-20 md:w-28 lg:w-36" },
-  { src: art3, alt: "Green figurine", credit: "", top: "62%", left: "10%", size: "w-20 md:w-28 lg:w-32" },
-  { src: art1, alt: "Islamic metalwork", credit: "", top: "18%", right: "5%", size: "w-24 md:w-32 lg:w-40" },
+  { src: art5, alt: "Blue sphere artwork", credit: "", top: "16%", left: "4%", size: "w-20 md:w-28 lg:w-36 3xl:w-48" },
+  { src: art2, alt: "Prayer mat", credit: "", top: "38%", left: "2%", size: "w-20 md:w-28 lg:w-36 3xl:w-48" },
+  { src: art3, alt: "Green figurine", credit: "", top: "62%", left: "10%", size: "w-20 md:w-28 lg:w-32 3xl:w-44" },
+  { src: art1, alt: "Islamic metalwork", credit: "", top: "18%", right: "5%", size: "w-24 md:w-32 lg:w-40 3xl:w-56" },
   {
     src: art4,
     alt: "One Thousand and One and Counting",
@@ -34,7 +34,7 @@ const FRAMES = [
     creditAuthor: "Abdullah M Syed",
     top: "55%",
     right: "3%",
-    size: "w-24 md:w-32 lg:w-40",
+    size: "w-24 md:w-32 lg:w-40 3xl:w-56",
   },
 ]
 
@@ -135,7 +135,7 @@ export default function IslamicArtPageSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 5 }}
                   transition={{ duration: 0.2 }}
-                  className="mt-2 text-[9px] text-accent-cream leading-tight text-center italic"
+                  className="mt-2 text-[9px] 3xl:text-sm text-accent-cream leading-tight text-center italic"
                 >
                   {piece.credit}{" "}
                   <span className="font-medium not-italic">{piece.creditAuthor}</span>
@@ -147,17 +147,17 @@ export default function IslamicArtPageSection() {
 
         {/* Center column — title at top, body text directly below, signature at end */}
         <div className="absolute inset-0 z-20 flex justify-center pt-28 md:pt-32 pb-12 px-4 pointer-events-none">
-          <div className="w-full max-w-md md:max-w-lg lg:max-w-xl text-center flex flex-col">
+          <div className="w-full max-w-md md:max-w-lg lg:max-w-xl 3xl:max-w-2xl text-center flex flex-col">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-3xl md:text-4xl lg:text-[2.4rem] font-medium text-accent-cream tracking-tight leading-tight mb-6"
+              className="text-3xl md:text-4xl lg:text-[2.4rem] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight mb-6"
             >
               Islamic Art in Australia
             </motion.h1>
 
-            <div className="text-[14px] md:text-[15px] lg:text-base text-accent-cream leading-[1.7] tracking-wide space-y-3 md:space-y-4 text-left md:text-justify">
+            <div className="text-[14px] md:text-[15px] lg:text-base 3xl:text-xl text-accent-cream leading-[1.7] tracking-wide space-y-3 md:space-y-4 text-left md:text-justify">
               {PARAGRAPHS.map((para, pIdx) => {
                 const words = para.split(/\s+/)
                 return (
@@ -181,7 +181,7 @@ export default function IslamicArtPageSection() {
                 )
               })}
 
-              <p className="font-display italic text-accent-wheat text-2xl md:text-3xl tracking-wide pt-3 text-center">
+              <p className="font-display italic text-accent-wheat text-2xl md:text-3xl 3xl:text-4xl tracking-wide pt-3 text-center">
                 Dr Nur Shkembi OAM
               </p>
             </div>
@@ -201,8 +201,8 @@ export default function IslamicArtPageSection() {
       </div>
 
       {/* Acknowledgement strip — appears after the pinned section ends */}
-      <div className="bg-bg-deep py-12 md:py-16 px-6 md:px-10 lg:px-16">
-        <p className="max-w-3xl mx-auto text-center text-xs md:text-[13px] text-accent-cream/70 leading-relaxed italic">
+      <div className="bg-bg-deep py-12 md:py-16 px-6 md:px-10 lg:px-16 3xl:px-24">
+        <p className="max-w-3xl 3xl:max-w-4xl mx-auto text-center text-xs md:text-[13px] 3xl:text-base text-accent-cream/70 leading-relaxed italic">
           MIAA is proudly located on beautiful Dharug country in Granville,
           Western Sydney. The Museum of Islamic Art Australia (MIAA)
           respectfully acknowledges the Burramattagal people of the Dharug

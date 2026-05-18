@@ -72,12 +72,12 @@ export default function BlogDetailSection({ article }) {
     <>
       {/* Hero — teal with centered text */}
       <section className="relative bg-bg-deep pt-28 md:pt-32 pb-0">
-        <div className="max-w-[900px] mx-auto px-6 md:px-10 lg:px-16 text-center pb-10 md:pb-14">
+        <div className="max-w-[900px] 3xl:max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 text-center pb-10 md:pb-14">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-sm text-accent-wheat italic mb-3"
+            className="text-sm 3xl:text-base text-accent-wheat italic mb-3"
           >
             {article.date}, <span>by {article.author}</span>
           </motion.p>
@@ -85,7 +85,7 @@ export default function BlogDetailSection({ article }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-medium text-accent-cream tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight"
           >
             {article.title}
           </motion.h1>
@@ -93,7 +93,7 @@ export default function BlogDetailSection({ article }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-4 text-sm sm:text-base text-accent-cream leading-relaxed max-w-2xl mx-auto"
+            className="mt-4 text-sm sm:text-base 3xl:text-lg text-accent-cream leading-relaxed max-w-2xl 3xl:max-w-3xl mx-auto"
           >
             {article.description}
           </motion.p>
@@ -104,7 +104,7 @@ export default function BlogDetailSection({ article }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16"
+          className="max-w-[1100px] 3xl:max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24"
         >
           <img
             src={article.imageUrl || blogImages[article.image]}
@@ -116,27 +116,27 @@ export default function BlogDetailSection({ article }) {
 
       {/* Body + Share */}
       <section className="bg-bg py-16 md:py-20">
-        <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-[1100px] 3xl:max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
             {/* Body */}
             <motion.div {...fadeInUp} className="flex flex-col gap-6">
               {bodyContent.map((block, i) => {
                 if (block.type === "intro") {
                   return (
-                    <p key={i} className="text-base sm:text-lg md:text-xl text-primary leading-relaxed font-medium">
+                    <p key={i} className="text-base sm:text-lg md:text-xl 3xl:text-2xl text-primary leading-relaxed font-medium">
                       {block.text}
                     </p>
                   )
                 }
                 if (block.type === "heading") {
                   return (
-                    <h2 key={i} className="text-base sm:text-lg md:text-xl font-semibold text-primary leading-snug mt-2">
+                    <h2 key={i} className="text-base sm:text-lg md:text-xl 3xl:text-2xl font-semibold text-primary leading-snug mt-2">
                       {block.text}
                     </h2>
                   )
                 }
                 return (
-                  <p key={i} className="text-sm sm:text-base text-primary leading-relaxed">
+                  <p key={i} className="text-sm sm:text-base 3xl:text-lg text-primary leading-relaxed">
                     {block.text}
                   </p>
                 )
@@ -148,7 +148,7 @@ export default function BlogDetailSection({ article }) {
               {...fadeInUp}
               className="lg:sticky lg:top-32 flex lg:flex-col items-start gap-3"
             >
-              <p className="text-xs tracking-wider uppercase text-primary/60 lg:mb-1">
+              <p className="text-xs 3xl:text-sm tracking-wider uppercase text-primary/60 lg:mb-1">
                 Share Post
               </p>
               <div className="flex lg:flex-col gap-2">
@@ -168,7 +168,7 @@ export default function BlogDetailSection({ article }) {
       </section>
 
       {/* Related Post section divider */}
-      <div className="w-full px-6 md:px-10 lg:px-16 pt-8 pb-2 bg-bg">
+      <div className="w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-8 pb-2 bg-bg">
         <div className="flex items-center gap-2 mb-2">
           <svg width="14" height="14" viewBox="0 0 100 100" fill="#DD613E">
             <circle cx="50" cy="22" r="25" />
@@ -177,7 +177,7 @@ export default function BlogDetailSection({ article }) {
             <circle cx="78" cy="50" r="25" />
             <rect x="22" y="22" width="56" height="56" rx="4" fill="#DD613E" />
           </svg>
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
             Related Post
           </span>
         </div>
@@ -193,7 +193,7 @@ export default function BlogDetailSection({ article }) {
 
       {/* Related Posts */}
       <section className="bg-bg py-16 md:py-20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
           <motion.div
             key={relPage}
             initial={{ opacity: 0, x: 20 }}
@@ -217,15 +217,15 @@ export default function BlogDetailSection({ article }) {
                       />
                     </div>
                   </Link>
-                  <h3 className="text-base md:text-lg font-semibold text-primary leading-tight mb-2">
+                  <h3 className="text-base md:text-lg 3xl:text-2xl font-semibold text-primary leading-tight mb-2">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-primary leading-relaxed mb-3">
+                  <p className="text-sm 3xl:text-base text-primary leading-relaxed mb-3">
                     {post.description}
                   </p>
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors duration-200 mt-auto"
+                    className="inline-flex items-center gap-1.5 text-xs 3xl:text-sm font-semibold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors duration-200 mt-auto"
                   >
                     Read More
                     <ArrowUpRight size={13} strokeWidth={2.5} />
@@ -241,14 +241,14 @@ export default function BlogDetailSection({ article }) {
               <button
                 onClick={() => setRelPage((p) => Math.max(0, p - 1))}
                 disabled={relPage === 0}
-                className="w-10 h-10 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-all duration-200 disabled:opacity-30"
+                className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-all duration-200 disabled:opacity-30"
               >
                 <ArrowLeft size={18} />
               </button>
               <button
                 onClick={() => setRelPage((p) => Math.min(relPageCount - 1, p + 1))}
                 disabled={relPage === relPageCount - 1}
-                className="w-10 h-10 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-all duration-200 disabled:opacity-30"
+                className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-all duration-200 disabled:opacity-30"
               >
                 <ArrowRight size={18} />
               </button>

@@ -91,10 +91,10 @@ export default function DirectorMessageSection() {
       className="relative bg-bg-deep min-h-screen flex flex-col overflow-hidden"
     >
       {/* Section label + dotted divider */}
-      <div className="relative z-10 px-6 md:px-10 lg:px-16 pt-24 md:pt-28 pb-12 md:pb-16">
+      <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 pt-24 md:pt-28 pb-12 md:pb-16">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Message
           </span>
         </div>
@@ -108,18 +108,18 @@ export default function DirectorMessageSection() {
         />
       </div>
 
-      <div className="relative z-10 flex-1 max-w-[1400px] w-full mx-auto px-6 md:px-10 lg:px-16 pb-12 md:pb-20">
+      <div className="relative z-10 flex-1 max-w-[1400px] 3xl:max-w-[1800px] w-full mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pb-12 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-stretch h-full">
           {/* Left — heading at top, director card pinned to bottom */}
           <motion.div {...fadeInLeft} className="flex flex-col h-full">
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-medium text-accent-cream tracking-tight leading-[1.1]">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1]">
               A Message from
               <br />
               MIAA&apos;s Director
             </h2>
 
             <div className="mt-auto pt-16">
-              <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent-wheat/30 mb-5">
+              <div className="w-24 h-24 md:w-28 md:h-28 3xl:w-36 3xl:h-36 rounded-full overflow-hidden border-2 border-accent-wheat/30 mb-5">
                 <img
                   src={directorImg}
                   alt="Professor Mehmet Ozalp"
@@ -128,7 +128,7 @@ export default function DirectorMessageSection() {
               </div>
 
               <p
-                className="text-3xl md:text-4xl text-accent-cream leading-tight mb-5"
+                className="text-3xl md:text-4xl 3xl:text-5xl text-accent-cream leading-tight mb-5"
                 style={{ fontFamily: "var(--font-script)" }}
               >
                 Professor Mehmet Ozalp
@@ -139,7 +139,7 @@ export default function DirectorMessageSection() {
                   <span className="mt-1.5">
                     <QuatrefoilMarker size={8} />
                   </span>
-                  <span className="text-[13px] text-accent-cream/85 leading-snug">
+                  <span className="text-[13px] 3xl:text-base text-accent-cream/85 leading-snug">
                     Executive Director, ISRA (Islamic Sciences and Research
                     Academy)
                   </span>
@@ -148,7 +148,7 @@ export default function DirectorMessageSection() {
                   <span className="mt-1.5">
                     <QuatrefoilMarker size={8} />
                   </span>
-                  <span className="text-[13px] text-accent-cream/85 leading-snug">
+                  <span className="text-[13px] 3xl:text-base text-accent-cream/85 leading-snug">
                     Director, Museum of Islamic Art Australia
                   </span>
                 </li>
@@ -159,7 +159,7 @@ export default function DirectorMessageSection() {
           {/* Right — white message panel + float2 behind */}
           <motion.div {...fadeInRight} className="relative">
             {/* float2 — sits behind the white panel, peeking out from the lower-left corner */}
-            <div className="pointer-events-none absolute -bottom-28 -left-16 md:-bottom-36 md:-left-24 lg:-bottom-44 lg:-left-28 w-44 md:w-60 lg:w-72 z-0 hero-float">
+            <div className="pointer-events-none absolute -bottom-28 -left-16 md:-bottom-36 md:-left-24 lg:-bottom-44 lg:-left-28 3xl:-bottom-52 3xl:-left-32 w-44 md:w-60 lg:w-72 3xl:w-88 z-0 hero-float">
               <img src={float2} alt="" className="w-full h-auto drop-shadow-2xl" />
             </div>
 
@@ -171,7 +171,7 @@ export default function DirectorMessageSection() {
               <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-accent-cream to-transparent z-10 pointer-events-none" />
 
               <div ref={trackRef} className="will-change-transform">
-                <div className="flex flex-col gap-5 text-sm md:text-[15px] text-primary leading-relaxed">
+                <div className="flex flex-col gap-5 text-sm md:text-[15px] 3xl:text-lg text-primary leading-relaxed">
                   {MESSAGE_PARAGRAPHS.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}

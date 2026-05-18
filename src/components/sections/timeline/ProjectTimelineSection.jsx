@@ -172,12 +172,12 @@ export default function ProjectTimelineSection() {
   const rows = useMemo(() => chunk(TIMELINE_DATA[active] || [], COLS_PER_ROW), [active])
 
   return (
-    <section className="bg-bg-deep pt-16 md:pt-20 pb-16 md:pb-24">
+    <section className="bg-bg-deep pt-16 md:pt-20 3xl:pt-28 pb-16 md:pb-24 3xl:pb-32">
       {/* Section label + dotted divider */}
-      <div className="px-6 md:px-10 lg:px-16 mb-10 md:mb-14">
+      <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             MIAA Project Timeline
           </span>
         </div>
@@ -191,11 +191,11 @@ export default function ProjectTimelineSection() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Title */}
         <motion.h2
           {...fadeInUp}
-          className="text-3xl md:text-4xl lg:text-[42px] font-medium text-accent-cream tracking-tight leading-[1.1] text-center mb-8"
+          className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1] text-center mb-8"
         >
           Museum of Islamic Art Australia
           <br />
@@ -214,7 +214,7 @@ export default function ProjectTimelineSection() {
                 <button
                   key={y.value}
                   onClick={() => setActive(y.value)}
-                  className={`px-4 md:px-5 py-2 rounded-full text-xs md:text-sm transition-colors whitespace-nowrap ${
+                  className={`px-4 md:px-5 3xl:px-6 py-2 3xl:py-2.5 rounded-full text-xs md:text-sm 3xl:text-base transition-colors whitespace-nowrap ${
                     isActive
                       ? "bg-accent-wheat text-primary font-medium"
                       : "text-accent-cream/70 hover:text-accent-cream"
@@ -303,13 +303,13 @@ export default function ProjectTimelineSection() {
                       />
                       {/* Date */}
                       <p
-                        className="text-[12px] md:text-[13px] tracking-[0.1em] uppercase mb-3 font-semibold"
+                        className="text-[12px] md:text-[13px] 3xl:text-sm tracking-[0.1em] uppercase mb-3 font-semibold"
                         style={{ color: "#D7B893" }}
                       >
                         {m.date}
                       </p>
                       {/* Body */}
-                      <p className="text-[13px] md:text-sm text-accent-cream/90 leading-relaxed max-w-[230px]">
+                      <p className="text-[13px] md:text-sm 3xl:text-base text-accent-cream/90 leading-relaxed max-w-[230px] 3xl:max-w-[300px]">
                         {m.body}
                       </p>
                     </div>

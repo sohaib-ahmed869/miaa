@@ -120,17 +120,17 @@ export default function Loader({ onComplete }) {
       className="fixed inset-0 z-[9999] flex flex-col items-center bg-bg-deep"
     >
       {/* Gallery strip - mobile centers tightly, desktop spreads across 80% */}
-      <div className="flex items-center justify-center gap-1.5 md:justify-between md:gap-0 w-full md:w-[80%] px-3 md:px-0 mx-auto mt-[8vh]">
+      <div className="flex items-center justify-center gap-1.5 md:justify-between md:gap-0 w-full md:w-[80%] 3xl:w-[70%] px-3 md:px-0 mx-auto mt-[8vh]">
         {galleryImages.map((src, i) => (
           <div
             key={i}
-            className="loader-frame opacity-0 flex-shrink-0 border-[3px] md:border-[5px] border-[#C15C45] bg-[#C15C45] overflow-hidden"
+            className="loader-frame opacity-0 flex-shrink-0 border-[3px] md:border-[5px] 3xl:border-[6px] border-[#C15C45] bg-[#C15C45] overflow-hidden"
             style={{ lineHeight: 0, fontSize: 0 }}
           >
             <img
               src={src}
               alt=""
-              className="block w-[32px] h-[32px] md:w-[70px] md:h-[70px] object-cover scale-[1.15]"
+              className="block w-[32px] h-[32px] md:w-[70px] md:h-[70px] 3xl:w-[90px] 3xl:h-[90px] object-cover scale-[1.15]"
             />
           </div>
         ))}
@@ -139,7 +139,7 @@ export default function Loader({ onComplete }) {
       {/* Center area: logo + text */}
       <div className="flex-1 flex flex-col items-center justify-center">
         {/* MIAA Logo - tinted layer + white layer revealed L→R */}
-        <div className="loader-logo w-[280px] md:w-[450px] lg:w-[550px] relative">
+        <div className="loader-logo w-[280px] md:w-[450px] lg:w-[550px] 3xl:w-[700px] relative">
           <img
             src={loaderLogo}
             alt=""
@@ -155,11 +155,11 @@ export default function Loader({ onComplete }) {
         </div>
 
         {/* Acknowledgment text - always visible on mount */}
-        <div className="loader-ack mt-10 max-w-[700px] text-center px-6">
-          <p className="text-[11px] md:text-[13px] font-bold italic text-white/70 leading-relaxed">
+        <div className="loader-ack mt-10 max-w-[700px] 3xl:max-w-[900px] text-center px-6">
+          <p className="text-[11px] md:text-[13px] 3xl:text-base font-bold italic text-white/70 leading-relaxed">
             MIAA is proudly located on beautiful Dharug country in Granville, Western Sydney.
           </p>
-          <p className="text-[11px] md:text-[13px] italic text-white/55 leading-relaxed mt-1">
+          <p className="text-[11px] md:text-[13px] 3xl:text-base italic text-white/55 leading-relaxed mt-1">
             The Museum of Islamic Art Australia (MIAA) respectfully acknowledges the Burramattagal people
             of the Dharug Nation as the Traditional Owners of the land on which the museum will be located.
             We pay our respects to Elders past, present and emerging. Sovereignty has never been ceded.

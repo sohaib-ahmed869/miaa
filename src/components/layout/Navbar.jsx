@@ -37,28 +37,28 @@ export default function Navbar() {
     <>
       {/* Top-of-page CTAs (Gala + Follow) — absolute so they scroll away with the page */}
       <div className="absolute top-0 right-0 z-40 px-3 md:px-4 pointer-events-none">
-        <div className="flex items-center justify-end h-20 md:h-24 gap-3 md:gap-5">
+        <div className="flex items-center justify-end h-20 md:h-24 3xl:h-28 gap-3 md:gap-5">
           <Link
             to="/gala-dinner"
-            className="pointer-events-auto hidden md:inline-flex items-center gap-1.5 px-4 py-3 bg-primary/60 backdrop-blur-sm text-white text-[10px] font-bold tracking-[0.15em] uppercase rounded hover:bg-primary/80 transition-colors duration-200"
+            className="pointer-events-auto hidden md:inline-flex items-center gap-1.5 3xl:gap-2 px-4 py-3 3xl:px-6 3xl:py-3.5 bg-primary/60 backdrop-blur-sm text-white text-[10px] 3xl:text-sm font-bold tracking-[0.15em] uppercase rounded hover:bg-primary/80 transition-colors duration-200"
           >
             Gala Dinner
-            <ArrowUpRight size={12} strokeWidth={2.5} />
+            <ArrowUpRight className="size-3 3xl:size-4" strokeWidth={2.5} />
           </Link>
-          <CTAButton to="/support-us" className="pointer-events-auto hidden md:inline-flex px-4 py-3">
+          <CTAButton to="/support-us" className="pointer-events-auto hidden md:inline-flex px-4 py-3 3xl:px-7 3xl:py-3.5">
             Follow Our Journey
           </CTAButton>
           {/* Reserve the hamburger slot here so the CTAs sit left of it at the top of the page */}
-          <span className="w-[80px] h-[48px]" aria-hidden="true" />
+          <span className="w-[80px] h-[48px] 3xl:w-[100px] 3xl:h-[56px]" aria-hidden="true" />
         </div>
       </div>
 
       {/* Hamburger — always sticky, sits in the same top-right corner */}
       <div className="fixed top-0 right-0 z-50 px-3 md:px-4">
-        <div className="flex items-center justify-end h-20 md:h-24">
+        <div className="flex items-center justify-end h-20 md:h-24 3xl:h-28">
           <button
             onClick={() => setMenuOpen(true)}
-            className="bg-accent-cream rounded-xl px-7 py-3 shadow-md hover:bg-white transition-colors"
+            className="bg-accent-cream rounded-xl px-7 py-3 3xl:px-9 3xl:py-4 shadow-md hover:bg-white transition-colors"
             aria-label="Open menu"
           >
             <svg
@@ -67,6 +67,7 @@ export default function Navbar() {
               viewBox="0 0 34 14"
               fill="none"
               aria-hidden="true"
+              className="3xl:w-[42px] 3xl:h-[18px]"
             >
               <rect x="0" y="1" width="34" height="3" rx="1.5" fill="#C15C45" />
               <rect x="0" y="10" width="34" height="3" rx="1.5" fill="#C15C45" />
@@ -95,23 +96,23 @@ export default function Navbar() {
             </div>
 
             {/* Top bar — logo left + CTA & close right */}
-            <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-16">
-              <div className="flex items-center justify-between h-20 md:h-24">
+            <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24">
+              <div className="flex items-center justify-between h-20 md:h-24 3xl:h-28">
                 <Link to="/" onClick={() => setMenuOpen(false)}>
                   <img
                     src={smallLogo}
                     alt="MIAA"
-                    className="h-6 sm:h-8 md:h-10 w-auto"
+                    className="h-6 sm:h-8 md:h-10 3xl:h-14 w-auto"
                   />
                 </Link>
 
                 <div className="flex items-center gap-3">
-                  <CTAButton to="/support-us" onClick={() => setMenuOpen(false)} className="hidden md:inline-flex px-4 py-2">
+                  <CTAButton to="/support-us" onClick={() => setMenuOpen(false)} className="hidden md:inline-flex px-4 py-2 3xl:px-7 3xl:py-3.5">
                     Follow Our Journey
                   </CTAButton>
                   <button
                     onClick={() => setMenuOpen(false)}
-                    className="bg-accent-cream rounded-xl px-7 py-3 shadow-md hover:bg-white transition-colors"
+                    className="bg-accent-cream rounded-xl px-7 py-3 3xl:px-9 3xl:py-4 shadow-md hover:bg-white transition-colors"
                     aria-label="Close menu"
                   >
                     <svg
@@ -120,6 +121,7 @@ export default function Navbar() {
                       viewBox="0 0 34 14"
                       fill="none"
                       aria-hidden="true"
+                      className="3xl:w-[42px] 3xl:h-[18px]"
                     >
                       <line
                         x1="2"
@@ -147,7 +149,7 @@ export default function Navbar() {
 
             {/* Dotted divider line */}
             <div
-              className="relative z-10 mx-4 sm:mx-6 md:mx-10 lg:mx-16 h-[2px]"
+              className="relative z-10 mx-4 sm:mx-6 md:mx-10 lg:mx-16 3xl:mx-24 h-[2px] 3xl:h-[3px]"
               style={{
                 backgroundImage:
                   "radial-gradient(circle, rgba(255,255,255,0.25) 1.5px, transparent 1.5px)",
@@ -156,7 +158,7 @@ export default function Navbar() {
             />
 
             {/* Body — nav links left, socials right */}
-            <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-16 pt-10 md:pt-14">
+            <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24 pt-10 md:pt-14 3xl:pt-16">
               <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10">
                 {/* Nav links */}
                 <nav className="flex flex-col">
@@ -171,7 +173,7 @@ export default function Navbar() {
                       >
                         <Link
                           to={link.path}
-                          className={`nav-link group relative flex items-center gap-3 py-2 md:py-2.5 text-2xl md:text-3xl lg:text-[34px] font-normal tracking-tight transition-colors duration-200 ${
+                          className={`nav-link group relative flex items-center gap-3 py-2 md:py-2.5 text-2xl md:text-3xl lg:text-[34px] 3xl:text-[42px] font-normal tracking-tight transition-colors duration-200 ${
                             isActive
                               ? "text-secondary-terra"
                               : "text-white/85 hover:text-secondary-terra"
@@ -190,6 +192,7 @@ export default function Navbar() {
                               height="14"
                               viewBox="0 0 100 100"
                               fill="#C15C45"
+                              className="3xl:w-[18px] 3xl:h-[18px]"
                             >
                               <circle cx="50" cy="22" r="25" />
                               <circle cx="50" cy="78" r="25" />
@@ -224,7 +227,7 @@ export default function Navbar() {
                       href={s.url}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="text-sm md:text-[15px] text-white/85 hover:text-accent-wheat transition-colors"
+                      className="text-sm md:text-[15px] 3xl:text-lg text-white/85 hover:text-accent-wheat transition-colors"
                     >
                       {s.label}
                     </a>

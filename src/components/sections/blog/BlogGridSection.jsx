@@ -56,18 +56,18 @@ export default function BlogGridSection({
   }
 
   return (
-    <section className={`py-16 md:py-20 ${bg}`}>
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className={`py-16 md:py-20 3xl:py-28 ${bg}`}>
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Heading row */}
         <motion.div
           {...fadeInUp}
           className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-10 md:mb-12"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-primary tracking-tight leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight">
             {heading}
           </h2>
           {intro && (
-            <p className="md:max-w-md text-base text-primary leading-relaxed">
+            <p className="md:max-w-md 3xl:max-w-lg text-base 3xl:text-lg text-primary leading-relaxed">
               {intro}
             </p>
           )}
@@ -118,15 +118,15 @@ export default function BlogGridSection({
                       />
                     </div>
                   </Link>
-                  <h3 className="text-base md:text-lg font-semibold text-primary leading-tight mb-2">
+                  <h3 className="text-base md:text-lg 3xl:text-2xl font-semibold text-primary leading-tight mb-2">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-primary leading-relaxed mb-3">
+                  <p className="text-sm 3xl:text-base text-primary leading-relaxed mb-3">
                     {post.description}
                   </p>
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors duration-200 mt-auto"
+                    className="inline-flex items-center gap-1.5 text-xs 3xl:text-sm font-semibold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors duration-200 mt-auto"
                   >
                     Read More
                     <ArrowUpRight size={13} strokeWidth={2.5} />
@@ -145,7 +145,7 @@ export default function BlogGridSection({
               <button
                 onClick={() => changePage(page - 1)}
                 disabled={loading}
-                className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-secondary-terra text-white rounded hover:bg-secondary-rust transition-all duration-200 hover:scale-105 disabled:opacity-50"
+                className="w-8 h-8 sm:w-9 sm:h-9 3xl:w-11 3xl:h-11 flex items-center justify-center bg-secondary-terra text-white rounded hover:bg-secondary-rust transition-all duration-200 hover:scale-105 disabled:opacity-50"
               >
                 <ArrowLeft size={16} />
               </button>
@@ -158,7 +158,7 @@ export default function BlogGridSection({
                   key={p}
                   onClick={() => changePage(p)}
                   disabled={loading}
-                  className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-xs sm:text-sm font-medium rounded transition-all duration-200 ${
+                  className={`w-8 h-8 sm:w-9 sm:h-9 3xl:w-11 3xl:h-11 flex items-center justify-center text-xs sm:text-sm 3xl:text-base font-medium rounded transition-all duration-200 ${
                     p === page
                       ? "bg-secondary-sand text-white"
                       : "bg-transparent text-primary/60 border border-primary/20 hover:border-secondary-sand hover:text-secondary-sand"
@@ -172,7 +172,7 @@ export default function BlogGridSection({
               <button
                 onClick={() => changePage(page + 1)}
                 disabled={loading}
-                className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-secondary-terra text-white rounded hover:bg-secondary-rust transition-all duration-200 hover:scale-105 disabled:opacity-50"
+                className="w-8 h-8 sm:w-9 sm:h-9 3xl:w-11 3xl:h-11 flex items-center justify-center bg-secondary-terra text-white rounded hover:bg-secondary-rust transition-all duration-200 hover:scale-105 disabled:opacity-50"
               >
                 <ArrowRight size={16} />
               </button>

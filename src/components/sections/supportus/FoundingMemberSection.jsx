@@ -20,8 +20,8 @@ export default function FoundingMemberSection() {
   const [hoveredIdx, setHoveredIdx] = useState(null)
 
   return (
-    <section className="py-16 md:py-24 bg-accent-cream">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-accent-cream">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Top row — image + text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left — founder portrait */}
@@ -37,25 +37,25 @@ export default function FoundingMemberSection() {
 
           {/* Right — heading, text, CTA */}
           <motion.div {...fadeInRight} className="flex flex-col gap-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-medium text-primary tracking-tight leading-snug lg:max-w-lg">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-snug lg:max-w-lg 3xl:max-w-2xl">
               Become a founding member of the Museum of Islamic Art Australia
             </h2>
 
-            <p className="text-base sm:text-lg md:text-xl text-primary leading-relaxed lg:max-w-lg">
+            <p className="text-base sm:text-lg md:text-xl 3xl:text-2xl text-primary leading-relaxed lg:max-w-lg 3xl:max-w-2xl">
               Founding members of the museum will be listed on our dedicated
               donor&rsquo;s wall and museum archive. Donations can be made on
               behalf of an individual (named or anonymous) or a family. Founding
               members donations start from $5,000
             </p>
 
-            <p className="text-sm sm:text-base text-primary leading-relaxed lg:max-w-lg">
+            <p className="text-sm sm:text-base 3xl:text-lg text-primary leading-relaxed lg:max-w-lg 3xl:max-w-2xl">
               Donate and sponsor an entire gallery, facility or hall. Contact
               MIAA directly for more details.
             </p>
 
             <div className="flex flex-wrap items-center gap-6 mt-2">
               <CTAButton href="#donate" className="px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg">Donate Now</CTAButton>
-              <p className="text-sm md:text-[15px] text-primary font-semibold italic leading-snug max-w-[260px]">
+              <p className="text-sm md:text-[15px] 3xl:text-lg text-primary font-semibold italic leading-snug max-w-[260px] 3xl:max-w-xs">
                 Stay in touch and be the first to hear about our upcoming
                 campaign
               </p>
@@ -69,7 +69,7 @@ export default function FoundingMemberSection() {
           className="mt-16 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-start"
         >
           {/* Left label */}
-          <p className="text-lg md:text-xl font-semibold text-primary leading-relaxed">
+          <p className="text-lg md:text-xl 3xl:text-2xl font-semibold text-primary leading-relaxed">
             Founding individuals and businesses (includes naming rights for 10
             years and permanent founding member status) available for the
             following:
@@ -82,7 +82,7 @@ export default function FoundingMemberSection() {
                 key={item.title}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className={`relative px-5 py-4 text-sm md:text-[15px] text-primary cursor-pointer rounded-lg transition-colors duration-200 ${
+                className={`relative px-5 py-4 3xl:px-6 3xl:py-5 text-sm md:text-[15px] 3xl:text-base text-primary cursor-pointer rounded-lg transition-colors duration-200 ${
                   hoveredIdx === i ? "bg-[#E5DED6]" : "bg-white"
                 }`}
               >
@@ -96,7 +96,7 @@ export default function FoundingMemberSection() {
                       animate={{ opacity: 1, scale: 1, rotate: 3 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.25 }}
-                      className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 w-[140px] h-[90px] rounded-lg overflow-hidden z-10 pointer-events-none shadow-lg"
+                      className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 w-[140px] h-[90px] 3xl:w-[190px] 3xl:h-[120px] rounded-lg overflow-hidden z-10 pointer-events-none shadow-lg"
                     >
                       <img
                         src={item.image}

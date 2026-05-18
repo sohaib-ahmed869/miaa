@@ -32,12 +32,12 @@ export default function LocationSection() {
 
       <div className="relative z-10">
         {/* Section divider inside the component */}
-        <div className="w-full px-6 md:px-10 lg:px-16 pt-8 pb-2">
+        <div className="w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-8 pb-2">
           <div className="flex items-center gap-2 mb-2">
             <span className="flex-shrink-0">
               <QuatrefoilIcon />
             </span>
-            <span className="text-[10px] font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
+            <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
               Location
             </span>
           </div>
@@ -51,7 +51,7 @@ export default function LocationSection() {
           />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
+        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-16 md:py-24 3xl:py-32">
           {/* Top — How to Get Here */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-8 lg:gap-12 items-start">
             {/* Left — venue photo */}
@@ -70,10 +70,10 @@ export default function LocationSection() {
 
             {/* Right — directions */}
             <motion.div {...fadeInRight}>
-              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-normal text-primary tracking-tight leading-snug mb-6 uppercase">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] 3xl:text-[3.2rem] font-normal text-primary tracking-tight leading-snug mb-6 uppercase">
                 How to Get Here
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-primary leading-relaxed mb-6">
+              <p className="text-base sm:text-lg md:text-xl 3xl:text-2xl text-primary leading-relaxed mb-6">
                 Travel information via the{" "}
                 <a href="https://www.artgallery.nsw.gov.au" target="_blank" rel="noopener noreferrer" className="text-secondary-terra underline hover:text-secondary-rust transition-colors font-semibold">
                   Art Gallery of New South Wales
@@ -81,15 +81,15 @@ export default function LocationSection() {
                 website.
               </p>
 
-              <p className="text-base text-primary leading-relaxed mb-4">
+              <p className="text-base 3xl:text-lg text-primary leading-relaxed mb-4">
                 The Art Gallery of NSW has two art museum buildings in the Domain in Sydney on Gadigal Country. These have been given Sydney Aboriginal language names:
               </p>
 
               <ul className="flex flex-col gap-3 list-disc list-inside text-primary marker:text-primary">
-                <li className="text-base text-primary leading-relaxed">
+                <li className="text-base 3xl:text-lg text-primary leading-relaxed">
                   <strong className="text-primary">Naala Nura,</strong> which means &lsquo;seeing Country&rsquo;, is our historic building on the south part of the site, facing the Domain parklands.
                 </li>
-                <li className="text-base text-primary leading-relaxed">
+                <li className="text-base 3xl:text-lg text-primary leading-relaxed">
                   <strong className="text-primary">Naala Badu,</strong> which means &lsquo;seeing waters&rsquo;, is our new building on the north part of the site, overlooking Sydney Harbour.
                 </li>
               </ul>
@@ -99,18 +99,18 @@ export default function LocationSection() {
           {/* Bottom — Where to Find Us */}
           <motion.div
             {...fadeInUp}
-            className="mt-16 md:mt-24 bg-white rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-[250px_1fr_auto] items-start"
+            className="mt-16 md:mt-24 bg-white rounded-2xl p-6 md:p-8 3xl:p-10 grid grid-cols-1 lg:grid-cols-[250px_1fr_auto] 3xl:grid-cols-[300px_1fr_auto] items-start"
             style={{ columnGap: "1rem", rowGap: "1.5rem" }}
           >
-            <h3 className="font-display text-lg md:text-xl font-normal text-primary tracking-tight uppercase whitespace-nowrap">
+            <h3 className="font-display text-lg md:text-xl 3xl:text-2xl font-normal text-primary tracking-tight uppercase whitespace-nowrap">
               Where to Find Us
             </h3>
 
             <div className="max-w-xl">
-              <p className="text-base sm:text-lg md:text-xl font-medium text-primary leading-snug mb-2">
+              <p className="text-base sm:text-lg md:text-xl 3xl:text-2xl font-medium text-primary leading-snug mb-2">
                 Art Gallery Road, The Domain, Sydney NSW 2000, Australia
               </p>
-              <p className="text-sm sm:text-base text-primary leading-relaxed">
+              <p className="text-sm sm:text-base 3xl:text-lg text-primary leading-relaxed">
                 On the eastern side of Sydney&rsquo;s CBD, next to the Royal Botanic Gardens and the Domain, just down the road from St Mary&rsquo;s Cathedral. About 5-minute walk from Macquarie Street, across the Domain, or from Hyde Park.
               </p>
             </div>

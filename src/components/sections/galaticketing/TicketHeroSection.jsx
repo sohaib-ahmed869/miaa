@@ -104,7 +104,7 @@ export default function TicketHeroSection() {
       </div>
 
       {/* Background mask at bottom-left — extends into next section */}
-      <div className="absolute -bottom-32 md:-bottom-48 lg:-bottom-64 left-0 w-[400px] md:w-[500px] lg:w-[600px] pointer-events-none z-[5]">
+      <div className="absolute -bottom-32 md:-bottom-48 lg:-bottom-64 left-0 w-[400px] md:w-[500px] lg:w-[600px] 3xl:w-[800px] pointer-events-none z-[5]">
         <img
           src={bgMask}
           alt=""
@@ -112,28 +112,28 @@ export default function TicketHeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-28 md:pt-32 pb-16 md:pb-20">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-16 items-start">
           {/* Left — heading + pricing */}
           <motion.div {...fadeInLeft}>
-            <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-normal text-accent-cream tracking-tight leading-snug mb-5 uppercase">
+            <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] 3xl:text-[4.5rem] font-normal text-accent-cream tracking-tight leading-snug mb-5 uppercase">
               Secure Your Seat
             </h1>
-            <p className="text-base text-accent-cream leading-relaxed max-w-md mb-10">
+            <p className="text-base 3xl:text-xl text-accent-cream leading-relaxed max-w-md 3xl:max-w-lg mb-10">
               Book your tickets to join us for an unforgettable evening celebrating the
               architectural reveal of Australia&rsquo;s first Museum of Islamic Art. Your attendance
               directly supports the building of MIAA.
             </p>
 
             <div className="border-t border-accent-wheat/25 pt-6">
-              <p className="text-sm md:text-base tracking-[0.25em] uppercase text-white font-medium mb-2">
+              <p className="text-sm md:text-base 3xl:text-lg tracking-[0.25em] uppercase text-white font-medium mb-2">
                 Ticket Pricing
               </p>
               <div className="flex items-baseline gap-1">
-                <p className="text-4xl md:text-5xl font-medium text-accent-wheat tracking-tight leading-none">
+                <p className="text-4xl md:text-5xl 3xl:text-6xl font-medium text-accent-wheat tracking-tight leading-none">
                   $250
                 </p>
-                <p className="text-sm text-accent-wheat">/person</p>
+                <p className="text-sm 3xl:text-base text-accent-wheat">/person</p>
               </div>
             </div>
           </motion.div>
@@ -142,30 +142,30 @@ export default function TicketHeroSection() {
           <motion.div {...fadeInRight}>
             {submitted ? (
               <div className="py-12 text-center">
-                <p className="text-xl font-semibold text-white">
+                <p className="text-xl 3xl:text-2xl font-semibold text-white">
                   Booking received
                 </p>
-                <p className="text-sm text-white mt-2">
+                <p className="text-sm 3xl:text-base text-white mt-2">
                   We&apos;ll be in touch with your confirmation shortly.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} className="flex flex-col gap-6">
                 {/* Personal Information */}
-                <h2 className="text-lg font-semibold text-white">
+                <h2 className="text-lg 3xl:text-xl font-semibold text-white">
                   Personal Information
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Title
                     </label>
                     <div className="relative">
                       <select
                         value={form.title}
                         onChange={(e) => update("title", e.target.value)}
-                        className="w-full bg-transparent field-dotted-line text-sm text-white/50 focus:text-white focus:outline-none appearance-none cursor-pointer pr-6"
+                        className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white/50 focus:text-white focus:outline-none appearance-none cursor-pointer pr-6"
                       >
                         <option value="" disabled>Select</option>
                         <option className="bg-primary text-white" value="Mr">Mr</option>
@@ -177,7 +177,7 @@ export default function TicketHeroSection() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       First Name
                     </label>
                     <input
@@ -185,12 +185,12 @@ export default function TicketHeroSection() {
                       required
                       value={form.firstName}
                       onChange={(e) => update("firstName", e.target.value)}
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none"
                       placeholder="Enter first name"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Surname
                     </label>
                     <input
@@ -198,19 +198,19 @@ export default function TicketHeroSection() {
                       required
                       value={form.surname}
                       onChange={(e) => update("surname", e.target.value)}
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none"
                       placeholder="Enter surname"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Post Nominals
                     </label>
                     <input
                       type="text"
                       value={form.postNominals}
                       onChange={(e) => update("postNominals", e.target.value)}
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none"
                       placeholder="Enter"
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function TicketHeroSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Email Address
                     </label>
                     <input
@@ -226,12 +226,12 @@ export default function TicketHeroSection() {
                       required
                       value={form.email}
                       onChange={(e) => update("email", e.target.value)}
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none"
                       placeholder="email address"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Mobile Phone Number
                     </label>
                     <input
@@ -239,21 +239,21 @@ export default function TicketHeroSection() {
                       required
                       value={form.phone}
                       onChange={(e) => update("phone", e.target.value)}
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none"
                       placeholder="04xx xxx xxx"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-semibold text-white mb-2 uppercase tracking-wider">
+                  <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                     Dietary Requirements
                   </label>
                   <div className="relative">
                     <select
                       value={form.dietary}
                       onChange={(e) => update("dietary", e.target.value)}
-                      className="w-full bg-transparent field-dotted-line text-sm text-white/50 focus:text-white focus:outline-none appearance-none cursor-pointer pr-6"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white/50 focus:text-white focus:outline-none appearance-none cursor-pointer pr-6"
                     >
                       <option value="" disabled>Select Dietary</option>
                       {DIETARY.map((d) => (
@@ -266,14 +266,14 @@ export default function TicketHeroSection() {
                   </div>
                 </div>
 
-                <p className="text-[11px] text-white/70 leading-relaxed">
+                <p className="text-[11px] 3xl:text-sm text-white/70 leading-relaxed">
                   Note: All dishes are halal and alcohol free. For other dietary requirements please select from the following
                   options.
                 </p>
 
                 {/* Guest */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <h2 className="text-lg font-semibold text-white mb-4">
+                  <h2 className="text-lg 3xl:text-xl font-semibold text-white mb-4">
                     Guest
                   </h2>
                   <label className="flex items-center gap-3 cursor-pointer group">
@@ -287,7 +287,7 @@ export default function TicketHeroSection() {
                     >
                       {form.hasGuest && <Check size={14} strokeWidth={3} className="text-white" />}
                     </span>
-                    <span className="text-sm text-white">Add guest(s)</span>
+                    <span className="text-sm 3xl:text-base text-white">Add guest(s)</span>
                   </label>
                   {form.hasGuest && (
                     <div className="flex items-center gap-4 mt-4">
@@ -314,13 +314,13 @@ export default function TicketHeroSection() {
 
                 {/* Access Requirements */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <h2 className="text-lg font-semibold text-white mb-2">
+                  <h2 className="text-lg 3xl:text-xl font-semibold text-white mb-2">
                     Access Requirements
                   </h2>
-                  <p className="text-[11px] text-white/80 leading-relaxed mb-3">
+                  <p className="text-[11px] 3xl:text-sm text-white/80 leading-relaxed mb-3">
                     Accessibility Information
                   </p>
-                  <p className="text-[11px] text-white/70 leading-relaxed mb-4">
+                  <p className="text-[11px] 3xl:text-sm text-white/70 leading-relaxed mb-4">
                     The AGNSW is a fully accessible building. Please visit the AGNSW Physical Access and Facility page for
                     more details. If you have any further access requirements or need to be present, please specify below.
                   </p>
@@ -328,17 +328,17 @@ export default function TicketHeroSection() {
                     rows={2}
                     value={form.accessRequirements}
                     onChange={(e) => update("accessRequirements", e.target.value)}
-                    className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none resize-none"
+                    className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none resize-none"
                     placeholder="Access requirements..."
                   />
                 </div>
 
                 {/* Donation */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <p className="text-[11px] font-semibold text-white uppercase tracking-wider mb-1">
+                  <p className="text-[11px] 3xl:text-sm font-semibold text-white uppercase tracking-wider mb-1">
                     Donation
                   </p>
-                  <p className="text-[11px] text-white/70 mb-4">
+                  <p className="text-[11px] 3xl:text-sm text-white/70 mb-4">
                     Support the building of MIAA by adding a Donation
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -347,7 +347,7 @@ export default function TicketHeroSection() {
                         key={amt}
                         type="button"
                         onClick={() => update("donation", form.donation === amt ? null : amt)}
-                        className={`px-4 py-2 text-sm font-medium rounded border transition-colors ${
+                        className={`px-4 py-2 text-sm 3xl:text-base font-medium rounded border transition-colors ${
                           form.donation === amt
                             ? "bg-secondary-terra border-secondary-terra text-white"
                             : "bg-transparent border-accent-cream/30 text-white hover:border-accent-cream"
@@ -359,7 +359,7 @@ export default function TicketHeroSection() {
                     <button
                       type="button"
                       onClick={() => update("donation", form.donation === "other" ? null : "other")}
-                      className={`px-4 py-2 text-sm font-medium rounded border transition-colors ${
+                      className={`px-4 py-2 text-sm 3xl:text-base font-medium rounded border transition-colors ${
                         form.donation === "other"
                           ? "bg-secondary-terra border-secondary-terra text-white"
                           : "bg-transparent border-accent-cream/30 text-white hover:border-accent-cream"
@@ -375,23 +375,23 @@ export default function TicketHeroSection() {
                       placeholder="Enter amount"
                       value={form.customDonation}
                       onChange={(e) => update("customDonation", e.target.value)}
-                      className="mt-3 w-40 bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none"
+                      className="mt-3 w-40 bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none"
                     />
                   )}
                 </div>
 
                 {/* Buy a Table */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <p className="text-[11px] font-semibold text-white uppercase tracking-wider mb-1">
+                  <p className="text-[11px] 3xl:text-sm font-semibold text-white uppercase tracking-wider mb-1">
                     Buy a Table
                   </p>
-                  <p className="text-[11px] text-white/70">
+                  <p className="text-[11px] 3xl:text-sm text-white/70">
                     8 or more tickets? KDare support the museum funds.
                   </p>
                   <button
                     type="button"
                     onClick={() => update("buyTable", !form.buyTable)}
-                    className={`mt-2 px-4 py-2 text-sm font-medium rounded border transition-colors ${
+                    className={`mt-2 px-4 py-2 text-sm 3xl:text-base font-medium rounded border transition-colors ${
                       form.buyTable
                         ? "bg-secondary-terra border-secondary-terra text-white"
                         : "bg-transparent border-accent-cream/30 text-white hover:border-accent-cream"
@@ -403,10 +403,10 @@ export default function TicketHeroSection() {
 
                 {/* Ticket Summary */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <h2 className="text-lg font-semibold text-white mb-4">
+                  <h2 className="text-lg 3xl:text-xl font-semibold text-white mb-4">
                     Ticket
                   </h2>
-                  <div className="flex flex-col gap-2 text-sm text-white">
+                  <div className="flex flex-col gap-2 text-sm 3xl:text-base text-white">
                     <div className="flex justify-between">
                       <span>{form.buyTable ? "Buy a Table" : "1 Person"}</span>
                       <span>${ticketPrice}</span>
@@ -424,14 +424,14 @@ export default function TicketHeroSection() {
                   </div>
                 </div>
 
-                <p className="text-xs text-white/60 leading-relaxed">
+                <p className="text-xs 3xl:text-sm text-white/60 leading-relaxed">
                   • For other Sponsorship Opportunities please see the <a href="https://drive.google.com/file/d/1072ktfGFYxJMQHalRFTKSyhICR5ONtEo/view?usp=sharing" target="_blank" rel="noreferrer noopener" className="text-accent-wheat underline hover:text-white transition-colors">MIAA Inaugural Gala Sponsors downloadable pdf</a>.
                   <br />
                   • The Gala ticket is non-transferable and non-refundable. For enquiries, please contact the MIAA team directly.
                 </p>
 
                 {error && (
-                  <p className="text-sm text-red-400">{error}</p>
+                  <p className="text-sm 3xl:text-base text-red-400">{error}</p>
                 )}
 
                 <div className="flex justify-start mt-2">
@@ -460,23 +460,23 @@ export default function TicketHeroSection() {
               onClick={(e) => e.stopPropagation()}
               className="bg-primary border border-accent-wheat/20 rounded-lg p-8 max-w-md w-full"
             >
-              <h3 className="text-xl font-medium text-white mb-3">
+              <h3 className="text-xl 3xl:text-2xl font-medium text-white mb-3">
                 Confirm Your Booking
               </h3>
-              <p className="text-sm text-white mb-2">
+              <p className="text-sm 3xl:text-base text-white mb-2">
                 {form.firstName} {form.surname}
               </p>
-              <div className="flex justify-between text-sm text-white mb-1">
+              <div className="flex justify-between text-sm 3xl:text-base text-white mb-1">
                 <span>{form.buyTable ? "Table" : "1 Person"}</span>
                 <span>${ticketPrice}</span>
               </div>
               {donationVal > 0 && (
-                <div className="flex justify-between text-sm text-white mb-1">
+                <div className="flex justify-between text-sm 3xl:text-base text-white mb-1">
                   <span>Donation</span>
                   <span>${donationVal}</span>
                 </div>
               )}
-              <div className="flex justify-between text-sm text-white font-semibold border-t border-accent-wheat/20 pt-2 mt-2">
+              <div className="flex justify-between text-sm 3xl:text-base text-white font-semibold border-t border-accent-wheat/20 pt-2 mt-2">
                 <span>Total</span>
                 <span>${total}</span>
               </div>
@@ -484,7 +484,7 @@ export default function TicketHeroSection() {
               <div className="flex gap-3 mt-6">
                 <button
                   onClick={() => setShowConfirm(false)}
-                  className="flex-1 px-4 py-2.5 border border-accent-cream/30 text-white text-xs font-semibold tracking-wider uppercase rounded hover:border-accent-cream transition-colors"
+                  className="flex-1 px-4 py-2.5 border border-accent-cream/30 text-white text-xs 3xl:text-sm font-semibold tracking-wider uppercase rounded hover:border-accent-cream transition-colors"
                 >
                   Cancel
                 </button>

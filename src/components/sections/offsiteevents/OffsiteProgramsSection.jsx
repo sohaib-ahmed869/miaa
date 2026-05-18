@@ -41,11 +41,11 @@ export default function OffsiteProgramsSection() {
   )
 
   return (
-    <section className="py-12 md:py-16 bg-bg-deep">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-12 md:py-16 3xl:py-24 bg-bg-deep">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <motion.h2
           {...fadeInUp}
-          className="text-3xl md:text-[42px] font-medium text-white tracking-tight leading-tight mb-12 md:mb-14"
+          className="text-3xl md:text-[42px] 3xl:text-[3.2rem] font-medium text-white tracking-tight leading-tight mb-12 md:mb-14"
         >
           Offsite Programs and Events
         </motion.h2>
@@ -62,10 +62,10 @@ export default function OffsiteProgramsSection() {
             >
               {/* Date & location — right-aligned */}
               <div className="mb-4 text-right">
-                <p className="text-3xl md:text-[34px] font-base tracking-wide text-[#D0A270]">
+                <p className="text-3xl md:text-[34px] 3xl:text-[2.6rem] font-base tracking-wide text-[#D0A270]">
                   {event.date}
                 </p>
-                <p className="text-[11px] text-white mt-1 tracking-wide italic">
+                <p className="text-[11px] 3xl:text-sm text-white mt-1 tracking-wide italic">
                   {event.location}
                 </p>
               </div>
@@ -80,10 +80,10 @@ export default function OffsiteProgramsSection() {
               </div>
 
               {/* Text */}
-              <h3 className="text-[15px] font-semibold text-white mb-2">
+              <h3 className="text-[15px] 3xl:text-xl font-semibold text-white mb-2">
                 {event.title}
               </h3>
-              <p className="text-[13px] text-white/90 leading-relaxed">
+              <p className="text-[13px] 3xl:text-lg text-white/90 leading-relaxed">
                 {event.description}
               </p>
             </motion.div>

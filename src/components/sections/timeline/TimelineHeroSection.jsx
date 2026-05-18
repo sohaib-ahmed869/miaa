@@ -9,11 +9,11 @@ export default function TimelineHeroSection() {
   return (
     <section className="relative z-20 bg-bg-deep">
       {/* Top — Title + intro split */}
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pt-28 md:pt-32 pb-10 md:pb-14">
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-10 md:pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left — Title + Donate CTA */}
           <motion.div {...fadeInLeft}>
-            <h1 className="text-3xl md:text-4xl lg:text-[2.6rem] font-medium text-accent-cream tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-[2.6rem] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight">
               The Journey Toward
               <br />
               Completion
@@ -26,7 +26,7 @@ export default function TimelineHeroSection() {
           {/* Right — Intro text */}
           <motion.div
             {...fadeInRight}
-            className="flex flex-col gap-3 text-sm md:text-[15px] text-accent-cream/85 leading-relaxed"
+            className="flex flex-col gap-3 text-sm md:text-[15px] 3xl:text-xl text-accent-cream/85 leading-relaxed"
           >
             <p>
               MIAA is a significant community-led cultural project based in the
@@ -49,7 +49,7 @@ export default function TimelineHeroSection() {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative w-full"
       >
-        <div className="w-full h-[280px] md:h-[460px] lg:h-[560px] overflow-hidden">
+        <div className="w-full h-[280px] md:h-[460px] lg:h-[560px] 3xl:h-[760px] overflow-hidden">
           <img
             src={renderImg}
             alt="MIAA architectural render"
@@ -63,7 +63,7 @@ export default function TimelineHeroSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="hero-float pointer-events-none absolute z-50 right-4 md:right-10 lg:right-20 bottom-0 translate-y-1/2 w-28 md:w-40 lg:w-48"
+          className="hero-float pointer-events-none absolute z-50 right-4 md:right-10 lg:right-20 bottom-0 translate-y-1/2 w-28 md:w-40 lg:w-48 3xl:w-64"
         >
           <img src={float1} alt="" className="w-full h-auto drop-shadow-2xl" />
         </motion.div>

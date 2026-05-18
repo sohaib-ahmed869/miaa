@@ -24,10 +24,10 @@ export default function WesternSydneySection() {
   return (
     <section className="relative bg-bg-deep pt-12 md:pt-16 pb-12 md:pb-16 overflow-hidden">
       {/* Section label + dotted divider */}
-      <div className="relative z-10 px-6 md:px-10 lg:px-16 mb-10 md:mb-14">
+      <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Museum Location
           </span>
         </div>
@@ -41,7 +41,7 @@ export default function WesternSydneySection() {
         />
       </div>
 
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="relative max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Map — absolute, left, large, slight overlap into content */}
         <motion.div
           {...fadeInLeft}
@@ -65,16 +65,16 @@ export default function WesternSydneySection() {
 
         {/* Right content — pushed right on lg so map overlaps slightly */}
         <motion.div {...fadeInRight} className="relative z-10 lg:ml-[48%]">
-          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-medium text-accent-cream tracking-tight leading-[1.1] mb-5">
+          <h2 className="text-3xl md:text-4xl lg:text-[44px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1] mb-5">
             Based in the Heart of Western Sydney
           </h2>
 
-          <p className="text-base md:text-[17px] text-accent-wheat leading-snug mb-6 font-medium">
+          <p className="text-base md:text-[17px] 3xl:text-xl text-accent-wheat leading-snug mb-6 font-medium">
             MIAA is proudly located in Granville in Western Sydney on beautiful
             Dharug country
           </p>
 
-          <p className="text-[15px] md:text-base text-accent-cream font-semibold leading-relaxed mb-10 max-w-2xl">
+          <p className="text-[15px] md:text-base 3xl:text-lg text-accent-cream font-semibold leading-relaxed mb-10 max-w-2xl">
             The Museum of Islamic Art Australia (MIAA) respectfully
             acknowledges the Burramattagal people of the Dharug Nation as the
             Traditional Owners of the land on which the museum will be located.
@@ -85,7 +85,7 @@ export default function WesternSydneySection() {
             Sovereignty has never been ceded.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 text-sm md:text-[14px] text-accent-cream/85 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 text-sm md:text-[14px] 3xl:text-base text-accent-cream/85 leading-relaxed">
             <p>
               Western Sydney is home to one of Australia&apos;s most diverse
               local government areas (LGA). With a growing population of more

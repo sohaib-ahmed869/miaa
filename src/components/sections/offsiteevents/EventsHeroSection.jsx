@@ -15,12 +15,12 @@ export default function EventsHeroSection() {
   return (
     <section className="relative bg-bg-deep overflow-hidden">
       {/* Title */}
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pt-28 md:pt-32 pb-8 md:pb-10">
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-8 md:pb-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-3xl md:text-4xl lg:text-[2.6rem] font-medium text-accent-cream tracking-tight leading-tight"
+          className="text-3xl md:text-4xl lg:text-[2.6rem] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight"
         >
           Events at MIAA
         </motion.h1>
@@ -38,7 +38,7 @@ export default function EventsHeroSection() {
               <motion.div
                 key={i}
                 {...staggerItem}
-                className={`h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden bg-cover bg-center ${
+                className={`h-[300px] md:h-[400px] lg:h-[480px] 3xl:h-[650px] overflow-hidden bg-cover bg-center ${
                   isMiddle ? "" : "hidden md:block"
                 }`}
                 style={{ backgroundImage: `url(${photo.src})` }}

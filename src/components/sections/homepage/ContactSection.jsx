@@ -44,22 +44,22 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-bg-deep">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-bg-deep">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left - Content */}
           <motion.div {...fadeInLeft}>
-            <h2 className="text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug">
+            <h2 className="text-3xl md:text-4xl 3xl:text-[3.2rem] font-medium text-white tracking-tight leading-snug">
               Connect With the Museum
             </h2>
-            <p className="mt-5 text-sm text-white leading-relaxed max-w-md">
+            <p className="mt-5 text-sm 3xl:text-lg text-white leading-relaxed max-w-md 3xl:max-w-xl">
               We&apos;d love to hear from you. Whether you&apos;d like to learn
               more about the Museum of Islamic Art Australia, explore partnership
               opportunities, or support our journey, our team is here to connect.
             </p>
 
             {/* Geometric ornament — lower-left */}
-            <div className="mt-12 md:mt-16 w-32 md:w-40 h-auto">
+            <div className="mt-12 md:mt-16 w-32 md:w-40 3xl:w-52 h-auto">
               <img
                 src={connectImg}
                 alt=""
@@ -77,8 +77,8 @@ export default function ContactSection() {
                 className="flex items-center justify-center h-full"
               >
                 <div className="text-center">
-                  <p className="text-xl font-semibold text-white">Thank you!</p>
-                  <p className="text-sm text-white/50 mt-2">
+                  <p className="text-xl 3xl:text-2xl font-semibold text-white">Thank you!</p>
+                  <p className="text-sm 3xl:text-base text-white/50 mt-2">
                     Your submission has been received!
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export default function ContactSection() {
                 {/* Name & Email row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-semibold text-white/70 mb-2">
+                    <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                       Full Name
                     </label>
                     <input
@@ -96,11 +96,11 @@ export default function ContactSection() {
                       name="fullName"
                       placeholder="Enter your full name"
                       required
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-white/70 mb-2">
+                    <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                       Email Address
                     </label>
                     <input
@@ -108,21 +108,21 @@ export default function ContactSection() {
                       name="email"
                       placeholder="Enter your email address"
                       required
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Topic */}
                 <div>
-                  <label className="block text-xs font-semibold text-white/70 mb-2">
+                  <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                     Topic
                   </label>
                   <select
                     name="topic"
                     defaultValue=""
                     required
-                    className="w-full bg-transparent field-dotted-line text-sm text-white/30 focus:text-white focus:outline-none transition-colors appearance-none cursor-pointer"
+                    className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white/30 focus:text-white focus:outline-none transition-colors appearance-none cursor-pointer"
                   >
                     <option value="" disabled>
                       Select Topic
@@ -137,7 +137,7 @@ export default function ContactSection() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-semibold text-white/70 mb-2">
+                  <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                     Message
                   </label>
                   <textarea
@@ -145,12 +145,12 @@ export default function ContactSection() {
                     placeholder="Enter your message"
                     rows={3}
                     required
-                    className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors resize-none"
+                    className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
                 {error && (
-                  <p className="text-sm text-secondary-terra" role="alert">{error}</p>
+                  <p className="text-sm 3xl:text-base text-secondary-terra" role="alert">{error}</p>
                 )}
                 {/* Submit */}
                 <div className="flex justify-end">

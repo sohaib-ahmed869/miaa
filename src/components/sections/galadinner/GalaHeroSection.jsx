@@ -20,7 +20,7 @@ export default function GalaHeroSection() {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-display text-xs sm:text-sm md:text-lg tracking-[0.35em] uppercase mb-1"
+            className="font-display text-xs sm:text-sm md:text-lg 3xl:text-2xl tracking-[0.35em] uppercase mb-1"
             style={{ color: "#F3EFEB" }}
           >
             Inaugural
@@ -30,7 +30,7 @@ export default function GalaHeroSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-none gala-heading"
+            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl 3xl:text-9xl font-medium tracking-tight leading-none gala-heading"
           >
             GALA DINNER
           </motion.h1>
@@ -39,7 +39,7 @@ export default function GalaHeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-display text-base sm:text-lg md:text-2xl tracking-tight uppercase mt-2"
+            className="font-display text-base sm:text-lg md:text-2xl 3xl:text-3xl tracking-tight uppercase mt-2"
             style={{ color: "#F3EFEB" }}
           >
             Museum of Islamic Art Australia

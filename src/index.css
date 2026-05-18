@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* Breakpoint — large screens (2560px native / 100% scale) */
+  --breakpoint-3xl: 2200px;
+
   /* Font */
   --font-sans: "Avenir", "Avenir Next", system-ui, sans-serif;
   --font-barlow: "Barlow", system-ui, sans-serif;

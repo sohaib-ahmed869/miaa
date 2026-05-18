@@ -85,14 +85,14 @@ export default function ContactPageSection() {
 
   return (
     <section className="relative bg-bg-deep pt-28 md:pt-32 pb-16 md:pb-20">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left — Heading + intro + connect */}
           <motion.div {...fadeInLeft}>
-            <h1 className="text-3xl md:text-4xl lg:text-[44px] font-medium text-accent-cream tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-[44px] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight">
               Connect With the Museum
             </h1>
-            <p className="mt-5 text-sm md:text-[15px] text-accent-cream/85 leading-relaxed max-w-md">
+            <p className="mt-5 text-sm md:text-[15px] 3xl:text-lg text-accent-cream/85 leading-relaxed max-w-md 3xl:max-w-xl">
               We&apos;d love to hear from you. Whether you&apos;d like to learn
               more about the Museum of Islamic Art Australia, explore
               partnership opportunities, or support our journey, our team is
@@ -101,10 +101,10 @@ export default function ContactPageSection() {
 
             {/* Connect / socials */}
             <div className="mt-10 md:mt-14">
-              <p className="text-sm font-medium text-accent-wheat mb-2">
+              <p className="text-sm 3xl:text-base font-medium text-accent-wheat mb-2">
                 Connect
               </p>
-              <p className="text-sm text-accent-cream/75 leading-relaxed">
+              <p className="text-sm 3xl:text-base text-accent-cream/75 leading-relaxed">
                 Stay connected with MIAA via our socials
                 <br />
                 Instagram Facebook and YouTube
@@ -117,7 +117,7 @@ export default function ContactPageSection() {
                     aria-label={label}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="w-10 h-10 flex items-center justify-center bg-primary/40 border border-accent-wheat/20 text-accent-cream hover:bg-secondary-terra hover:border-secondary-terra transition-colors"
+                    className="w-10 h-10 3xl:w-12 3xl:h-12 flex items-center justify-center bg-primary/40 border border-accent-wheat/20 text-accent-cream hover:bg-secondary-terra hover:border-secondary-terra transition-colors"
                   >
                     <Icon />
                   </a>
@@ -135,8 +135,8 @@ export default function ContactPageSection() {
                 className="flex items-center justify-center h-full min-h-[320px]"
               >
                 <div className="text-center">
-                  <p className="text-xl font-semibold text-white">Thank you!</p>
-                  <p className="text-sm text-white/60 mt-2">
+                  <p className="text-xl 3xl:text-2xl font-semibold text-white">Thank you!</p>
+                  <p className="text-sm 3xl:text-base text-white/60 mt-2">
                     Your submission has been received.
                   </p>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactPageSection() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-semibold text-white/70 mb-2">
+                    <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                       Full Name
                     </label>
                     <input
@@ -153,11 +153,11 @@ export default function ContactPageSection() {
                       name="fullName"
                       placeholder="Enter your full name"
                       required
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-white/70 mb-2">
+                    <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                       Email Address
                     </label>
                     <input
@@ -165,20 +165,20 @@ export default function ContactPageSection() {
                       name="email"
                       placeholder="Enter your email address"
                       required
-                      className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
+                      className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-white/70 mb-2">
+                  <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                     Topic
                   </label>
                   <select
                     name="topic"
                     defaultValue=""
                     required
-                    className="w-full bg-transparent field-dotted-line text-sm text-white/30 focus:text-white focus:outline-none transition-colors appearance-none cursor-pointer"
+                    className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white/30 focus:text-white focus:outline-none transition-colors appearance-none cursor-pointer"
                   >
                     <option value="" disabled>
                       Select Topic
@@ -196,7 +196,7 @@ export default function ContactPageSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-white/70 mb-2">
+                  <label className="block text-xs 3xl:text-sm font-semibold text-white/70 mb-2">
                     Message
                   </label>
                   <textarea
@@ -204,12 +204,12 @@ export default function ContactPageSection() {
                     placeholder="Enter your message"
                     rows={4}
                     required
-                    className="w-full bg-transparent field-dotted-line text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors resize-none"
+                    className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
                 {error && (
-                  <p className="text-sm text-secondary-terra" role="alert">{error}</p>
+                  <p className="text-sm 3xl:text-base text-secondary-terra" role="alert">{error}</p>
                 )}
                 <div>
                   <CTAButton type="submit" disabled={submitting} className="px-6 py-3 disabled:opacity-60">{submitting ? "Sending…" : "Send Message"}</CTAButton>

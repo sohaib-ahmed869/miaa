@@ -24,12 +24,12 @@ export default function EducationHeroSection() {
   return (
     <section className="relative z-20 bg-bg">
       {/* Top teal banner — title spans full width */}
-      <div className="bg-bg-deep w-full px-6 md:px-10 lg:px-16 pt-28 md:pt-32 pb-8 md:pb-10">
+      <div className="bg-bg-deep w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-8 md:pb-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-3xl md:text-4xl lg:text-[2.4rem] font-medium text-accent-cream tracking-tight leading-tight"
+          className="text-3xl md:text-4xl lg:text-[2.4rem] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight"
         >
           Education &amp; Community Engagement
         </motion.h1>
@@ -49,9 +49,9 @@ export default function EducationHeroSection() {
         {/* Right — teal bg block, padded, with extra pb so it ends lower than the image */}
         <motion.div
           {...fadeInRight}
-          className="bg-bg-deep px-6 md:px-10 lg:px-16 lg:pl-12 pt-8 md:pt-10 pb-20 md:pb-32 lg:pb-40 self-stretch"
+          className="bg-bg-deep px-6 md:px-10 lg:px-16 3xl:px-24 lg:pl-12 pt-8 md:pt-10 pb-20 md:pb-32 lg:pb-40 self-stretch"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-[34px] font-medium text-accent-cream tracking-tight leading-snug">
+          <h2 className="text-2xl md:text-3xl lg:text-[34px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-snug">
             Educating the Next
             <br />
             Generation of Thinkers
@@ -67,7 +67,7 @@ export default function EducationHeroSection() {
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   className="w-full flex items-center gap-3 py-5 text-left group"
                 >
-                  <span className="w-6 h-6 rounded-full border border-accent-wheat/60 flex items-center justify-center flex-shrink-0 group-hover:border-accent-wheat transition-colors">
+                  <span className="w-6 h-6 3xl:w-8 3xl:h-8 rounded-full border border-accent-wheat/60 flex items-center justify-center flex-shrink-0 group-hover:border-accent-wheat transition-colors">
                     {openIndex === i ? (
                       <Minus size={12} className="text-accent-wheat" />
                     ) : (
@@ -75,7 +75,7 @@ export default function EducationHeroSection() {
                     )}
                   </span>
                   <span
-                    className={`text-base font-medium transition-colors ${
+                    className={`text-base 3xl:text-xl font-medium transition-colors ${
                       openIndex === i
                         ? "text-accent-cream"
                         : "text-accent-cream/60"
@@ -93,7 +93,7 @@ export default function EducationHeroSection() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="pl-9 pb-5 text-sm text-accent-cream/85 leading-relaxed">
+                      <p className="pl-9 pb-5 text-sm 3xl:text-lg text-accent-cream/85 leading-relaxed">
                         {item.content}
                       </p>
                     </motion.div>
@@ -110,7 +110,7 @@ export default function EducationHeroSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="hero-float pointer-events-none absolute z-50 left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-32 md:w-40 lg:w-48"
+          className="hero-float pointer-events-none absolute z-50 left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-32 md:w-40 lg:w-48 3xl:w-56"
         >
           <img src={float2} alt="" className="w-full h-auto drop-shadow-2xl" />
         </motion.div>

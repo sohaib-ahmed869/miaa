@@ -21,15 +21,15 @@ export default function EducationSection() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="py-16 md:py-24 bg-bg">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-bg">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-10 lg:gap-12 items-center">
           {/* Left - Image */}
           <motion.div {...fadeInLeft} className="rounded-xl overflow-hidden">
             <img
               src={educatingImg}
               alt="Man viewing art gallery"
-              className="w-full h-[300px] md:h-[420px] object-cover"
+              className="w-full h-[300px] md:h-[420px] 3xl:h-[580px] object-cover"
             />
           </motion.div>
 
@@ -38,7 +38,7 @@ export default function EducationSection() {
 
           {/* Right - Content with accordion */}
           <motion.div {...fadeInRight}>
-            <h2 className="text-3xl md:text-4xl font-medium text-primary tracking-tight leading-snug">
+            <h2 className="text-3xl md:text-4xl 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-snug">
               Educating the Next<br />Generation of Thinkers
             </h2>
 
@@ -61,7 +61,7 @@ export default function EducationSection() {
                       )}
                     </span>
                     <span
-                      className={`text-base font-medium transition-colors ${
+                      className={`text-base 3xl:text-xl font-medium transition-colors ${
                         openIndex === i
                           ? "text-primary"
                           : "text-primary/60"
@@ -79,7 +79,7 @@ export default function EducationSection() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <p className="pl-9 pb-5 text-sm text-primary leading-relaxed">
+                        <p className="pl-9 pb-5 text-sm 3xl:text-lg text-primary leading-relaxed">
                           {item.content}
                         </p>
                       </motion.div>

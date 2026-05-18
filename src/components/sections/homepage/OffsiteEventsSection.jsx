@@ -57,14 +57,14 @@ export default function OffsiteEventsSection() {
   )
 
   return (
-    <section className="py-16 md:py-24 bg-bg-deep">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-bg-deep">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Header */}
         <motion.div
           {...fadeInUp}
           className="flex items-start justify-between mb-14"
         >
-          <h2 className="text-3xl md:text-[42px] font-medium text-white tracking-tight  leading-tight">
+          <h2 className="text-3xl md:text-[42px] 3xl:text-[3.2rem] font-medium text-white tracking-tight leading-tight">
             Offsite Programs and Events
           </h2>
           <CTAButton to="/offsite-events" className="hidden md:inline-flex mt-1 whitespace-nowrap">View All Events</CTAButton>
@@ -83,10 +83,10 @@ export default function OffsiteEventsSection() {
             >
               {/* Date & location — right-aligned */}
               <div className="mb-4 text-right">
-                <p className="text-3xl md:text-[34px] font-semibold tracking-wide text-[#D0A270]" >
+                <p className="text-3xl md:text-[34px] 3xl:text-[2.6rem] font-semibold tracking-wide text-[#D0A270]" >
                   {event.date}
                 </p>
-                <p className="text-[11px] text-white mt-1 tracking-wide italic">
+                <p className="text-[11px] 3xl:text-sm text-white mt-1 tracking-wide italic">
                   {event.location}
                 </p>
               </div>
@@ -101,10 +101,10 @@ export default function OffsiteEventsSection() {
               </div>
 
               {/* Text */}
-              <h3 className="text-[15px] font-semibold text-white mb-2">
+              <h3 className="text-[15px] 3xl:text-lg font-semibold text-white mb-2">
                 {event.title}
               </h3>
-              <p className="text-[13px] text-white/90 leading-relaxed">
+              <p className="text-[13px] 3xl:text-base text-white/90 leading-relaxed">
                 {event.description}
               </p>
             </motion.div>
@@ -113,10 +113,10 @@ export default function OffsiteEventsSection() {
 
         {/* Previous Events — 2 column layout */}
         <motion.div {...fadeInUp}>
-          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] 3xl:grid-cols-[300px_1fr] gap-8 md:gap-16">
             {/* Left column — heading */}
             <div>
-              <h3 className="text-2xl font-medium text-white leading-tight">
+              <h3 className="text-2xl 3xl:text-3xl font-medium text-white leading-tight">
                 Previous Events
               </h3>
             </div>
@@ -132,7 +132,7 @@ export default function OffsiteEventsSection() {
                     className="cursor-pointer py-4 relative"
                   >
                     <p
-                      className={`text-[15px] md:text-lg font-medium transition-colors duration-200 ${
+                      className={`text-[15px] md:text-lg 3xl:text-xl font-medium transition-colors duration-200 ${
                         hoveredPrev === i
                           ? "text-accent-caramel"
                           : "text-white"
@@ -149,7 +149,7 @@ export default function OffsiteEventsSection() {
                           animate={{ opacity: 1, scale: 1, rotate: 3 }}
                           exit={{ opacity: 0, scale: 0.9 }}
                           transition={{ duration: 0.25 }}
-                          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[180px] h-[120px] rounded overflow-hidden z-10 pointer-events-none"
+                          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[180px] h-[120px] 3xl:w-[240px] 3xl:h-[160px] rounded overflow-hidden z-10 pointer-events-none"
                         >
                           <img
                             src={event.imageUrl || event.image}

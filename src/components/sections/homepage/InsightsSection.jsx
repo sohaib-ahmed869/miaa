@@ -17,14 +17,14 @@ const blogImages = {
 
 export default function InsightsSection() {
   return (
-    <section className="py-16 md:py-24 bg-accent-cream">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-accent-cream">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Header */}
         <motion.div
           {...fadeInUp}
           className="flex flex-col md:flex-row md:items-start md:justify-between mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-medium text-primary tracking-tight">
+          <h2 className="text-3xl md:text-4xl 3xl:text-[3.2rem] font-medium text-primary tracking-tight">
             Insights and Inspiration
           </h2>
           <CTAButton to="/blog" className="mt-4 md:mt-0 px-4 py-2">Visit Blog</CTAButton>
@@ -38,7 +38,7 @@ export default function InsightsSection() {
           {BLOG_POSTS.map((post, i) => (
             <motion.article key={i} {...staggerItem} className="group md:px-6 first:md:pl-0 last:md:pr-0">
               {/* Image */}
-              <div className="h-52 md:h-56 rounded-lg overflow-hidden mb-4">
+              <div className="h-52 md:h-56 3xl:h-80 rounded-lg overflow-hidden mb-4">
                 <img
                   src={blogImages[post.image]}
                   alt={post.title}
@@ -47,15 +47,15 @@ export default function InsightsSection() {
               </div>
 
               {/* Text */}
-              <h3 className="text-lg font-semibold text-primary mb-2">
+              <h3 className="text-lg 3xl:text-2xl font-semibold text-primary mb-2">
                 {post.title}
               </h3>
-              <p className="text-sm text-primary leading-relaxed mb-3">
+              <p className="text-sm 3xl:text-lg text-primary leading-relaxed mb-3">
                 {post.description}
               </p>
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-1 text-xs font-bold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
+                className="inline-flex items-center gap-1 text-xs 3xl:text-sm font-bold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
               >
                 Read More
                 <ArrowUpRight size={12} strokeWidth={2.5} />

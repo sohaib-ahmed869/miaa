@@ -22,7 +22,7 @@ const artPieces = [
     creditAuthor: "Zarah Hussain",
     top: "5%",
     left: "10%",
-    size: "w-28 md:w-36 lg:w-56",
+    size: "w-28 md:w-36 lg:w-56 3xl:w-72",
     parallaxFactor: 1.2,
   },
   {
@@ -32,7 +32,7 @@ const artPieces = [
     creditAuthor: "Nada Rawhi Debs",
     top: "40%",
     left: "-5%",
-    size: "w-28 md:w-40 lg:w-56",
+    size: "w-28 md:w-40 lg:w-56 3xl:w-72",
     parallaxFactor: 0.8,
   },
   {
@@ -42,7 +42,7 @@ const artPieces = [
     creditAuthor: "Hossein Valamanesh",
     top: "66%",
     left: "22%",
-    size: "w-24 md:w-36 lg:w-50",
+    size: "w-24 md:w-36 lg:w-50 3xl:w-64",
     parallaxFactor: 1.5,
   },
   {
@@ -52,7 +52,7 @@ const artPieces = [
     creditAuthor: "Aisha Khalid",
     top: "8%",
     right: "0%",
-    size: "w-32 md:w-48 lg:w-60",
+    size: "w-32 md:w-48 lg:w-60 3xl:w-76",
     parallaxFactor: 1.0,
   },
   {
@@ -62,7 +62,7 @@ const artPieces = [
     creditAuthor: "Abdullah M Syed",
     top: "56%",
     right: "10%",
-    size: "w-28 md:w-40 lg:w-56",
+    size: "w-28 md:w-40 lg:w-56 3xl:w-72",
     parallaxFactor: 1.3,
   },
 ]
@@ -118,8 +118,8 @@ export default function IslamicArtSection() {
   const mobileBottomFrames = artPieces.slice(3)
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-accent-cream overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section ref={sectionRef} className="py-16 md:py-24 3xl:py-32 bg-accent-cream overflow-hidden">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Mobile layout — stacked, no overlap */}
         <div className="md:hidden flex flex-col items-center text-center gap-8">
           <motion.div
@@ -184,18 +184,18 @@ export default function IslamicArtSection() {
 
         {/* Desktop layout — scattered frames with mouse-tracking */}
         <div ref={containerRef} className="hidden md:block">
-          <div className="relative md:min-h-[750px] lg:min-h-[900px]">
+          <div className="relative md:min-h-[750px] lg:min-h-[900px] 3xl:min-h-[1100px]">
             {/* Center text */}
             <motion.div
               {...fadeInUp}
               className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none px-4"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] font-medium text-primary tracking-tight leading-snug">
+              <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-snug">
                 Celebrating Islamic
                 <br />
                 Art in Australia
               </h2>
-              <p className="mt-5 text-sm md:text-[18px] text-primary leading-relaxed max-w-lg">
+              <p className="mt-5 text-sm md:text-[18px] 3xl:text-xl text-primary leading-relaxed max-w-lg 3xl:max-w-xl">
                 Across Australia, Islamic art continues to flourish — shaped by
                 diverse artists, cultures, and stories. The Museum of Islamic Art
                 Australia proudly supports this creative movement, celebrating its
@@ -270,7 +270,7 @@ const ArtFrame = forwardRef(function ArtFrame(
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.25 }}
-              className="mt-2.5 text-[10px] lg:text-[11px] text-primary leading-snug text-center italic"
+              className="mt-2.5 text-[10px] lg:text-[11px] 3xl:text-sm text-primary leading-snug text-center italic"
             >
               {piece.credit}{" "}
               <span className="font-medium not-italic">{piece.creditAuthor}</span>

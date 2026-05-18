@@ -13,16 +13,16 @@ const timelineImages = [sydneyView, sydneyWater, sydneyPasture, sydneyArches]
 
 export default function TimelineSection() {
   return (
-    <section className="pt-16 md:pt-24 bg-accent-cream">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="pt-16 md:pt-24 3xl:pt-32 bg-accent-cream">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Top: 2-column — text left, building image right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
           {/* Left - Text */}
           <motion.div {...fadeInLeft}>
-            <h2 className="text-3xl md:text-[40px] font-medium text-primary tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-[40px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight">
               Building the Future Home of<br />Islamic Art
             </h2>
-            <p className="mt-4 text-sm text-primary leading-normal max-w-md">
+            <p className="mt-4 text-sm 3xl:text-lg text-primary leading-normal max-w-md 3xl:max-w-xl">
               The Museum of Islamic Art Australia is now entering its design and
               construction phase, bringing a world-class vision to life in Western
               Sydney. Each detail reflects the harmony between tradition,
@@ -38,14 +38,14 @@ export default function TimelineSection() {
             <img
               src={buildingImg}
               alt="Future museum building render"
-              className="w-full max-w-lg h-auto"
+              className="w-full max-w-lg 3xl:max-w-2xl h-auto"
             />
           </motion.div>
         </div>
 
         {/* MIAA Timeline heading */}
         <motion.div {...fadeInUp}>
-          <h3 className="text-2xl md:text-3xl font-medium text-primary mb-8">
+          <h3 className="text-2xl md:text-3xl 3xl:text-4xl font-medium text-primary mb-8">
             MIAA Timeline
           </h3>
         </motion.div>
@@ -68,10 +68,10 @@ export default function TimelineSection() {
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
                 {/* Year + description inside image */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-base md:text-lg font-medium text-white mb-1 font-barlow">
+                  <p className="text-base md:text-lg 3xl:text-xl font-medium text-white mb-1 font-barlow">
                     {milestone.year}
                   </p>
-                  <p className="text-base md:text-md text-white leading-snug ">
+                  <p className="text-base 3xl:text-lg text-white leading-snug">
                     {milestone.text}
                   </p>
                 </div>

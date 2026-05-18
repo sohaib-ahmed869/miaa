@@ -41,10 +41,10 @@ export default function GuidedSection() {
   return (
     <section className="bg-bg-deep pt-12 md:pt-16 pb-12 md:pb-16 border-t border-accent-wheat/10">
       {/* Section label + dotted divider */}
-      <div className="px-6 md:px-10 lg:px-16 mb-8 md:mb-10">
+      <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-8 md:mb-10">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Museum Mission
           </span>
         </div>
@@ -58,11 +58,11 @@ export default function GuidedSection() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-start">
           {/* Left — heading + accordion */}
           <motion.div {...fadeInLeft}>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-medium text-accent-cream tracking-tight leading-[1.1] mb-10 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1] mb-10 md:mb-12">
               Guided by Meaning and
               <br />
               Connection
@@ -86,7 +86,7 @@ export default function GuidedSection() {
                       )}
                     </span>
                     <span
-                      className={`text-lg md:text-xl font-medium transition-colors ${
+                      className={`text-lg md:text-xl 3xl:text-2xl font-medium transition-colors ${
                         openIndex === i
                           ? "text-accent-cream"
                           : "text-accent-cream/65"
@@ -104,7 +104,7 @@ export default function GuidedSection() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <p className="pl-9 pb-5 text-sm md:text-[15px] text-accent-cream/85 leading-relaxed max-w-xl">
+                        <p className="pl-9 pb-5 text-sm md:text-[15px] 3xl:text-lg text-accent-cream/85 leading-relaxed max-w-xl 3xl:max-w-2xl">
                           {item.body}
                         </p>
                       </motion.div>

@@ -9,7 +9,7 @@ import footerPattern from "../../assets/images/Homepage/Footer Pattern.png"
 
 function TikTokIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="3xl:w-5 3xl:h-5">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.8.1v-3.5a6.37 6.37 0 0 0-.8-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.65a6.34 6.34 0 0 0 6.34-6.34V8.78a8.28 8.28 0 0 0 3.76.94V6.69z" />
     </svg>
   )
@@ -17,7 +17,7 @@ function TikTokIcon() {
 
 function XIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="3xl:w-5 3xl:h-5">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   )
@@ -25,7 +25,7 @@ function XIcon() {
 
 function InstagramIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="3xl:w-5 3xl:h-5">
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -35,7 +35,7 @@ function InstagramIcon() {
 
 function FacebookIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="3xl:w-5 3xl:h-5">
       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
     </svg>
   )
@@ -43,7 +43,7 @@ function FacebookIcon() {
 
 function YouTubeIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="3xl:w-5 3xl:h-5">
       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
     </svg>
   )
@@ -52,7 +52,7 @@ function YouTubeIcon() {
 function DottedDivider() {
   return (
     <div
-      className="w-full h-[2px]"
+      className="w-full h-[2px] 3xl:h-[3px]"
       style={{
         backgroundImage: "radial-gradient(circle, #38717A50 1.5px, transparent 1.5px)",
         backgroundSize: "8px 3px",
@@ -100,15 +100,15 @@ function NewsletterForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email address"
-          className="flex-1 md:flex-none md:w-44 px-3 py-2 bg-white border border-primary/20 border-r-0 rounded-l-md text-xs text-primary placeholder:text-primary/40 focus:outline-none focus:border-primary/40 transition-colors"
+          className="flex-1 md:flex-none md:w-44 3xl:w-52 px-3 3xl:px-4 py-2 3xl:py-2.5 bg-white border border-primary/20 border-r-0 rounded-l-md text-xs 3xl:text-sm text-primary placeholder:text-primary/40 focus:outline-none focus:border-primary/40 transition-colors"
         />
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="px-3 py-2 rounded-r-md hover:opacity-80 transition-colors disabled:opacity-60"
+          className="px-3 py-2 3xl:px-4 3xl:py-2.5 rounded-r-md hover:opacity-80 transition-colors disabled:opacity-60"
           style={{ backgroundColor: "#38717A" }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="3xl:w-[18px] 3xl:h-[18px]">
             <polyline points="9 10 4 15 9 20" />
             <path d="M20 4v7a4 4 0 0 1-4 4H4" />
           </svg>
@@ -116,7 +116,7 @@ function NewsletterForm() {
       </form>
       {message && (
         <p
-          className={`text-[11px] ${status === "error" ? "text-secondary-terra" : "text-primary/70"}`}
+          className={`text-[11px] 3xl:text-sm ${status === "error" ? "text-secondary-terra" : "text-primary/70"}`}
           role="status"
         >
           {message}
@@ -134,7 +134,7 @@ export default function Footer() {
         <img
           src={footerLogo}
           alt=""
-          className="md:w-[500px] lg:w-[650px] h-auto block"
+          className="md:w-[500px] lg:w-[650px] 3xl:w-[850px] h-auto block"
         />
       </div>
 
@@ -150,8 +150,8 @@ export default function Footer() {
           }}
         />
         <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent to-accent-cream" />
-        <motion.div {...fadeInUp} className="relative z-10 w-full px-6 md:px-10 lg:px-16 pt-10 pb-10 text-center">
-          <div className="text-sm md:text-[15px] leading-[1.8] text-primary italic max-w-3xl mx-auto">
+        <motion.div {...fadeInUp} className="relative z-10 w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-10 pb-10 text-center">
+          <div className="text-sm md:text-[15px] 3xl:text-base leading-[1.8] text-primary italic max-w-3xl 3xl:max-w-4xl mx-auto">
             <p className="font-medium">MIAA is proudly located on beautiful Dharug country in Granville, Western Sydney.</p>
             <p>The Museum of Islamic Art Australia (MIAA) respectfully acknowledges the Burramattagal people of the Dharug Nation as the Traditional Owners of the land on which the museum will be located. We pay our respects to Elders past, present and emerging. Sovereignty has never been ceded.</p>
           </div>
@@ -159,12 +159,12 @@ export default function Footer() {
       </div>
 
       {/* Footer content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 mt-10">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 mt-10">
         {/* Desktop: 2-column grid / Mobile: single column */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 3xl:gap-20">
           {/* ISRA info — on mobile shows after links, on desktop shows left */}
           <div className="order-2 lg:order-1 pt-2 pl-0 lg:pl-[42%]">
-            <p className="text-sm text-primary leading-relaxed max-w-xs">
+            <p className="text-sm 3xl:text-base text-primary leading-relaxed max-w-xs 3xl:max-w-sm">
               Museum of Islamic Art Australia is an initiative of
               the{" "}
               <span className="underline">
@@ -183,7 +183,7 @@ export default function Footer() {
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-sm text-primary font-medium hover:text-secondary-terra transition-colors"
+                      className="text-sm 3xl:text-base text-primary font-medium hover:text-secondary-terra transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -195,7 +195,7 @@ export default function Footer() {
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-sm text-primary font-medium hover:text-secondary-terra transition-colors"
+                      className="text-sm 3xl:text-base text-primary font-medium hover:text-secondary-terra transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -204,13 +204,13 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="my-6 md:my-8"><DottedDivider /></div>
+            <div className="my-6 md:my-8 3xl:my-10"><DottedDivider /></div>
 
             {/* Connect + social */}
             <div className="flex flex-col gap-4">
               <div>
-                <p className="text-sm font-medium mb-2" style={{ color: "#38717A" }}>Connect</p>
-                <p className="text-sm leading-relaxed" style={{ color: "#38717A" }}>
+                <p className="text-sm 3xl:text-base font-medium mb-2" style={{ color: "#38717A" }}>Connect</p>
+                <p className="text-sm 3xl:text-base leading-relaxed" style={{ color: "#38717A" }}>
                   Stay connected with MIAA via our socials
                   <br />
                   Instagram FaceBook and You Tube
@@ -228,7 +228,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label={label}
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-all duration-200"
+                    className="w-9 h-9 3xl:w-11 3xl:h-11 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-all duration-200"
                     style={{ backgroundColor: "#38717A" }}
                   >
                     <Icon />
@@ -237,25 +237,25 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="my-6 md:my-8"><DottedDivider /></div>
+            <div className="my-6 md:my-8 3xl:my-10"><DottedDivider /></div>
 
             {/* Newsletter */}
             <div className="flex flex-col gap-4">
               <div>
-                <p className="text-sm font-medium text-primary mb-2">
+                <p className="text-sm 3xl:text-base font-medium text-primary mb-2">
                   Stay Connected
                 </p>
-                <p className="text-sm text-primary leading-relaxed">
+                <p className="text-sm 3xl:text-base text-primary leading-relaxed">
                   Get news and updates from the Museum of Islamic Art Australia.
                 </p>
               </div>
               <NewsletterForm />
             </div>
 
-            <div className="my-6 md:my-8"><DottedDivider /></div>
+            <div className="my-6 md:my-8 3xl:my-10"><DottedDivider /></div>
 
             {/* Copyright */}
-            <p className="text-sm text-primary pb-4 lg:pb-8">
+            <p className="text-sm 3xl:text-base text-primary pb-4 lg:pb-8 3xl:pb-10">
               &copy; 2025 Museum of Islamic Art Australia
             </p>
           </div>

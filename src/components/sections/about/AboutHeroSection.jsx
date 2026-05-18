@@ -16,12 +16,12 @@ export default function AboutHeroSection() {
       />
 
       {/* Title */}
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pt-28 md:pt-32 pb-10 md:pb-16">
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-10 md:pb-16">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-[2.2rem] md:text-[2.8rem] lg:text-[3.4rem] font-medium text-accent-cream leading-[1.1] tracking-tight max-w-4xl"
+          className="text-[2.2rem] md:text-[2.8rem] lg:text-[3.4rem] 3xl:text-[4.5rem] font-medium text-accent-cream leading-[1.1] tracking-tight max-w-4xl 3xl:max-w-5xl"
         >
           Shaping The Future Of Islamic
           <br />
@@ -37,7 +37,7 @@ export default function AboutHeroSection() {
           transition={{ duration: 1, delay: 0.6 }}
           className="w-full"
         >
-          <div className="w-full h-[420px] md:h-[420px] lg:h-[520px] overflow-hidden">
+          <div className="w-full h-[420px] md:h-[420px] lg:h-[520px] 3xl:h-[700px] overflow-hidden">
             <img
               src={heroImg}
               alt="Audience at MIAA event"
@@ -51,7 +51,7 @@ export default function AboutHeroSection() {
           initial={{ opacity: 0, scale: 0.85, y: 1 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-          className="hero-float pointer-events-none absolute z-20 right-[4%] md:right-[6%] lg:right-[8%] -top-12 md:-top-20 lg:-top-28 w-32 md:w-48 lg:w-64"
+          className="hero-float pointer-events-none absolute z-20 right-[4%] md:right-[6%] lg:right-[8%] -top-12 md:-top-20 lg:-top-28 3xl:-top-36 w-32 md:w-48 lg:w-64 3xl:w-80"
         >
           <img src={floatingOrnament} alt="" className="w-full h-auto" />
         </motion.div>

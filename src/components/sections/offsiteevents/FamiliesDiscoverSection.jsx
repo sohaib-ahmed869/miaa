@@ -31,13 +31,13 @@ const FAMILY_EVENTS = [
 
 export default function FamiliesDiscoverSection() {
   return (
-    <section className="relative py-16 md:py-24 bg-accent-cream">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <motion.div {...fadeInUp} className="mb-12 md:mb-14 max-w-3xl">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-secondary-wine mb-3">
+    <section className="relative py-16 md:py-24 3xl:py-32 bg-accent-cream">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+        <motion.div {...fadeInUp} className="mb-12 md:mb-14 max-w-3xl 3xl:max-w-4xl">
+          <p className="text-[10px] 3xl:text-sm tracking-[0.25em] uppercase text-secondary-wine mb-3">
             MIAA Kids: Family Events
           </p>
-          <h2 className="text-3xl md:text-[42px] font-medium text-primary tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-[42px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight">
             Where Families Discover Art Together
           </h2>
         </motion.div>
@@ -53,18 +53,18 @@ export default function FamiliesDiscoverSection() {
               className="group flex flex-col"
             >
               {/* Title */}
-              <h3 className="text-lg md:text-xl font-semibold text-primary leading-tight mb-2">
+              <h3 className="text-lg md:text-xl 3xl:text-3xl font-semibold text-primary leading-tight mb-2">
                 {event.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[13px] md:text-sm text-primary/80 leading-relaxed mb-5">
+              <p className="text-[13px] md:text-sm 3xl:text-lg text-primary/80 leading-relaxed mb-5">
                 {event.description}
               </p>
 
               {/* Image — fixed height + rounded corners so all 3 match exactly */}
               <div
-                className="h-[200px] md:h-[240px] lg:h-[260px] mb-5 overflow-hidden rounded-lg bg-cover bg-center"
+                className="h-[200px] md:h-[240px] lg:h-[260px] 3xl:h-[360px] mb-5 overflow-hidden rounded-lg bg-cover bg-center"
                 style={{ backgroundImage: `url(${event.image})` }}
                 role="img"
                 aria-label={event.title}
@@ -72,10 +72,10 @@ export default function FamiliesDiscoverSection() {
 
               {/* Date — wheat/gold, right-aligned, at the bottom */}
               <div className="mt-auto text-right">
-                <p className="text-2xl md:text-[28px] tracking-wide text-[#D0A270]">
+                <p className="text-2xl md:text-[28px] 3xl:text-[2.1rem] tracking-wide text-[#D0A270]">
                   {event.date}
                 </p>
-                <p className="text-[11px] text-primary/60 italic mt-1">
+                <p className="text-[11px] 3xl:text-sm text-primary/60 italic mt-1">
                   At Gallery A, MIAA
                 </p>
               </div>

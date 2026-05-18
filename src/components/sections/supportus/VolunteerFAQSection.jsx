@@ -30,18 +30,18 @@ export default function VolunteerFAQSection() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="py-16 md:py-24 bg-bg">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-bg">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-stretch">
           {/* Left — heading + minimum age badge */}
           <motion.div {...fadeInLeft} className="flex flex-col justify-between">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-medium text-primary tracking-tight leading-snug max-w-md">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-snug max-w-md 3xl:max-w-xl">
               General Information for Volunteers
             </h2>
 
-            <div className="mt-10 inline-flex flex-col items-center justify-center w-40 h-28 bg-accent-cream rounded-2xl">
-              <span className="text-3xl font-medium text-primary">18</span>
-              <span className="text-sm font-medium text-primary mt-1">Minimum Age</span>
+            <div className="mt-10 inline-flex flex-col items-center justify-center w-40 h-28 3xl:w-48 3xl:h-32 bg-accent-cream rounded-2xl">
+              <span className="text-3xl 3xl:text-4xl font-medium text-primary">18</span>
+              <span className="text-sm 3xl:text-base font-medium text-primary mt-1">Minimum Age</span>
             </div>
           </motion.div>
 
@@ -53,7 +53,7 @@ export default function VolunteerFAQSection() {
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   className="w-full flex items-center gap-4 py-6 text-left group"
                 >
-                  <span className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:border-primary transition-colors">
+                  <span className="w-8 h-8 3xl:w-10 3xl:h-10 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:border-primary transition-colors">
                     {openIndex === i ? (
                       <Minus size={14} className="text-primary" />
                     ) : (
@@ -61,7 +61,7 @@ export default function VolunteerFAQSection() {
                     )}
                   </span>
                   <span
-                    className={`text-base sm:text-lg md:text-xl font-medium transition-colors ${
+                    className={`text-base sm:text-lg md:text-xl 3xl:text-2xl font-medium transition-colors ${
                       openIndex === i ? "text-primary" : "text-primary/50"
                     }`}
                   >
@@ -77,7 +77,7 @@ export default function VolunteerFAQSection() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="pl-12 pb-6 text-sm sm:text-base text-primary leading-relaxed max-w-2xl">
+                      <p className="pl-12 pb-6 text-sm sm:text-base 3xl:text-lg text-primary leading-relaxed max-w-2xl">
                         {item.a}
                       </p>
                     </motion.div>

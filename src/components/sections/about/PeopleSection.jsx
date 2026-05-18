@@ -38,7 +38,7 @@ function QuatrefoilPortrait({ src, alt }) {
   return (
     <svg
       viewBox="0 0 100 100"
-      className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44"
+      className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 3xl:w-56 3xl:h-56"
       aria-hidden="true"
     >
       <defs>
@@ -67,10 +67,10 @@ export default function PeopleSection() {
   return (
     <section className="bg-accent-cream pt-12 md:pt-16 pb-12 md:pb-16">
       {/* Section label + dotted divider */}
-      <div className="px-6 md:px-10 lg:px-16 mb-10 md:mb-14">
+      <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Teams
           </span>
         </div>
@@ -84,13 +84,13 @@ export default function PeopleSection() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-[42px] font-medium text-primary tracking-tight leading-[1.1] mb-12 md:mb-16"
+          className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-[1.1] mb-12 md:mb-16"
         >
           The People Behind MIAA
         </motion.h2>
@@ -109,10 +109,10 @@ export default function PeopleSection() {
                 src={person.photoUrl || person.img || femalePortrait}
                 alt={person.name}
               />
-              <p className="text-primary text-base md:text-[17px] font-semibold leading-tight mt-5">
+              <p className="text-primary text-base md:text-[17px] 3xl:text-xl font-semibold leading-tight mt-5">
                 {person.name}
               </p>
-              <p className="text-primary/60 text-[13px] md:text-sm mt-1.5 leading-snug max-w-[200px]">
+              <p className="text-primary/60 text-[13px] md:text-sm 3xl:text-base mt-1.5 leading-snug max-w-[200px] 3xl:max-w-[260px]">
                 {person.role}
               </p>
             </motion.div>

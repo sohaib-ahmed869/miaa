@@ -31,11 +31,11 @@ const OPTIONS = [
 
 export default function TransportSection() {
   return (
-    <section className="py-16 md:py-24 bg-bg">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-16 md:py-24 3xl:py-32 bg-bg">
+      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <motion.h2
           {...fadeInUp}
-          className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-normal text-primary tracking-tight leading-snug mb-10 md:mb-14 uppercase"
+          className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] 3xl:text-[3.2rem] font-normal text-primary tracking-tight leading-snug mb-10 md:mb-14 uppercase"
         >
           Public Transport Options
         </motion.h2>
@@ -54,9 +54,9 @@ export default function TransportSection() {
             >
               <div className="flex items-center gap-3">
                 <Icon size={24} strokeWidth={2.5} className="text-secondary-sand" />
-                <h3 className="text-lg md:text-xl font-semibold text-primary">{title}</h3>
+                <h3 className="text-lg md:text-xl 3xl:text-2xl font-semibold text-primary">{title}</h3>
               </div>
-              <p className="text-base text-primary leading-relaxed">
+              <p className="text-base 3xl:text-lg text-primary leading-relaxed">
                 {body}
               </p>
             </motion.div>
