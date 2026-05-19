@@ -22,14 +22,14 @@ export default function EducationSection() {
 
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-10 lg:gap-12 items-center">
           {/* Left - Image */}
           <motion.div {...fadeInLeft} className="rounded-xl overflow-hidden">
             <img
               src={educatingImg}
               alt="Man viewing art gallery"
-              className="w-full h-[300px] md:h-[420px] 3xl:h-[580px] object-cover"
+              className="w-full h-[300px] md:h-[26.25rem] 3xl:h-[35vh] object-cover"
             />
           </motion.div>
 
@@ -55,9 +55,9 @@ export default function EducationSection() {
                   >
                     <span className="w-6 h-6 rounded-full border border-primary flex items-center justify-center flex-shrink-0 group-hover:border-primary/40 transition-colors">
                       {openIndex === i ? (
-                        <Minus size={12} className="text-primary" />
+                        <Minus className="w-3 h-3 text-primary" />
                       ) : (
-                        <Plus size={12} className="text-primary" />
+                        <Plus className="w-3 h-3 text-primary" />
                       )}
                     </span>
                     <span

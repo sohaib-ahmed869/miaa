@@ -86,7 +86,7 @@ export default function PreviousEventsAdmin() {
         subtitle="Past events listed in the &lsquo;Previous Events&rsquo; row on the homepage or the dedicated Offsite Events page."
         actions={
           <Button onClick={() => open(null)} variant="primary" withArrow>
-            <Plus size={13} strokeWidth={2.5} className="-ml-0.5 mr-0.5" />
+            <Plus className="w-3.5 h-3.5 -ml-0.5 mr-0.5" strokeWidth={2.5} />
             New Entry
           </Button>
         }
@@ -116,21 +116,21 @@ export default function PreviousEventsAdmin() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-primary text-sm font-medium truncate">{it.title}</p>
-                <p className="text-[11px] text-primary/55 tracking-wide uppercase">
+                <p className="text-[0.6875rem] text-primary/55 tracking-wide uppercase">
                   {it.surface} {it.date && `· ${it.date}`}
                 </p>
               </div>
               <button
                 onClick={() => open(it)}
-                className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary hover:text-secondary-terra transition-colors"
+                className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary hover:text-secondary-terra transition-colors"
               >
-                <Pencil size={11} /> Edit
+                <Pencil className="w-3 h-3" /> Edit
               </button>
               <button
                 onClick={() => remove(it._id)}
-                className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
+                className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
               >
-                <Trash2 size={11} /> Delete
+                <Trash2 className="w-3 h-3" /> Delete
               </button>
             </motion.li>
           ))}

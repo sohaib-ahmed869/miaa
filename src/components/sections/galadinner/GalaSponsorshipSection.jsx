@@ -6,15 +6,15 @@ import SectionDivider from "../../ui/SectionDivider"
 export default function GalaSponsorshipSection() {
   return (
     <section className="bg-accent-cream">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto">
         <SectionDivider label="Sponsorship" bg="bg-transparent" variant="light" />
       </div>
 
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-16 md:py-20">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
           {/* Left — Heading + CTA */}
           <motion.div {...fadeInLeft}>
-            <h2 className="font-display text-3xl md:text-[42px] 3xl:text-[3.2rem] font-medium text-primary leading-none tracking-tight mb-10 mt-0 uppercase">
+            <h2 className="font-display text-3xl md:text-[2.625rem] 3xl:text-[3.2rem] font-medium text-primary leading-none tracking-tight mb-10 mt-0 uppercase">
               Sponsorship<br />Opportunities
             </h2>
             <CTAButton href="https://drive.google.com/file/d/1072ktfGFYxJMQHalRFTKSyhICR5ONtEo/view?usp=sharing" target="_blank" rel="noreferrer noopener">Download Sponsorship Package</CTAButton>

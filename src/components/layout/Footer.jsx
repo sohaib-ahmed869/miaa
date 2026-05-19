@@ -52,10 +52,10 @@ function YouTubeIcon() {
 function DottedDivider() {
   return (
     <div
-      className="w-full h-[2px] 3xl:h-[3px]"
+      className="w-full h-[0.125rem]"
       style={{
-        backgroundImage: "radial-gradient(circle, #38717A50 1.5px, transparent 1.5px)",
-        backgroundSize: "8px 3px",
+        backgroundImage: "radial-gradient(circle, #38717A50 0.09375rem, transparent 0.09375rem)",
+        backgroundSize: "0.5rem 0.1875rem",
       }}
     />
   )
@@ -108,7 +108,7 @@ function NewsletterForm() {
           className="px-3 py-2 3xl:px-4 3xl:py-2.5 rounded-r-md hover:opacity-80 transition-colors disabled:opacity-60"
           style={{ backgroundColor: "#38717A" }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="3xl:w-[18px] 3xl:h-[18px]">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="3xl:w-5 3xl:h-5">
             <polyline points="9 10 4 15 9 20" />
             <path d="M20 4v7a4 4 0 0 1-4 4H4" />
           </svg>
@@ -116,7 +116,7 @@ function NewsletterForm() {
       </form>
       {message && (
         <p
-          className={`text-[11px] 3xl:text-sm ${status === "error" ? "text-secondary-terra" : "text-primary/70"}`}
+          className={`text-[0.6875rem] 3xl:text-sm ${status === "error" ? "text-secondary-terra" : "text-primary/70"}`}
           role="status"
         >
           {message}
@@ -134,7 +134,7 @@ export default function Footer() {
         <img
           src={footerLogo}
           alt=""
-          className="md:w-[500px] lg:w-[650px] 3xl:w-[850px] h-auto block"
+          className="md:w-[31.25rem] lg:w-[40.625rem] 3xl:w-[28vw] h-auto block"
         />
       </div>
 
@@ -151,7 +151,7 @@ export default function Footer() {
         />
         <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent to-accent-cream" />
         <motion.div {...fadeInUp} className="relative z-10 w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-10 pb-10 text-center">
-          <div className="text-sm md:text-[15px] 3xl:text-base leading-[1.8] text-primary italic max-w-3xl 3xl:max-w-4xl mx-auto">
+          <div className="text-sm md:text-[0.9375rem] 3xl:text-base leading-[1.8] text-primary italic max-w-3xl 3xl:max-w-4xl mx-auto">
             <p className="font-medium">MIAA is proudly located on beautiful Dharug country in Granville, Western Sydney.</p>
             <p>The Museum of Islamic Art Australia (MIAA) respectfully acknowledges the Burramattagal people of the Dharug Nation as the Traditional Owners of the land on which the museum will be located. We pay our respects to Elders past, present and emerging. Sovereignty has never been ceded.</p>
           </div>
@@ -159,7 +159,7 @@ export default function Footer() {
       </div>
 
       {/* Footer content */}
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 mt-10">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 mt-10">
         {/* Desktop: 2-column grid / Mobile: single column */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 3xl:gap-20">
           {/* ISRA info — on mobile shows after links, on desktop shows left */}
@@ -175,7 +175,7 @@ export default function Footer() {
           </div>
 
           {/* Right column — Links, Connect, Newsletter, Copyright */}
-          <div className="order-1 lg:order-2 lg:max-w-[560px] lg:ml-auto lg:mr-4">
+          <div className="order-1 lg:order-2 lg:max-w-[35rem] lg:ml-auto lg:mr-4">
             {/* Links — single column on mobile, 2 columns on sm+ */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6">
               <ul className="flex flex-col gap-3">

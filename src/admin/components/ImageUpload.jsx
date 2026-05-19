@@ -72,7 +72,7 @@ export default function ImageUpload({
 
   return (
     <div>
-      <p className="block text-[10px] tracking-[0.2em] uppercase text-primary/55 mb-1.5">
+      <p className="block text-[0.625rem] tracking-[0.2em] uppercase text-primary/55 mb-1.5">
         {label}
       </p>
 
@@ -85,16 +85,16 @@ export default function ImageUpload({
         >
           <img src={previewUrl} alt="" className="w-full h-48 object-cover block" />
           <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-            <label className="cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 bg-white text-primary text-[10px] tracking-[0.15em] uppercase rounded-sm hover:bg-accent-cream">
-              <UploadCloud size={12} /> Replace
+            <label className="cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 bg-white text-primary text-[0.625rem] tracking-[0.15em] uppercase rounded-sm hover:bg-accent-cream">
+              <UploadCloud className="w-3 h-3" /> Replace
               <input type="file" accept="image/*" onChange={onChange} className="hidden" />
             </label>
             <button
               type="button"
               onClick={clear}
-              className="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary-terra text-white text-[10px] tracking-[0.15em] uppercase rounded-sm hover:bg-secondary-rust"
+              className="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary-terra text-white text-[0.625rem] tracking-[0.15em] uppercase rounded-sm hover:bg-secondary-rust"
             >
-              <X size={12} /> Remove
+              <X className="w-3 h-3" /> Remove
             </button>
           </div>
           {uploading && (
@@ -118,12 +118,12 @@ export default function ImageUpload({
           }`}
         >
           <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center text-primary/60">
-            {uploading ? <ImageIcon size={18} /> : <UploadCloud size={18} />}
+            {uploading ? <ImageIcon className="w-4.5 h-4.5" /> : <UploadCloud className="w-4.5 h-4.5" />}
           </div>
           <p className="text-sm text-primary">
             {uploading ? "Uploading…" : "Drop an image or click to upload"}
           </p>
-          <p className="text-[11px] text-primary/50">PNG / JPG · max ~5 MB</p>
+          <p className="text-[0.6875rem] text-primary/50">PNG / JPG · max ~5 MB</p>
           <input
             type="file"
             accept="image/*"
@@ -135,7 +135,7 @@ export default function ImageUpload({
       )}
 
       {currentKey && (
-        <p className="text-[10px] text-primary/45 break-all mt-2">key: {currentKey}</p>
+        <p className="text-[0.625rem] text-primary/45 break-all mt-2">key: {currentKey}</p>
       )}
       {error && <p className="text-xs text-rose-600 mt-2">{error}</p>}
     </div>

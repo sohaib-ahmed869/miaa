@@ -57,7 +57,7 @@ export default function BlogGridSection({
 
   return (
     <section className={`py-16 md:py-20 3xl:py-28 ${bg}`}>
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Heading row */}
         <motion.div
           {...fadeInUp}
@@ -129,7 +129,7 @@ export default function BlogGridSection({
                     className="inline-flex items-center gap-1.5 text-xs 3xl:text-sm font-semibold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors duration-200 mt-auto"
                   >
                     Read More
-                    <ArrowUpRight size={13} strokeWidth={2.5} />
+                    <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
                   </Link>
                 </article>
                 )
@@ -147,7 +147,7 @@ export default function BlogGridSection({
                 disabled={loading}
                 className="w-8 h-8 sm:w-9 sm:h-9 3xl:w-11 3xl:h-11 flex items-center justify-center bg-secondary-terra text-white rounded hover:bg-secondary-rust transition-all duration-200 hover:scale-105 disabled:opacity-50"
               >
-                <ArrowLeft size={16} />
+                <ArrowLeft className="w-4 h-4" />
               </button>
             )}
             {getPageNumbers().map((p, i) =>
@@ -174,7 +174,7 @@ export default function BlogGridSection({
                 disabled={loading}
                 className="w-8 h-8 sm:w-9 sm:h-9 3xl:w-11 3xl:h-11 flex items-center justify-center bg-secondary-terra text-white rounded hover:bg-secondary-rust transition-all duration-200 hover:scale-105 disabled:opacity-50"
               >
-                <ArrowRight size={16} />
+                <ArrowRight className="w-4 h-4" />
               </button>
             )}
           </div>

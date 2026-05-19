@@ -5,7 +5,7 @@ import CTAButton from "../../ui/Button"
 export default function AboutUsSection() {
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-accent-cream">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <motion.div {...fadeInUp} className="max-w-3xl mx-auto text-center lg:text-justify lg:ml-[30%]">
           <p className="text-lg md:text-xl lg:text-2xl 3xl:text-3xl font-medium text-primary leading-relaxed">
             The Museum of Islamic Art Australia (MIAA) is an initiative of the

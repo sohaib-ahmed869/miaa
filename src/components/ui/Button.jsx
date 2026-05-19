@@ -18,7 +18,7 @@ export default function CTAButton({
 }) {
   const base = clsx(
     "group relative inline-flex items-center gap-1.5 px-5 py-2.5",
-    "bg-secondary-terra text-white font-barlow text-[11px] 3xl:text-sm font-semibold",
+    "bg-secondary-terra text-white font-barlow text-[0.6875rem] 3xl:text-sm font-semibold",
     "tracking-[0.15em] uppercase rounded-sm overflow-hidden 3xl:px-7 3xl:py-3.5 3xl:gap-2",
     "transition-colors duration-200",
     className,
@@ -34,16 +34,16 @@ export default function CTAButton({
     <>
       <span className="relative z-10">{children}</span>
       {showArrow && (
-        <span className="relative z-10 inline-flex overflow-hidden w-[13px] h-[13px] 3xl:w-[16px] 3xl:h-[16px]">
+        <span className="relative z-10 inline-flex overflow-hidden w-[13px] h-[13px] 3xl:w-4 3xl:h-4">
           {/* Default arrow — slides out top-right on hover */}
           <Icon
-            size={13}
+            className="w-3.5 h-3.5"
             strokeWidth={2.5}
             className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full"
           />
           {/* Clone arrow — slides in from bottom-left on hover */}
           <Icon
-            size={13}
+            className="w-3.5 h-3.5"
             strokeWidth={2.5}
             className="absolute inset-0 w-full h-full -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"
           />

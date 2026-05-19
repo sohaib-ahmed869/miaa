@@ -18,7 +18,7 @@ const blogImages = {
 export default function InsightsSection() {
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-accent-cream">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Header */}
         <motion.div
           {...fadeInUp}
@@ -38,7 +38,7 @@ export default function InsightsSection() {
           {BLOG_POSTS.map((post, i) => (
             <motion.article key={i} {...staggerItem} className="group md:px-6 first:md:pl-0 last:md:pr-0">
               {/* Image */}
-              <div className="h-52 md:h-56 3xl:h-80 rounded-lg overflow-hidden mb-4">
+              <div className="h-52 md:h-56 3xl:h-[16vw] rounded-lg overflow-hidden mb-4">
                 <img
                   src={blogImages[post.image]}
                   alt={post.title}
@@ -58,7 +58,7 @@ export default function InsightsSection() {
                 className="inline-flex items-center gap-1 text-xs 3xl:text-sm font-bold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
               >
                 Read More
-                <ArrowUpRight size={12} strokeWidth={2.5} />
+                <ArrowUpRight className="w-3 h-3" strokeWidth={2.5} />
               </Link>
             </motion.article>
           ))}

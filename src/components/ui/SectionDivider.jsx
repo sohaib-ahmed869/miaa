@@ -1,6 +1,6 @@
 function QuatrefoilIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 100 100" fill="#DD613E" className="3xl:w-[18px] 3xl:h-[18px]">
+    <svg viewBox="0 0 100 100" fill="#DD613E" className="w-3.5 h-3.5">
       <circle cx="50" cy="22" r="25" />
       <circle cx="50" cy="78" r="25" />
       <circle cx="22" cy="50" r="25" />
@@ -20,23 +20,23 @@ export default function SectionDivider({
   const lineColor = variant === "dark" ? "#D7B893" : "#38717A"
 
   return (
-    <div className={`w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-8 3xl:pt-10 pb-2 3xl:pb-3 ${bg}`}>
-      <div className="flex items-center gap-2 3xl:gap-3 mb-2">
+    <div className={`w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-8 pb-2 ${bg}`}>
+      <div className="flex items-center gap-2 mb-2">
         <span className="flex-shrink-0">
           <QuatrefoilIcon />
         </span>
         <span
-          className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase"
+          className="text-[0.625rem] font-normal tracking-[0.2em] uppercase"
           style={{ color: textColor }}
         >
           {label}
         </span>
       </div>
       <div
-        className="h-[2px] 3xl:h-[3px] w-full"
+        className="h-[0.125rem] w-full"
         style={{
-          backgroundImage: `radial-gradient(circle, ${lineColor}50 1.5px, transparent 1.5px)`,
-          backgroundSize: "8px 3px",
+          backgroundImage: `radial-gradient(circle, ${lineColor}50 0.09375rem, transparent 0.09375rem)`,
+          backgroundSize: "0.5rem 0.1875rem",
         }}
       />
     </div>

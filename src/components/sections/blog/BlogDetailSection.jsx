@@ -25,7 +25,7 @@ const SHARE_BUTTONS = [
   },
   {
     label: "Copy Link",
-    icon: <Link2 size={14} />,
+    icon: <Link2 className="w-3.5 h-3.5" />,
   },
 ]
 
@@ -72,7 +72,7 @@ export default function BlogDetailSection({ article }) {
     <>
       {/* Hero — teal with centered text */}
       <section className="relative bg-bg-deep pt-28 md:pt-32 pb-0">
-        <div className="max-w-[900px] 3xl:max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 text-center pb-10 md:pb-14">
+        <div className="max-w-[900px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 text-center pb-10 md:pb-14">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function BlogDetailSection({ article }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-[1100px] 3xl:max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24"
+          className="max-w-[1100px] 3xl:max-w-[2200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24"
         >
           <img
             src={article.imageUrl || blogImages[article.image]}
@@ -116,7 +116,7 @@ export default function BlogDetailSection({ article }) {
 
       {/* Body + Share */}
       <section className="bg-bg py-16 md:py-20">
-        <div className="max-w-[1100px] 3xl:max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+        <div className="max-w-[1100px] 3xl:max-w-[2200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
             {/* Body */}
             <motion.div {...fadeInUp} className="flex flex-col gap-6">
@@ -177,15 +177,15 @@ export default function BlogDetailSection({ article }) {
             <circle cx="78" cy="50" r="25" />
             <rect x="22" y="22" width="56" height="56" rx="4" fill="#DD613E" />
           </svg>
-          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
+          <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
             Related Post
           </span>
         </div>
         <div
           className="h-[2px] w-full"
           style={{
-            backgroundImage: "radial-gradient(circle, #38717A50 1.5px, transparent 1.5px)",
-            backgroundSize: "8px 3px",
+            backgroundImage: "radial-gradient(circle, #38717A50 0.09375rem, transparent 0.09375rem)",
+            backgroundSize: "0.5rem 0.1875rem",
             height: "2px",
           }}
         />
@@ -193,7 +193,7 @@ export default function BlogDetailSection({ article }) {
 
       {/* Related Posts */}
       <section className="bg-bg py-16 md:py-20">
-        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+        <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
           <motion.div
             key={relPage}
             initial={{ opacity: 0, x: 20 }}
@@ -228,7 +228,7 @@ export default function BlogDetailSection({ article }) {
                     className="inline-flex items-center gap-1.5 text-xs 3xl:text-sm font-semibold tracking-wider uppercase text-secondary-terra hover:text-secondary-rust transition-colors duration-200 mt-auto"
                   >
                     Read More
-                    <ArrowUpRight size={13} strokeWidth={2.5} />
+                    <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
                   </Link>
                 </article>
               )
@@ -243,14 +243,14 @@ export default function BlogDetailSection({ article }) {
                 disabled={relPage === 0}
                 className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-all duration-200 disabled:opacity-30"
               >
-                <ArrowLeft size={18} />
+                <ArrowLeft className="w-4.5 h-4.5" />
               </button>
               <button
                 onClick={() => setRelPage((p) => Math.min(relPageCount - 1, p + 1))}
                 disabled={relPage === relPageCount - 1}
                 className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-all duration-200 disabled:opacity-30"
               >
-                <ArrowRight size={18} />
+                <ArrowRight className="w-4.5 h-4.5" />
               </button>
             </div>
           )}

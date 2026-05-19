@@ -42,8 +42,8 @@ export default function Navbar() {
         className="absolute top-20 md:top-24 3xl:top-28 left-6 md:left-10 lg:left-16 3xl:left-24 right-3 md:right-4 h-[2px] z-40 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #6CA1AA50 1.5px, transparent 1.5px)",
-          backgroundSize: "8px 3px",
+            "radial-gradient(circle, #6CA1AA50 0.09375rem, transparent 0.09375rem)",
+          backgroundSize: "0.5rem 0.1875rem",
         }}
       />
 
@@ -56,12 +56,12 @@ export default function Navbar() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              className="group pointer-events-auto hidden md:inline-flex items-center gap-1.5 3xl:gap-2 px-4 py-3 3xl:px-6 3xl:py-3.5 bg-white/15 backdrop-blur-sm text-white font-barlow text-[11px] 3xl:text-sm font-semibold tracking-[0.15em] uppercase rounded-sm overflow-hidden relative transition-colors duration-200 border border-white/20"
+              className="group pointer-events-auto hidden md:inline-flex items-center gap-1.5 3xl:gap-2 px-4 py-3 3xl:px-6 3xl:py-3.5 bg-white/15 backdrop-blur-sm text-white font-barlow text-[0.6875rem] 3xl:text-sm font-semibold tracking-[0.15em] uppercase rounded-sm overflow-hidden relative transition-colors duration-200 border border-white/20"
             >
               <span className="relative z-10">Gala Dinner</span>
-              <span className="relative z-10 inline-flex overflow-hidden w-[13px] h-[13px] 3xl:w-[16px] 3xl:h-[16px]">
-                <ArrowUpRight size={13} strokeWidth={2.5} className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full" />
-                <ArrowUpRight size={13} strokeWidth={2.5} className="absolute inset-0 w-full h-full -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
+              <span className="relative z-10 inline-flex overflow-hidden w-[13px] h-[13px] 3xl:w-4 3xl:h-4">
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full" />
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} className="absolute inset-0 w-full h-full -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
               </span>
               <span className="absolute inset-0 bg-primary/80 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
             </MotionLink>
@@ -70,7 +70,7 @@ export default function Navbar() {
             Follow Our Journey
           </CTAButton>
           {/* Reserve the hamburger slot here so the CTAs sit left of it at the top of the page */}
-          <span className="w-[80px] h-[48px] 3xl:w-[100px] 3xl:h-[56px]" aria-hidden="true" />
+          <span className="w-[80px] h-[48px] 3xl:w-28 3xl:h-16" aria-hidden="true" />
         </div>
       </div>
 
@@ -88,7 +88,7 @@ export default function Navbar() {
               viewBox="0 0 34 14"
               fill="none"
               aria-hidden="true"
-              className="3xl:w-[42px] 3xl:h-[18px]"
+              className="3xl:w-10 3xl:h-5"
             >
               <rect x="0" y="1" width="34" height="3" rx="1.5" fill="#C15C45" />
               <rect x="0" y="10" width="34" height="3" rx="1.5" fill="#C15C45" />
@@ -123,7 +123,8 @@ export default function Navbar() {
                   <img
                     src={smallLogo}
                     alt="MIAA"
-                    className="h-6 sm:h-8 md:h-10 3xl:h-14 w-auto"
+                    className="h-auto"
+                    style={{ width: "clamp(60px, 5vw, 200px)" }}
                   />
                 </Link>
 
@@ -142,7 +143,7 @@ export default function Navbar() {
                       viewBox="0 0 34 14"
                       fill="none"
                       aria-hidden="true"
-                      className="3xl:w-[42px] 3xl:h-[18px]"
+                      className="3xl:w-10 3xl:h-5"
                     >
                       <line
                         x1="2"
@@ -173,8 +174,8 @@ export default function Navbar() {
               className="relative z-10 mx-4 sm:mx-6 md:mx-10 lg:mx-16 3xl:mx-24 h-[2px] 3xl:h-[3px]"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle, rgba(255,255,255,0.25) 1.5px, transparent 1.5px)",
-                backgroundSize: "8px 3px",
+                  "radial-gradient(circle, rgba(255,255,255,0.25) 0.09375rem, transparent 0.09375rem)",
+                backgroundSize: "0.5rem 0.1875rem",
               }}
             />
 
@@ -199,7 +200,7 @@ export default function Navbar() {
                           <Link
                             to={link.path}
                             onClick={() => setMenuOpen(false)}
-                            className={`nav-link group relative flex items-center gap-3 py-2 md:py-2.5 text-2xl md:text-3xl lg:text-[34px] 3xl:text-[42px] font-normal tracking-tight transition-colors duration-200 ${
+                            className={`nav-link group relative flex items-center gap-3 py-2 md:py-2.5 text-2xl md:text-3xl lg:text-[2.125rem] 3xl:text-[2.625rem] font-normal tracking-tight transition-colors duration-200 ${
                               isActive
                                 ? "text-secondary-terra"
                                 : "text-white/85 hover:text-secondary-terra"
@@ -218,7 +219,7 @@ export default function Navbar() {
                                 height="14"
                                 viewBox="0 0 100 100"
                                 fill="#C15C45"
-                                className="3xl:w-[18px] 3xl:h-[18px]"
+                                className="3xl:w-5 3xl:h-5"
                               >
                                 <circle cx="50" cy="22" r="25" />
                                 <circle cx="50" cy="78" r="25" />
@@ -254,7 +255,7 @@ export default function Navbar() {
                       href={s.url}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="text-sm md:text-[15px] 3xl:text-lg text-white/85 hover:text-accent-wheat transition-colors"
+                      className="text-sm md:text-[0.9375rem] 3xl:text-lg text-white/85 hover:text-accent-wheat transition-colors"
                     >
                       {s.label}
                     </a>

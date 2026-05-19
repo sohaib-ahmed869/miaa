@@ -30,7 +30,7 @@ function BannerStrip({ text, count = 30 }) {
       {Array.from({ length: count }).map((_, i) => (
         <span
           key={i}
-          className="inline-flex items-center gap-2 text-white font-aeonik text-[13px] 3xl:text-base font-normal tracking-wide flex-shrink-0"
+          className="inline-flex items-center gap-2 text-white font-aeonik text-[0.8125rem] 3xl:text-base font-normal tracking-wide flex-shrink-0"
         >
           <QuatrefoilIcon />
           {text}
@@ -43,7 +43,7 @@ function BannerStrip({ text, count = 30 }) {
 export default function SMWFSection() {
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg overflow-hidden">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 items-stretch">
           {/* Left content */}
           <motion.div {...fadeInLeft} className="pr-0 lg:pr-12 py-4">
@@ -80,7 +80,7 @@ export default function SMWFSection() {
           {/* Right panel */}
           <motion.div
             {...fadeInRight}
-            className="relative min-h-[480px] md:min-h-[540px] 3xl:min-h-[680px] rounded-lg overflow-hidden"
+            className="relative min-h-[480px] md:min-h-[33.75rem] 3xl:min-h-[35vw] rounded-lg overflow-hidden"
           >
             {/* Teal base */}
             <div className="absolute inset-0 bg-primary" />
@@ -104,7 +104,7 @@ export default function SMWFSection() {
                 {carouselImages.map((src, i) => (
                   <div
                     key={i}
-                    className="flex-shrink-0 w-[270px] md:w-[330px] 3xl:w-[400px] rounded-lg overflow-hidden border-[3px] border-white/90"
+                    className="flex-shrink-0 w-[270px] md:w-[20.625rem] 3xl:w-[16vw] rounded-lg overflow-hidden border-[3px] border-white/90"
                   >
                     <img
                       src={src}

@@ -29,7 +29,7 @@ export default function CommunityCultureSection() {
       <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-8 md:mb-10">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Community Engagement
           </span>
         </div>
@@ -37,27 +37,27 @@ export default function CommunityCultureSection() {
           className="h-[2px] w-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(56,113,122,0.4) 1.5px, transparent 1.5px)",
-            backgroundSize: "8px 3px",
+              "radial-gradient(circle, rgba(56,113,122,0.4) 0.09375rem, transparent 0.09375rem)",
+            backgroundSize: "0.5rem 0.1875rem",
           }}
         />
       </div>
 
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
           {/* Left — heading + intro + 2-col paragraphs + full-width paragraph */}
           <motion.div {...fadeInLeft}>
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight mb-5">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.625rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight mb-5">
               At the Heart of Community and Culture
             </h2>
 
-            <p className="text-base md:text-[17px] 3xl:text-xl text-primary leading-relaxed mb-10 max-w-2xl 3xl:max-w-3xl">
+            <p className="text-base md:text-[1.0625rem] 3xl:text-xl text-primary leading-relaxed mb-10 max-w-2xl 3xl:max-w-3xl">
               Community engagement is at the heart of MIAA. The team behind the
               establishment of the Museum has welcomed thousands of community
               members over the course of more than 15 years.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 text-[13px] md:text-sm 3xl:text-base text-primary leading-relaxed mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 text-[0.8125rem] md:text-sm 3xl:text-base text-primary leading-relaxed mb-8">
               <p>
                 ISRA was established in 2009 as a product of community dialogue
                 and service, quickly becoming a prime organisation for Muslim
@@ -75,7 +75,7 @@ export default function CommunityCultureSection() {
               </p>
             </div>
 
-            <p className="text-[13px] md:text-sm 3xl:text-base text-primary leading-relaxed max-w-3xl">
+            <p className="text-[0.8125rem] md:text-sm 3xl:text-base text-primary leading-relaxed max-w-3xl">
               MIAA is committed to enhancing audience experience through a
               thoughtfully curated selection of community engagement
               activities, public programs, events and community networking

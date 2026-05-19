@@ -24,12 +24,12 @@ export default function PreviousEventsSection() {
 
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <motion.div {...fadeInUp}>
-          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] 3xl:grid-cols-[300px_1fr] gap-8 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-[15rem_1fr] gap-8 md:gap-16">
             {/* Left — heading */}
             <div>
-              <h3 className="text-2xl md:text-[28px] 3xl:text-[2.4rem] font-medium text-primary leading-tight">
+              <h3 className="text-2xl md:text-[1.75rem] 3xl:text-[2.4rem] font-medium text-primary leading-tight">
                 Previous Events
               </h3>
             </div>
@@ -45,7 +45,7 @@ export default function PreviousEventsSection() {
                     className="cursor-pointer py-4 3xl:py-5 relative"
                   >
                     <p
-                      className={`text-[15px] md:text-lg 3xl:text-xl font-medium transition-colors duration-200 ${
+                      className={`text-[0.9375rem] md:text-lg 3xl:text-xl font-medium transition-colors duration-200 ${
                         hoveredPrev === i
                           ? "text-secondary-terra"
                           : "text-primary"
@@ -62,7 +62,7 @@ export default function PreviousEventsSection() {
                           animate={{ opacity: 1, scale: 1, rotate: 3 }}
                           exit={{ opacity: 0, scale: 0.9 }}
                           transition={{ duration: 0.25 }}
-                          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[180px] h-[120px] 3xl:w-[240px] 3xl:h-[160px] rounded overflow-hidden z-10 pointer-events-none shadow-lg"
+                          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[180px] h-[120px] 3xl:w-[12vw] 3xl:h-[8vw] rounded overflow-hidden z-10 pointer-events-none shadow-lg"
                         >
                           <img
                             src={event.imageUrl || event.image}

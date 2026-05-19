@@ -70,7 +70,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
           className="flex justify-end 3xl:pr-[25%]"
         >
-          <p className="text-sm md:text-[15px] 3xl:text-2xl text-accent-cream leading-relaxed max-w-md 3xl:max-w-2xl text-left font-medium">
+          <p className="text-sm md:text-[0.9375rem] text-accent-cream leading-relaxed max-w-md 3xl:max-w-lg text-left font-medium">
             Explore our website to discover information about Australia&apos;s
             first Islamic Museum dedicated to the arts. We invite you to join
             us on this unique journey as we navigate the various stages and

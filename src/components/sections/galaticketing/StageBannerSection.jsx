@@ -11,7 +11,7 @@ export default function StageBannerSection() {
       transition={{ duration: 0.8 }}
       className="w-full bg-bg-deep"
     >
-      <div className="w-full h-[260px] md:h-[380px] lg:h-[440px] 3xl:h-[560px] overflow-hidden">
+      <div className="w-full h-[260px] md:h-[23.75rem] lg:h-[27.5rem] 3xl:h-[33vh] overflow-hidden">
         <img
           src={stageImg}
           alt="Inaugural Gala Dinner — stage performance"

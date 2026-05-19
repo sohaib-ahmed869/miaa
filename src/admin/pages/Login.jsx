@@ -12,15 +12,10 @@ import float2 from "../../assets/images/About/float2.png"
 import ornament1 from "../../assets/images/Homepage/Ornament_1.png"
 
 const floatingIcons = [
-  // Top-right — large quatrefoil
   { src: float2, top: "-4%", right: "-2%", size: "w-36 md:w-48 lg:w-64", parallaxFactor: 1.2, rotate: 0 },
-  // Mid-right — flower ornament
   { src: ornament1, top: "35%", right: "2%", size: "w-20 md:w-28 lg:w-36", parallaxFactor: 0.8, rotate: 12 },
-  // Bottom-right — smaller quatrefoil
   { src: float2, bottom: "6%", right: "5%", size: "w-24 md:w-32 lg:w-44", parallaxFactor: 1.4, rotate: -15 },
-  // Bottom-left — flower
   { src: float1, bottom: "4%", left: "2%", size: "w-28 md:w-36 lg:w-48", parallaxFactor: 1.0, rotate: 0 },
-  // Top-left — small quatrefoil accent
   { src: float2, top: "8%", left: "3%", size: "w-16 md:w-20 lg:w-24", parallaxFactor: 0.6, rotate: 20, opacity: 0.5 },
 ]
 
@@ -60,7 +55,6 @@ export default function Login() {
   const location = useLocation()
   const from = location.state?.from?.pathname || "/admin"
 
-  // Mouse-tracking parallax (same system as Islamic Art section)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 })
@@ -101,7 +95,7 @@ export default function Login() {
     <div className="relative min-h-screen bg-bg-deep text-accent-cream flex items-center justify-center px-4 overflow-hidden">
       {/* Subtle radial glow behind form */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-bg-teal/15 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[37.5rem] h-[37.5rem] bg-bg-teal/15 rounded-full blur-[120px]" />
       </div>
 
       {/* Floating ornament icons with cursor-follow parallax */}
@@ -123,8 +117,8 @@ export default function Login() {
         {/* Section label */}
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-2">
-            <Quatrefoil size={11} />
-            <span className="text-[10px] font-normal tracking-[0.25em] uppercase text-secondary-terra">
+            <Quatrefoil className="w-3 h-3" />
+            <span className="text-[0.625rem] font-normal tracking-[0.25em] uppercase text-secondary-terra">
               CMS Admin
             </span>
           </div>
@@ -157,7 +151,7 @@ export default function Login() {
         >
           {/* Email field */}
           <div className="mb-6">
-            <label className="block text-[10px] tracking-[0.2em] uppercase text-primary/50 mb-2 font-barlow font-semibold">
+            <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-primary/50 mb-2 font-barlow font-semibold">
               Email
             </label>
             <div
@@ -168,9 +162,8 @@ export default function Login() {
               }`}
             >
               <Mail
-                size={16}
                 strokeWidth={1.8}
-                className={`flex-shrink-0 transition-colors duration-300 ${
+                className={`flex-shrink-0 w-4 h-4 transition-colors duration-300 ${
                   focusedField === "email" ? "text-secondary-terra" : "text-primary/30"
                 }`}
               />
@@ -190,7 +183,7 @@ export default function Login() {
 
           {/* Password field */}
           <div className="mb-8">
-            <label className="block text-[10px] tracking-[0.2em] uppercase text-primary/50 mb-2 font-barlow font-semibold">
+            <label className="block text-[0.625rem] tracking-[0.2em] uppercase text-primary/50 mb-2 font-barlow font-semibold">
               Password
             </label>
             <div
@@ -201,9 +194,8 @@ export default function Login() {
               }`}
             >
               <Lock
-                size={16}
                 strokeWidth={1.8}
-                className={`flex-shrink-0 transition-colors duration-300 ${
+                className={`flex-shrink-0 w-4 h-4 transition-colors duration-300 ${
                   focusedField === "password" ? "text-secondary-terra" : "text-primary/30"
                 }`}
               />
@@ -224,7 +216,7 @@ export default function Login() {
                 tabIndex={-1}
                 className="flex-shrink-0 text-primary/30 hover:text-primary/60 transition-colors duration-200"
               >
-                {showPassword ? <EyeOff size={16} strokeWidth={1.8} /> : <Eye size={16} strokeWidth={1.8} />}
+                {showPassword ? <EyeOff strokeWidth={1.8} className="w-4 h-4" /> : <Eye strokeWidth={1.8} className="w-4 h-4" />}
               </button>
             </div>
           </div>
@@ -248,18 +240,16 @@ export default function Login() {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             type="submit"
             disabled={busy}
-            className="group relative w-full inline-flex items-center justify-center gap-1.5 px-6 py-3.5 bg-primary disabled:opacity-60 text-white font-barlow text-[11px] font-semibold tracking-[0.15em] uppercase rounded-sm overflow-hidden"
+            className="group relative w-full inline-flex items-center justify-center gap-1.5 px-6 py-3.5 bg-primary disabled:opacity-60 text-white font-barlow text-[0.6875rem] font-semibold tracking-[0.15em] uppercase rounded-sm overflow-hidden"
           >
             <span className="relative z-10">{busy ? "Signing in…" : "Sign in"}</span>
             {!busy && (
-              <span className="relative z-10 inline-flex overflow-hidden w-[13px] h-[13px]">
+              <span className="relative z-10 inline-flex overflow-hidden w-3.5 h-3.5">
                 <ArrowUpRight
-                  size={13}
                   strokeWidth={2.5}
                   className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full"
                 />
                 <ArrowUpRight
-                  size={13}
                   strokeWidth={2.5}
                   className="absolute inset-0 w-full h-full -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"
                 />

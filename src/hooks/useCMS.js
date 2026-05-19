@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 /**
  * Fetch CMS data with a static fallback. If the backend is unreachable
@@ -8,16 +8,17 @@ export function useCMS(fetcher, fallback) {
   const [data, setData] = useState(fallback)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const fetcherRef = useRef(fetcher)
+  fetcherRef.current = fetcher
 
   useEffect(() => {
-    let cancelled = false
+    const controller = new AbortController()
     setLoading(true)
-    fetcher()
+
+    fetcherRef.current()
       .then((result) => {
-        if (cancelled) return
+        if (controller.signal.aborted) return
         if (Array.isArray(result) && result.length === 0) {
-          // Backend has no entries yet — keep showing the static fallback so the
-          // site doesn't look empty until the admin adds content.
           setData(fallback)
         } else {
           setData(result)
@@ -25,16 +26,15 @@ export function useCMS(fetcher, fallback) {
         setError(null)
       })
       .catch((err) => {
-        if (cancelled) return
+        if (controller.signal.aborted) return
         setError(err)
         setData(fallback)
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        if (!controller.signal.aborted) setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
+
+    return () => controller.abort()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

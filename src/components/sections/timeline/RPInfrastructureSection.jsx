@@ -27,7 +27,7 @@ export default function RPInfrastructureSection() {
       <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-12">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Project Management
           </span>
         </div>
@@ -35,13 +35,13 @@ export default function RPInfrastructureSection() {
           className="h-[2px] w-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(56,113,122,0.4) 1.5px, transparent 1.5px)",
-            backgroundSize: "8px 3px",
+              "radial-gradient(circle, rgba(56,113,122,0.4) 0.09375rem, transparent 0.09375rem)",
+            backgroundSize: "0.5rem 0.1875rem",
           }}
         />
       </div>
 
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left — photo */}
           <motion.div {...fadeInLeft}>
@@ -56,25 +56,25 @@ export default function RPInfrastructureSection() {
 
           {/* Right — heading + body paragraphs */}
           <motion.div {...fadeInRight} className="flex flex-col gap-5">
-            <h2 className="text-3xl md:text-4xl lg:text-[36px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-[1.1] mb-2">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.25rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-[1.1] mb-2">
               About RP Infrastructure
             </h2>
 
-            <p className="text-[13px] md:text-sm 3xl:text-lg text-primary leading-relaxed">
+            <p className="text-[0.8125rem] md:text-sm 3xl:text-lg text-primary leading-relaxed">
               After a rigorous selection process, the project management
               contract was awarded to RP Infrastructure, a highly reputable
               and experienced project management team with a history of
               managing major cultural infrastructure projects.
             </p>
 
-            <p className="text-[13px] md:text-sm 3xl:text-lg text-primary leading-relaxed">
+            <p className="text-[0.8125rem] md:text-sm 3xl:text-lg text-primary leading-relaxed">
               RP Infrastructure specialises in delivering total solutions
               through effective planning and project management methodologies.
               This way we help our clients minimise risk and deliver the right
               outcomes for each and every project.
             </p>
 
-            <p className="text-[13px] md:text-sm 3xl:text-lg text-primary leading-relaxed">
+            <p className="text-[0.8125rem] md:text-sm 3xl:text-lg text-primary leading-relaxed">
               RPI, in collaboration with our working committees, will manage
               the construction of the museum. Led by RPI Executive Director
               Chris Crick, with team members Paul van der Plaat (Project

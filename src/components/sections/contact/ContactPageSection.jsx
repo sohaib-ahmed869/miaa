@@ -85,14 +85,14 @@ export default function ContactPageSection() {
 
   return (
     <section className="relative bg-bg-deep pt-28 md:pt-32 pb-16 md:pb-20">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left — Heading + intro + connect */}
           <motion.div {...fadeInLeft}>
-            <h1 className="text-3xl md:text-4xl lg:text-[44px] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-[4.5rem] font-medium text-accent-cream tracking-tight leading-tight">
               Connect With the Museum
             </h1>
-            <p className="mt-5 text-sm md:text-[15px] 3xl:text-lg text-accent-cream/85 leading-relaxed max-w-md 3xl:max-w-xl">
+            <p className="mt-5 text-sm md:text-[0.9375rem] 3xl:text-lg text-accent-cream/85 leading-relaxed max-w-md 3xl:max-w-xl">
               We&apos;d love to hear from you. Whether you&apos;d like to learn
               more about the Museum of Islamic Art Australia, explore
               partnership opportunities, or support our journey, our team is

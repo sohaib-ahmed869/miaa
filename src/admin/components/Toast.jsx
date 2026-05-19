@@ -36,9 +36,9 @@ export function ToastProvider({ children }) {
               }`}
             >
               {t.type === "error" ? (
-                <AlertCircle size={18} className="mt-0.5 text-rose-500" />
+                <AlertCircle className="w-4.5 h-4.5 mt-0.5 text-rose-500" />
               ) : (
-                <CheckCircle2 size={18} className="mt-0.5 text-accent-wheat" />
+                <CheckCircle2 className="w-4.5 h-4.5 mt-0.5 text-accent-wheat" />
               )}
               <p className="flex-1 text-sm leading-snug">{t.message}</p>
               <button
@@ -46,7 +46,7 @@ export function ToastProvider({ children }) {
                 className="opacity-60 hover:opacity-100"
                 aria-label="Dismiss"
               >
-                <X size={14} />
+                <X className="w-3.5 h-3.5" />
               </button>
             </motion.div>
           ))}

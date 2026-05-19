@@ -96,23 +96,23 @@ export default function ContactAdmin() {
               >
                 <div className="flex-1 min-w-0">
                   <p className="text-primary text-sm font-medium truncate">{s.fullName}</p>
-                  <p className="text-[12px] text-primary/55 truncate">
+                  <p className="text-[0.75rem] text-primary/55 truncate">
                     {s.email}
                     {s.topic ? ` · ${s.topic}` : ""}
                   </p>
                 </div>
                 <span
-                  className={`text-[10px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm ${
+                  className={`text-[0.625rem] tracking-[0.2em] uppercase px-2 py-1 rounded-sm ${
                     STATUS_STYLES[s.status] || ""
                   }`}
                 >
                   {s.status.replace("_", " ")}
                 </span>
-                <span className="text-[10px] tracking-[0.15em] uppercase text-primary/40 w-32 text-right">
+                <span className="text-[0.625rem] tracking-[0.15em] uppercase text-primary/40 w-32 text-right">
                   {new Date(s.createdAt).toLocaleDateString()}
                 </span>
                 <ChevronDown
-                  size={14}
+                  className="w-3.5 h-3.5"
                   strokeWidth={2}
                   className={`text-primary/40 transition-transform duration-200 ${
                     open === s._id ? "rotate-180" : ""
@@ -130,7 +130,7 @@ export default function ContactAdmin() {
                     className="overflow-hidden bg-accent-cream/50 border-t border-primary/8"
                   >
                     <div className="px-5 py-4">
-                      <p className="text-[10px] tracking-[0.2em] uppercase text-primary/55 mb-1">
+                      <p className="text-[0.625rem] tracking-[0.2em] uppercase text-primary/55 mb-1">
                         Message
                       </p>
                       <p className="whitespace-pre-wrap text-sm text-primary leading-relaxed">
@@ -149,15 +149,15 @@ export default function ContactAdmin() {
                         </div>
                         <a
                           href={`mailto:${s.email}`}
-                          className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
+                          className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
                         >
                           Reply by email
                         </a>
                         <button
                           onClick={() => remove(s._id)}
-                          className="ml-auto inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
+                          className="ml-auto inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
                         >
-                          <Trash2 size={11} /> Delete
+                          <Trash2 className="w-3 h-3" /> Delete
                         </button>
                       </div>
                     </div>

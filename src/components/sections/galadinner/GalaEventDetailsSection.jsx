@@ -16,11 +16,11 @@ export default function GalaEventDetailsSection() {
       </div>
 
       {/* Section divider */}
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto">
         <SectionDivider label="Event" bg="bg-transparent" variant="dark" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-12 md:py-16">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-12 md:py-16">
         {/* Top row — Event details + Date/Time */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-12">
           {/* Left — Heading + description */}
@@ -49,13 +49,13 @@ export default function GalaEventDetailsSection() {
 
             <div className="flex gap-8 md:gap-16">
               <div>
-                <p className="text-[11px] 3xl:text-sm tracking-[0.2em] uppercase text-white/50 mb-1">Arrival Reception</p>
+                <p className="text-[0.6875rem] 3xl:text-sm tracking-[0.2em] uppercase text-white/50 mb-1">Arrival Reception</p>
                 <p className="font-display text-2xl sm:text-3xl md:text-4xl 3xl:text-[3.2rem] font-medium tracking-tight leading-none gala-heading-light">
                   6:00PM
                 </p>
               </div>
               <div>
-                <p className="text-[11px] 3xl:text-sm tracking-[0.2em] uppercase text-white/50 mb-1">Dinner Commences</p>
+                <p className="text-[0.6875rem] 3xl:text-sm tracking-[0.2em] uppercase text-white/50 mb-1">Dinner Commences</p>
                 <p className="font-display text-2xl sm:text-3xl md:text-4xl 3xl:text-[3.2rem] font-medium tracking-tight leading-none gala-heading-light">
                   7:00PM
                 </p>
@@ -65,9 +65,9 @@ export default function GalaEventDetailsSection() {
         </div>
 
         {/* Bottom row — Venue + Ticket */}
-        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-4 items-stretch">
           {/* Left — Venue with mask image */}
-          <motion.div {...fadeInLeft} className="relative rounded-lg overflow-hidden h-auto min-h-[260px] md:h-[260px] 3xl:h-[360px]">
+          <motion.div {...fadeInLeft} className="relative rounded-lg overflow-hidden min-h-[16.25rem]">
             {/* Mask image background */}
             <div className="absolute inset-0">
               <img src={maskImage} alt="Kaldor Hall" className="w-full h-full object-cover" />
@@ -91,16 +91,16 @@ export default function GalaEventDetailsSection() {
                 href="https://maps.google.com/?q=Art+Gallery+of+New+South+Wales+Sydney"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1 text-[11px] 3xl:text-sm font-bold tracking-[0.15em] uppercase text-white hover:text-accent-wheat transition-colors"
+                className="inline-flex items-center gap-1 text-[0.6875rem] 3xl:text-sm font-bold tracking-[0.15em] uppercase text-white hover:text-accent-wheat transition-colors"
               >
                 Open Maps
-                <ArrowUpRight size={12} strokeWidth={2.5} />
+                <ArrowUpRight className="w-3 h-3" strokeWidth={2.5} />
               </a>
             </div>
           </motion.div>
 
           {/* Right — Ticket info */}
-          <motion.div {...fadeInRight} className="rounded-lg p-6 md:p-8 3xl:p-10 flex flex-col justify-between h-auto md:h-[260px] 3xl:h-[360px]" style={{ backgroundColor: "#F3EFEB" }}>
+          <motion.div {...fadeInRight} className="rounded-lg p-6 md:p-8 3xl:p-10 flex flex-col justify-between" style={{ backgroundColor: "#F3EFEB" }}>
             <div>
               <h3 className="font-display text-2xl md:text-3xl 3xl:text-4xl font-medium text-primary tracking-wide uppercase mb-4">
                 Ticket

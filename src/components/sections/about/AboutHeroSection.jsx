@@ -7,11 +7,11 @@ export default function AboutHeroSection() {
     <section className="relative bg-bg-deep overflow-hidden">
       {/* Dotted divider under navbar — matches the nav overlay style */}
       <div
-        className="absolute top-20 md:top-24 left-4 sm:left-6 md:left-10 lg:left-16 right-4 sm:right-6 md:right-10 lg:right-16 h-[2px] pointer-events-none"
+        className="absolute top-20 md:top-24 3xl:top-28 left-4 sm:left-6 md:left-10 lg:left-16 3xl:left-24 right-4 sm:right-6 md:right-10 lg:right-16 h-[2px] pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(215,184,147,0.4) 1.5px, transparent 1.5px)",
-          backgroundSize: "8px 3px",
+            "radial-gradient(circle, rgba(215,184,147,0.4) 0.09375rem, transparent 0.09375rem)",
+          backgroundSize: "0.5rem 0.1875rem",
         }}
       />
 
@@ -37,7 +37,7 @@ export default function AboutHeroSection() {
           transition={{ duration: 1, delay: 0.6 }}
           className="w-full"
         >
-          <div className="w-full h-[420px] md:h-[420px] lg:h-[520px] 3xl:h-[700px] overflow-hidden">
+          <div className="w-full h-[420px] md:h-[26.25rem] lg:h-[32.5rem] 3xl:h-[45vh] overflow-hidden">
             <img
               src={heroImg}
               alt="Audience at MIAA event"

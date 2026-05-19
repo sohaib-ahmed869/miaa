@@ -45,7 +45,7 @@ export default function ContactSection() {
 
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg-deep">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left - Content */}
           <motion.div {...fadeInLeft}>

@@ -89,7 +89,7 @@ export default function BlogDetail() {
     return (
       <section className="min-h-screen flex items-center justify-center bg-bg-deep px-6">
         <div className="text-center">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-accent-wheat mb-3">404</p>
+          <p className="text-[0.625rem] tracking-[0.3em] uppercase text-accent-wheat mb-3">404</p>
           <h1 className="text-3xl md:text-4xl text-accent-cream mb-4">
             We couldn&apos;t find that post.
           </h1>

@@ -104,7 +104,7 @@ export default function TicketHeroSection() {
       </div>
 
       {/* Background mask at bottom-left — extends into next section */}
-      <div className="absolute -bottom-32 md:-bottom-48 lg:-bottom-64 left-0 w-[400px] md:w-[500px] lg:w-[600px] 3xl:w-[800px] pointer-events-none z-[5]">
+      <div className="absolute -bottom-32 md:-bottom-48 lg:-bottom-64 left-0 w-[400px] md:w-[31.25rem] lg:w-[37.5rem] 3xl:w-[25vw] pointer-events-none z-[5]">
         <img
           src={bgMask}
           alt=""
@@ -112,7 +112,7 @@ export default function TicketHeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-16 md:pb-20">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 md:pt-32 pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-16 items-start">
           {/* Left — heading + pricing */}
           <motion.div {...fadeInLeft}>
@@ -158,7 +158,7 @@ export default function TicketHeroSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Title
                     </label>
                     <div className="relative">
@@ -173,11 +173,11 @@ export default function TicketHeroSection() {
                         <option className="bg-primary text-white" value="Ms">Ms</option>
                         <option className="bg-primary text-white" value="Dr">Dr</option>
                       </select>
-                      <ChevronDown size={14} className="absolute right-0 top-1/2 -translate-y-1/2 text-white/70 pointer-events-none" />
+                      <ChevronDown className="w-3.5 h-3.5 absolute right-0 top-1/2 -translate-y-1/2 text-white/70 pointer-events-none" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       First Name
                     </label>
                     <input
@@ -190,7 +190,7 @@ export default function TicketHeroSection() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Surname
                     </label>
                     <input
@@ -203,7 +203,7 @@ export default function TicketHeroSection() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Post Nominals
                     </label>
                     <input
@@ -218,7 +218,7 @@ export default function TicketHeroSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Email Address
                     </label>
                     <input
@@ -231,7 +231,7 @@ export default function TicketHeroSection() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                    <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                       Mobile Phone Number
                     </label>
                     <input
@@ -246,7 +246,7 @@ export default function TicketHeroSection() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
+                  <label className="block text-[0.6875rem] 3xl:text-sm font-semibold text-white mb-2 uppercase tracking-wider">
                     Dietary Requirements
                   </label>
                   <div className="relative">
@@ -262,11 +262,11 @@ export default function TicketHeroSection() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown size={14} className="absolute right-0 top-1/2 -translate-y-1/2 text-white/70 pointer-events-none" />
+                    <ChevronDown className="w-3.5 h-3.5 absolute right-0 top-1/2 -translate-y-1/2 text-white/70 pointer-events-none" />
                   </div>
                 </div>
 
-                <p className="text-[11px] 3xl:text-sm text-white/70 leading-relaxed">
+                <p className="text-[0.6875rem] 3xl:text-sm text-white/70 leading-relaxed">
                   Note: All dishes are halal and alcohol free. For other dietary requirements please select from the following
                   options.
                 </p>
@@ -285,7 +285,7 @@ export default function TicketHeroSection() {
                           : "border-accent-cream/30 group-hover:border-accent-cream"
                       }`}
                     >
-                      {form.hasGuest && <Check size={14} strokeWidth={3} className="text-white" />}
+                      {form.hasGuest && <Check className="w-3.5 h-3.5" strokeWidth={3} className="text-white" />}
                     </span>
                     <span className="text-sm 3xl:text-base text-white">Add guest(s)</span>
                   </label>
@@ -317,10 +317,10 @@ export default function TicketHeroSection() {
                   <h2 className="text-lg 3xl:text-xl font-semibold text-white mb-2">
                     Access Requirements
                   </h2>
-                  <p className="text-[11px] 3xl:text-sm text-white/80 leading-relaxed mb-3">
+                  <p className="text-[0.6875rem] 3xl:text-sm text-white/80 leading-relaxed mb-3">
                     Accessibility Information
                   </p>
-                  <p className="text-[11px] 3xl:text-sm text-white/70 leading-relaxed mb-4">
+                  <p className="text-[0.6875rem] 3xl:text-sm text-white/70 leading-relaxed mb-4">
                     The AGNSW is a fully accessible building. Please visit the AGNSW Physical Access and Facility page for
                     more details. If you have any further access requirements or need to be present, please specify below.
                   </p>
@@ -335,10 +335,10 @@ export default function TicketHeroSection() {
 
                 {/* Donation */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <p className="text-[11px] 3xl:text-sm font-semibold text-white uppercase tracking-wider mb-1">
+                  <p className="text-[0.6875rem] 3xl:text-sm font-semibold text-white uppercase tracking-wider mb-1">
                     Donation
                   </p>
-                  <p className="text-[11px] 3xl:text-sm text-white/70 mb-4">
+                  <p className="text-[0.6875rem] 3xl:text-sm text-white/70 mb-4">
                     Support the building of MIAA by adding a Donation
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -382,10 +382,10 @@ export default function TicketHeroSection() {
 
                 {/* Buy a Table */}
                 <div className="border-t border-accent-wheat/20 pt-6">
-                  <p className="text-[11px] 3xl:text-sm font-semibold text-white uppercase tracking-wider mb-1">
+                  <p className="text-[0.6875rem] 3xl:text-sm font-semibold text-white uppercase tracking-wider mb-1">
                     Buy a Table
                   </p>
-                  <p className="text-[11px] 3xl:text-sm text-white/70">
+                  <p className="text-[0.6875rem] 3xl:text-sm text-white/70">
                     8 or more tickets? KDare support the museum funds.
                   </p>
                   <button

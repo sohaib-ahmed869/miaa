@@ -28,7 +28,7 @@ export default function JourneySection() {
       <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Project Background
           </span>
         </div>
@@ -36,18 +36,18 @@ export default function JourneySection() {
           className="h-[2px] w-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(56,113,122,0.4) 1.5px, transparent 1.5px)",
-            backgroundSize: "8px 3px",
+              "radial-gradient(circle, rgba(56,113,122,0.4) 0.09375rem, transparent 0.09375rem)",
+            backgroundSize: "0.5rem 0.1875rem",
           }}
         />
       </div>
 
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Heading + intro paragraph */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 mb-12 md:mb-16">
           <motion.h2
             {...fadeInUp}
-            className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-[1.1]"
+            className="text-3xl md:text-4xl lg:text-[2.625rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-[1.1]"
           >
             How the MIAA Journey
             <br />
@@ -56,7 +56,7 @@ export default function JourneySection() {
 
           <motion.p
             {...fadeInUp}
-            className="text-base md:text-[17px] 3xl:text-xl text-primary leading-relaxed font-medium"
+            className="text-base md:text-[1.0625rem] 3xl:text-xl text-primary leading-relaxed font-medium"
           >
             The Museum of Islamic Art Australia is a groundbreaking
             community-led initiative with the vision of establishing a
@@ -94,7 +94,7 @@ export default function JourneySection() {
               />
             </div>
 
-            <div className="flex flex-col gap-5 text-sm md:text-[14px] 3xl:text-base text-primary leading-relaxed max-w-md 3xl:max-w-xl self-end font-medium">
+            <div className="flex flex-col gap-5 text-sm md:text-[0.875rem] 3xl:text-base text-primary leading-relaxed max-w-md 3xl:max-w-xl self-end font-medium">
               <p>
                 Since securing the WestInvest grant, the MIAA has commenced
                 phase one of its operations, focusing on preparatory work for

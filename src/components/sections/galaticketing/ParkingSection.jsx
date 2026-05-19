@@ -62,7 +62,7 @@ export default function ParkingSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left — heading + parking info */}
           <motion.div {...fadeInLeft}>
@@ -103,7 +103,7 @@ export default function ParkingSection() {
               {/* Hover overlay with zoom icon */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                  <ZoomIn size={20} className="text-primary" />
+                  <ZoomIn className="text-primary w-5 h-5" />
                 </span>
               </div>
             </div>
@@ -134,19 +134,19 @@ export default function ParkingSection() {
                   onClick={() => { setZoom((z) => Math.min(z + 0.5, 4)); setDrag({ x: 0, y: 0 }) }}
                   className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
                 >
-                  <ZoomIn size={16} />
+                  <ZoomIn className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => { setZoom((z) => Math.max(z - 0.5, 0.5)); setDrag({ x: 0, y: 0 }) }}
                   className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
                 >
-                  <ZoomOut size={16} />
+                  <ZoomOut className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setMapOpen(false)}
                   className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
                 >
-                  <X size={16} />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function ParkingSection() {
               <img
                 src={mapImg}
                 alt="Map of the area around Art Gallery of NSW with parking locations"
-                className="max-w-none transition-transform duration-150"
+                className="max-h-[80vh] w-auto transition-transform duration-150"
                 draggable={false}
                 style={{
                   transform: `scale(${zoom}) translate(${drag.x / zoom}px, ${drag.y / zoom}px)`,
@@ -170,7 +170,7 @@ export default function ParkingSection() {
 
             {/* Bottom hint */}
             <div className="px-6 md:px-10 py-3 border-t border-accent-wheat/15 text-center">
-              <p className="text-[11px] 3xl:text-sm text-accent-cream/40 tracking-wider">
+              <p className="text-[0.6875rem] 3xl:text-sm text-accent-cream/40 tracking-wider">
                 Drag to pan &middot; Use controls to zoom &middot; Click &times; to close
               </p>
             </div>

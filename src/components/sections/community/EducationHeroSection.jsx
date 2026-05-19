@@ -51,7 +51,7 @@ export default function EducationHeroSection() {
           {...fadeInRight}
           className="bg-bg-deep px-6 md:px-10 lg:px-16 3xl:px-24 lg:pl-12 pt-8 md:pt-10 pb-20 md:pb-32 lg:pb-40 self-stretch"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-[34px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-snug">
+          <h2 className="text-2xl md:text-3xl lg:text-[2.125rem] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-snug">
             Educating the Next
             <br />
             Generation of Thinkers
@@ -69,9 +69,9 @@ export default function EducationHeroSection() {
                 >
                   <span className="w-6 h-6 3xl:w-8 3xl:h-8 rounded-full border border-accent-wheat/60 flex items-center justify-center flex-shrink-0 group-hover:border-accent-wheat transition-colors">
                     {openIndex === i ? (
-                      <Minus size={12} className="text-accent-wheat" />
+                      <Minus className="w-3 h-3 text-accent-wheat" />
                     ) : (
-                      <Plus size={12} className="text-accent-wheat" />
+                      <Plus className="w-3 h-3 text-accent-wheat" />
                     )}
                   </span>
                   <span

@@ -15,7 +15,7 @@ const BENEFITS = [
 export default function MIAAKidsSection() {
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-primary">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left — heading + checklist + button */}
           <motion.div {...fadeInLeft}>
@@ -43,7 +43,7 @@ export default function MIAAKidsSection() {
               ))}
             </motion.ul>
 
-            <p className="text-sm md:text-[15px] 3xl:text-base text-accent-wheat italic mb-8">
+            <p className="text-sm md:text-[0.9375rem] 3xl:text-base text-accent-wheat italic mb-8">
               *Excludes ticketed events
             </p>
 

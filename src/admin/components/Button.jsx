@@ -23,7 +23,7 @@ export default function Button({
   as: Tag = "button",
   ...rest
 }) {
-  const cls = `group inline-flex items-center gap-1.5 px-5 py-2.5 text-[11px] font-semibold tracking-[0.15em] uppercase rounded-sm transition-colors ${variantClass[variant] || ""} ${className}`
+  const cls = `group inline-flex items-center gap-1.5 px-5 py-2.5 text-[0.6875rem] font-semibold tracking-[0.15em] uppercase rounded-sm transition-colors ${variantClass[variant] || ""} ${className}`
   return (
     <motion.span
       whileHover={{ y: -1 }}
@@ -41,7 +41,7 @@ export default function Button({
         {children}
         {withArrow && (
           <ArrowUpRight
-            size={13}
+            className="w-3.5 h-3.5"
             strokeWidth={2.5}
             className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />

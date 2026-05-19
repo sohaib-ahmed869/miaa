@@ -112,7 +112,7 @@ export default function BlogAdmin() {
         subtitle="Manage the MIAA Updates row and the longer-form Blog posts shown on the Updates &amp; Blog page."
         actions={
           <Button onClick={() => open(null)} variant="primary" withArrow>
-            <Plus size={13} strokeWidth={2.5} className="-ml-0.5 mr-0.5" />
+            <Plus className="w-3.5 h-3.5 -ml-0.5 mr-0.5" strokeWidth={2.5} />
             New Post
           </Button>
         }
@@ -142,12 +142,12 @@ export default function BlogAdmin() {
                 {it.coverImageKey ? (
                   <CoverImage imageKey={it.coverImageKey} alt={it.title} />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-primary/30 text-[10px] tracking-[0.2em] uppercase">
+                  <div className="w-full h-full flex items-center justify-center text-primary/30 text-[0.625rem] tracking-[0.2em] uppercase">
                     No Cover
                   </div>
                 )}
                 <span
-                  className={`absolute top-3 left-3 text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm ${
+                  className={`absolute top-3 left-3 text-[0.5625rem] tracking-[0.2em] uppercase px-2 py-1 rounded-sm ${
                     it.published
                       ? "bg-emerald-500/90 text-white"
                       : "bg-white/85 text-primary/70"
@@ -155,17 +155,17 @@ export default function BlogAdmin() {
                 >
                   {it.published ? "Published" : "Draft"}
                 </span>
-                <span className="absolute top-3 right-3 text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm bg-primary/85 text-accent-cream">
+                <span className="absolute top-3 right-3 text-[0.5625rem] tracking-[0.2em] uppercase px-2 py-1 rounded-sm bg-primary/85 text-accent-cream">
                   {it.category}
                 </span>
                 {it.featured && (
-                  <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm bg-accent-wheat text-primary font-semibold">
-                    <Star size={10} fill="currentColor" /> Featured
+                  <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 text-[0.5625rem] tracking-[0.2em] uppercase px-2 py-1 rounded-sm bg-accent-wheat text-primary font-semibold">
+                    <Star className="w-2.5 h-2.5" fill="currentColor" /> Featured
                   </span>
                 )}
               </div>
               <div className="p-4">
-                <p className="text-[10px] tracking-[0.2em] uppercase text-secondary-terra mb-1">
+                <p className="text-[0.625rem] tracking-[0.2em] uppercase text-secondary-terra mb-1">
                   {it.date || (it.publishedAt && new Date(it.publishedAt).toLocaleDateString())}
                 </p>
                 <p className="text-base font-medium text-primary leading-tight mb-1">
@@ -173,22 +173,22 @@ export default function BlogAdmin() {
                 </p>
                 <p className="text-xs text-primary/55 italic">/{it.slug}</p>
                 {it.description && (
-                  <p className="text-[13px] text-primary/75 mt-3 line-clamp-2">
+                  <p className="text-[0.8125rem] text-primary/75 mt-3 line-clamp-2">
                     {it.description}
                   </p>
                 )}
                 <div className="flex gap-2 mt-4 pt-4 border-t border-primary/8">
                   <button
                     onClick={() => open(it)}
-                    className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary hover:text-secondary-terra transition-colors"
+                    className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary hover:text-secondary-terra transition-colors"
                   >
-                    <Pencil size={11} /> Edit
+                    <Pencil className="w-3 h-3" /> Edit
                   </button>
                   <button
                     onClick={() => remove(it._id)}
-                    className="ml-auto inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
+                    className="ml-auto inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
                   >
-                    <Trash2 size={11} /> Delete
+                    <Trash2 className="w-3 h-3" /> Delete
                   </button>
                 </div>
               </div>

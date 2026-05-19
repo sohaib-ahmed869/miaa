@@ -31,7 +31,7 @@ export default function VolunteerFAQSection() {
 
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-stretch">
           {/* Left — heading + minimum age badge */}
           <motion.div {...fadeInLeft} className="flex flex-col justify-between">
@@ -55,9 +55,9 @@ export default function VolunteerFAQSection() {
                 >
                   <span className="w-8 h-8 3xl:w-10 3xl:h-10 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:border-primary transition-colors">
                     {openIndex === i ? (
-                      <Minus size={14} className="text-primary" />
+                      <Minus className="w-3.5 h-3.5 text-primary" />
                     ) : (
-                      <Plus size={14} className="text-primary" />
+                      <Plus className="w-3.5 h-3.5 text-primary" />
                     )}
                   </span>
                   <span

@@ -7,11 +7,11 @@ import Button from "../components/Button"
 import Drawer from "../components/Drawer"
 import EmptyState from "../components/EmptyState"
 import ImageUpload from "../components/ImageUpload"
-import { Field, TextInput, NumberInput, Checkbox } from "../components/Field"
+import { Field, TextInput, TextArea, NumberInput, Checkbox } from "../components/Field"
 import { useToast } from "../components/Toast"
 import { SkeletonPortraitGrid } from "../components/Skeleton"
 
-const EMPTY = { name: "", role: "", photoKey: "", order: 0, surface: "about", published: true }
+const EMPTY = { name: "", role: "", description: "", photoKey: "", order: 0, surface: "about", published: true }
 
 export default function TeamAdmin() {
   const [items, setItems] = useState([])
@@ -86,7 +86,7 @@ export default function TeamAdmin() {
         subtitle="The team displayed on the About page."
         actions={
           <Button onClick={() => open(null)} variant="primary" withArrow>
-            <Plus size={13} strokeWidth={2.5} className="-ml-0.5 mr-0.5" />
+            <Plus className="w-3.5 h-3.5" strokeWidth={2.5} className="-ml-0.5 mr-0.5" />
             New Member
           </Button>
         }
@@ -113,25 +113,25 @@ export default function TeamAdmin() {
                 {p.photoUrl ? (
                   <img src={p.photoUrl} alt={p.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-[10px] tracking-[0.15em] uppercase text-primary/30">
+                  <div className="w-full h-full flex items-center justify-center text-[0.625rem] tracking-[0.15em] uppercase text-primary/30">
                     No Photo
                   </div>
                 )}
               </div>
               <p className="text-primary text-sm font-semibold leading-tight">{p.name}</p>
-              <p className="text-primary/55 text-[11px] mt-1 leading-snug">{p.role}</p>
+              <p className="text-primary/55 text-[0.6875rem] mt-1 leading-snug">{p.role}</p>
               <div className="flex gap-2 mt-4 pt-3 border-t border-primary/8 w-full justify-center">
                 <button
                   onClick={() => open(p)}
-                  className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary hover:text-secondary-terra transition-colors"
+                  className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary hover:text-secondary-terra transition-colors"
                 >
-                  <Pencil size={11} /> Edit
+                  <Pencil className="w-3 h-3" /> Edit
                 </button>
                 <button
                   onClick={() => remove(p._id)}
-                  className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
+                  className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
                 >
-                  <Trash2 size={11} /> Delete
+                  <Trash2 className="w-3 h-3" /> Delete
                 </button>
               </div>
             </motion.div>
@@ -161,6 +161,14 @@ export default function TeamAdmin() {
           </Field>
           <Field label="Role">
             <TextInput value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })} />
+          </Field>
+          <Field label="Description" hint="Bio or background shown in the public profile modal">
+            <TextArea
+              rows={5}
+              value={form.description}
+              onChange={(e) => setForm({ ...form, description: e.target.value })}
+              placeholder="Brief biography or professional background..."
+            />
           </Field>
           <Field label="Order">
             <NumberInput

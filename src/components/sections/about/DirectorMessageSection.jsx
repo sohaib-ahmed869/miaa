@@ -90,7 +90,7 @@ export default function DirectorMessageSection() {
       <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 pt-24 md:pt-28 pb-12 md:pb-16">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             Message
           </span>
         </div>
@@ -98,17 +98,17 @@ export default function DirectorMessageSection() {
           className="h-[2px] w-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(215,184,147,0.4) 1.5px, transparent 1.5px)",
-            backgroundSize: "8px 3px",
+              "radial-gradient(circle, rgba(215,184,147,0.4) 0.09375rem, transparent 0.09375rem)",
+            backgroundSize: "0.5rem 0.1875rem",
           }}
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[1800px] w-full mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pb-10 md:pb-16">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] w-full mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pb-10 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-stretch">
           {/* Left — heading at top, director card aligned with panel bottom */}
           <motion.div {...fadeInLeft} className="flex flex-col">
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1]">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1]">
               A Message from
               <br />
               MIAA&apos;s Director
@@ -135,7 +135,7 @@ export default function DirectorMessageSection() {
                   <span className="mt-1.5">
                     <QuatrefoilMarker size={8} />
                   </span>
-                  <span className="text-[13px] 3xl:text-base text-accent-cream/85 leading-snug">
+                  <span className="text-[0.8125rem] 3xl:text-base text-accent-cream/85 leading-snug">
                     Executive Director, ISRA (Islamic Sciences and Research
                     Academy)
                   </span>
@@ -144,7 +144,7 @@ export default function DirectorMessageSection() {
                   <span className="mt-1.5">
                     <QuatrefoilMarker size={8} />
                   </span>
-                  <span className="text-[13px] 3xl:text-base text-accent-cream/85 leading-snug">
+                  <span className="text-[0.8125rem] 3xl:text-base text-accent-cream/85 leading-snug">
                     Director, Museum of Islamic Art Australia
                   </span>
                 </li>
@@ -161,14 +161,14 @@ export default function DirectorMessageSection() {
 
             <div
               ref={viewportRef}
-              className="relative z-10 bg-accent-cream rounded-3xl overflow-hidden h-[55vh] md:h-[50vh] 3xl:h-[45vh] px-6 md:px-8 py-6 shadow-xl"
+              className="relative z-10 bg-accent-cream rounded-3xl overflow-hidden h-[55vh] md:h-[50vh] 3xl:h-[60vh] px-6 md:px-8 3xl:px-10 py-6 shadow-xl"
             >
               {/* Fade gradients for smooth text clipping */}
               <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-accent-cream to-transparent z-10 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-accent-cream to-transparent z-10 pointer-events-none" />
 
               <div ref={trackRef} className="will-change-transform pt-8">
-                <div className="flex flex-col gap-5 text-sm md:text-[15px] 3xl:text-lg text-primary leading-relaxed">
+                <div className="flex flex-col gap-5 text-sm md:text-[0.9375rem] 3xl:text-lg text-primary leading-relaxed">
                   {MESSAGE_PARAGRAPHS.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}

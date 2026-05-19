@@ -71,14 +71,14 @@ export default function NewsletterAdmin() {
         subtitle="Email addresses captured from the footer signup."
         actions={
           <Button onClick={exportCsv} variant="dark">
-            <Download size={13} className="-ml-0.5 mr-1" /> Export CSV
+            <Download className="w-3.5 h-3.5" className="-ml-0.5 mr-1" /> Export CSV
           </Button>
         }
       />
 
       <div className="mb-4 relative max-w-sm">
         <Search
-          size={14}
+          className="w-3.5 h-3.5"
           className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/40"
         />
         <input
@@ -120,25 +120,25 @@ export default function NewsletterAdmin() {
             >
               <div className="flex-1 min-w-0">
                 <p className="text-primary text-sm truncate">{s.email}</p>
-                <p className="text-[11px] tracking-[0.15em] uppercase text-primary/45">
+                <p className="text-[0.6875rem] tracking-[0.15em] uppercase text-primary/45">
                   via {s.source}
                 </p>
               </div>
-              <span className="text-[10px] tracking-[0.15em] uppercase text-primary/45 w-32 text-right">
+              <span className="text-[0.625rem] tracking-[0.15em] uppercase text-primary/45 w-32 text-right">
                 {new Date(s.createdAt).toLocaleDateString()}
               </span>
               <button
                 onClick={() => remove(s._id)}
-                className="inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-primary/45 hover:text-rose-600 transition-colors"
+                className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-primary/45 hover:text-rose-600 transition-colors"
               >
-                <Trash2 size={11} /> Remove
+                <Trash2 className="w-3 h-3" /> Remove
               </button>
             </motion.li>
           ))}
         </motion.ul>
       )}
 
-      <p className="text-[11px] text-primary/45 mt-4">
+      <p className="text-[0.6875rem] text-primary/45 mt-4">
         Total subscribers: <span className="font-medium text-primary/70">{items.length}</span>
       </p>
     </div>

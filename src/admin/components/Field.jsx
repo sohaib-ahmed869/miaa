@@ -1,11 +1,11 @@
 export function Field({ label, hint, children, className = "" }) {
   return (
     <label className={`block ${className}`}>
-      <span className="block text-[10px] tracking-[0.2em] uppercase text-primary/55 mb-1.5">
+      <span className="block text-[0.625rem] tracking-[0.2em] uppercase text-primary/55 mb-1.5">
         {label}
       </span>
       {children}
-      {hint && <span className="block text-[11px] text-primary/50 mt-1">{hint}</span>}
+      {hint && <span className="block text-[0.6875rem] text-primary/50 mt-1">{hint}</span>}
     </label>
   )
 }

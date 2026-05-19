@@ -32,7 +32,7 @@ const DONATION_OPTIONS = [
 export default function OtherDonationsSection() {
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20 items-stretch">
           {/* Left — heading + button at bottom */}
           <motion.div {...fadeInLeft} className="flex flex-col justify-between">
@@ -55,7 +55,7 @@ export default function OtherDonationsSection() {
                 className="flex gap-4 items-start"
               >
                 <span className="flex-shrink-0 mt-0.5 w-8 h-8 3xl:w-10 3xl:h-10 rounded-full border-2 border-primary/30 flex items-center justify-center">
-                  <Check size={16} strokeWidth={4} className="text-primary" />
+                  <Check className="w-4 h-4" strokeWidth={4} className="text-primary" />
                 </span>
                 <p className="text-base md:text-lg 3xl:text-xl text-primary leading-relaxed">
                   {opt.label && <span className="font-semibold">{opt.label} </span>}

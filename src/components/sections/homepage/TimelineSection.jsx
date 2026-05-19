@@ -14,12 +14,12 @@ const timelineImages = [sydneyView, sydneyWater, sydneyPasture, sydneyArches]
 export default function TimelineSection() {
   return (
     <section className="pt-16 md:pt-24 3xl:pt-32 bg-accent-cream">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Top: 2-column — text left, building image right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
           {/* Left - Text */}
           <motion.div {...fadeInLeft}>
-            <h2 className="text-3xl md:text-[40px] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-[2.5rem] 3xl:text-[3.2rem] font-medium text-primary tracking-tight leading-tight">
               Building the Future Home of<br />Islamic Art
             </h2>
             <p className="mt-4 text-sm 3xl:text-lg text-primary leading-normal max-w-md 3xl:max-w-xl">

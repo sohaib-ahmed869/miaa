@@ -31,7 +31,7 @@ export default function BlogHeroSection() {
       {/* Hero carousel — full width */}
       <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] items-stretch">
         {/* Left — image carousel */}
-        <div className="relative overflow-hidden bg-primary h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] 3xl:h-[720px]">
+        <div className="relative overflow-hidden bg-primary h-[300px] sm:h-[400px] md:h-[31.25rem] lg:h-[34.375rem] 3xl:h-[45vh]">
             <AnimatePresence mode="wait">
               <motion.img
                 key={current}
@@ -58,15 +58,15 @@ export default function BlogHeroSection() {
                   <circle cx="78" cy="50" r="25" />
                   <rect x="22" y="22" width="56" height="56" rx="4" fill="#DD613E" />
                 </svg>
-                <span className="text-[10px] 3xl:text-sm tracking-[0.2em] uppercase text-accent-wheat font-normal">
+                <span className="text-[0.625rem] 3xl:text-sm tracking-[0.2em] uppercase text-accent-wheat font-normal">
                   Featured
                 </span>
               </div>
               <div
                 className="h-[2px] w-full mb-6 md:mb-12"
                 style={{
-                  backgroundImage: "radial-gradient(circle, #D7B89350 1.5px, transparent 1.5px)",
-                  backgroundSize: "8px 3px",
+                  backgroundImage: "radial-gradient(circle, #D7B89350 0.09375rem, transparent 0.09375rem)",
+                  backgroundSize: "0.5rem 0.1875rem",
                   height: "2px",
                 }}
               />
@@ -98,7 +98,7 @@ export default function BlogHeroSection() {
                   className="inline-flex items-center gap-1.5 text-xs 3xl:text-sm font-semibold tracking-wider uppercase text-accent-cream hover:text-accent-wheat transition-colors"
                 >
                   Read More
-                  <ArrowUpRight size={14} strokeWidth={2.5} />
+                  <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
                 </Link>
               </motion.div>
             </AnimatePresence>
@@ -109,13 +109,13 @@ export default function BlogHeroSection() {
                 onClick={prev}
                 className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-colors"
               >
-                <ArrowLeft size={18} />
+                <ArrowLeft className="w-4.5 h-4.5" />
               </button>
               <button
                 onClick={next}
                 className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-lg bg-secondary-terra text-white flex items-center justify-center hover:bg-secondary-rust transition-colors"
               >
-                <ArrowRight size={18} />
+                <ArrowRight className="w-4.5 h-4.5" />
               </button>
             </div>
           </div>

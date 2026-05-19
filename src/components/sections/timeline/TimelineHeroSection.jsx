@@ -26,7 +26,7 @@ export default function TimelineHeroSection() {
           {/* Right — Intro text */}
           <motion.div
             {...fadeInRight}
-            className="flex flex-col gap-3 text-sm md:text-[15px] 3xl:text-xl text-accent-cream/85 leading-relaxed"
+            className="flex flex-col gap-3 text-sm md:text-[0.9375rem] 3xl:text-xl text-accent-cream/85 leading-relaxed"
           >
             <p>
               MIAA is a significant community-led cultural project based in the
@@ -49,7 +49,7 @@ export default function TimelineHeroSection() {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative w-full"
       >
-        <div className="w-full h-[280px] md:h-[460px] lg:h-[560px] 3xl:h-[760px] overflow-hidden">
+        <div className="w-full h-[280px] md:h-[28.75rem] lg:h-[35rem] 3xl:h-[45vh] overflow-hidden">
           <img
             src={renderImg}
             alt="MIAA architectural render"

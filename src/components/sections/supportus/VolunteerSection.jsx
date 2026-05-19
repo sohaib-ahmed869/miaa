@@ -6,7 +6,7 @@ import volunteerImg from "../../../assets/images/Support/volunteer-group.png"
 export default function VolunteerSection() {
   return (
     <section className="py-16 md:py-24 3xl:py-32 bg-bg">
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-8 lg:gap-12 items-stretch">
           {/* Left — volunteer group photo */}
           <motion.div {...fadeInLeft}>

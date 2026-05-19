@@ -99,10 +99,10 @@ export default function Dashboard() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <span className="inline-flex items-center justify-center w-9 h-9 rounded-sm bg-accent-cream text-primary">
-                    <c.icon size={16} strokeWidth={1.75} />
+                    <c.icon className="w-4 h-4" strokeWidth={1.75} />
                   </span>
                   <ArrowUpRight
-                    size={14}
+                    className="w-3.5 h-3.5"
                     strokeWidth={2}
                     className="text-primary/30 group-hover:text-secondary-terra transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
@@ -113,7 +113,7 @@ export default function Dashboard() {
                 >
                   <AnimatedNumber value={counts[c.key]} />
                 </p>
-                <p className="text-[11px] tracking-[0.18em] uppercase text-primary/55 mt-3">
+                <p className="text-[0.6875rem] tracking-[0.18em] uppercase text-primary/55 mt-3">
                   {c.title}
                 </p>
               </Link>
@@ -137,11 +137,11 @@ export default function Dashboard() {
           </p>
           <Link
             to="/admin/contact"
-            className="group inline-flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
+            className="group inline-flex items-center gap-1 text-[0.625rem] tracking-[0.2em] uppercase text-secondary-terra hover:text-secondary-rust transition-colors"
           >
             View all
             <ArrowUpRight
-              size={11}
+              className="w-3 h-3"
               strokeWidth={2.5}
               className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
@@ -169,7 +169,7 @@ export default function Dashboard() {
                     {s.topic ? ` · ${s.topic}` : ""}
                   </p>
                 </div>
-                <span className="text-[10px] tracking-[0.15em] uppercase text-primary/50">
+                <span className="text-[0.625rem] tracking-[0.15em] uppercase text-primary/50">
                   {new Date(s.createdAt).toLocaleDateString()}
                 </span>
               </li>

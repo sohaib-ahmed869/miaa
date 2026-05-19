@@ -11,7 +11,7 @@ export default function SupportHeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-[11px] md:text-xs 3xl:text-sm tracking-[0.25em] uppercase text-accent-wheat font-semibold mb-3"
+          className="text-[0.6875rem] md:text-xs 3xl:text-sm tracking-[0.25em] uppercase text-accent-wheat font-semibold mb-3"
         >
           Building MIAA
         </motion.p>
@@ -40,7 +40,7 @@ export default function SupportHeroSection() {
         transition={{ duration: 0.9, delay: 0.3 }}
         className="relative w-full"
       >
-        <div className="w-full h-[260px] md:h-[420px] lg:h-[500px] 3xl:h-[680px] overflow-hidden">
+        <div className="w-full h-[260px] md:h-[26.25rem] lg:h-[31.25rem] 3xl:h-[40vh] overflow-hidden">
           <img
             src={heroImg}
             alt="Speaker addressing the MIAA community"

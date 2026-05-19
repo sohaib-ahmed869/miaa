@@ -33,7 +33,7 @@ export default function EventsHeroSection() {
           {loopPhotos.map((photo, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[85vw] md:w-[42vw] lg:w-[38vw] 3xl:w-[32vw] h-[280px] md:h-[380px] lg:h-[450px] 3xl:h-[550px] overflow-hidden"
+              className="flex-shrink-0 w-[85vw] md:w-[42vw] lg:w-[44vw] 3xl:w-[32vw] h-[17.5rem] md:h-[23.75rem] lg:h-[28.125rem] overflow-hidden"
             >
               <img
                 src={photo.src}

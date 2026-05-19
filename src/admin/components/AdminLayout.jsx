@@ -31,7 +31,7 @@ function NavItem({ item }) {
     <NavLink to={item.to} end={item.end} className="block">
       {({ isActive }) => (
         <div
-          className={`relative flex items-center gap-3 px-4 py-2.5 rounded-sm text-[13px] transition-colors duration-200 ${
+          className={`relative flex items-center gap-3 px-4 py-2.5 rounded-sm text-[0.8125rem] transition-colors duration-200 ${
             isActive
               ? "text-secondary-terra"
               : "text-accent-cream/70 hover:text-accent-cream"
@@ -48,11 +48,11 @@ function NavItem({ item }) {
                 transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                 className="absolute -left-1"
               >
-                <Quatrefoil size={10} />
+                <Quatrefoil className="w-2.5 h-2.5" />
               </motion.span>
             )}
           </AnimatePresence>
-          <item.icon size={15} strokeWidth={1.75} />
+          <item.icon strokeWidth={1.75} className="w-4 h-4" />
           <span className="tracking-wide">{item.label}</span>
         </div>
       )}
@@ -86,11 +86,11 @@ export default function AdminLayout() {
             {/* Dotted divider */}
             <div className="mx-6">
               <div
-                className="h-[2px]"
+                className="h-[0.125rem]"
                 style={{
                   backgroundImage:
-                    "radial-gradient(circle, rgba(215,184,147,0.35) 1.5px, transparent 1.5px)",
-                  backgroundSize: "8px 3px",
+                    "radial-gradient(circle, rgba(215,184,147,0.35) 0.09375rem, transparent 0.09375rem)",
+                  backgroundSize: "0.5rem 0.1875rem",
                 }}
               />
             </div>
@@ -103,15 +103,15 @@ export default function AdminLayout() {
 
             <div className="px-5 pb-6">
               <div
-                className="h-[2px] mb-5"
+                className="h-[0.125rem] mb-5"
                 style={{
                   backgroundImage:
-                    "radial-gradient(circle, rgba(215,184,147,0.3) 1.5px, transparent 1.5px)",
-                  backgroundSize: "8px 3px",
+                    "radial-gradient(circle, rgba(215,184,147,0.3) 0.09375rem, transparent 0.09375rem)",
+                  backgroundSize: "0.5rem 0.1875rem",
                 }}
               />
               <p
-                className="text-[10px] tracking-[0.25em] uppercase text-accent-wheat mb-2"
+                className="text-[0.625rem] tracking-[0.25em] uppercase text-accent-wheat mb-2"
               >
                 Signed in
               </p>
@@ -121,19 +121,18 @@ export default function AdminLayout() {
                   to="/"
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex-1 inline-flex items-center justify-center gap-1.5 py-2 text-[10px] tracking-[0.2em] uppercase text-accent-cream border border-accent-wheat/30 rounded-sm hover:border-accent-wheat transition-colors"
+                  className="group flex-1 inline-flex items-center justify-center gap-1.5 py-2 text-[0.625rem] tracking-[0.2em] uppercase text-accent-cream border border-accent-wheat/30 rounded-sm hover:border-accent-wheat transition-colors"
                 >
                   <ExternalLink
-                    size={11}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                   Site
                 </Link>
                 <button
                   onClick={onLogout}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-sm bg-secondary-terra hover:bg-secondary-rust text-white text-[10px] tracking-[0.2em] uppercase transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-sm bg-secondary-terra hover:bg-secondary-rust text-white text-[0.625rem] tracking-[0.2em] uppercase transition-colors"
                 >
-                  <LogOut size={11} /> Logout
+                  <LogOut className="w-3 h-3" /> Logout
                 </button>
               </div>
             </div>
@@ -141,7 +140,7 @@ export default function AdminLayout() {
 
           {/* Content area */}
           <main className="ml-64 flex-1 min-h-screen">
-            <div className="max-w-[1200px] mx-auto px-8 lg:px-12 py-10">
+            <div className="max-w-[75rem] mx-auto px-8 lg:px-12 py-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={location.pathname}

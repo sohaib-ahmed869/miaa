@@ -177,7 +177,7 @@ export default function ProjectTimelineSection() {
       <div className="px-6 md:px-10 lg:px-16 3xl:px-24 mb-10 md:mb-14">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
-          <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
+          <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
             MIAA Project Timeline
           </span>
         </div>
@@ -185,17 +185,17 @@ export default function ProjectTimelineSection() {
           className="h-[2px] w-full"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(215,184,147,0.4) 1.5px, transparent 1.5px)",
-            backgroundSize: "8px 3px",
+              "radial-gradient(circle, rgba(215,184,147,0.4) 0.09375rem, transparent 0.09375rem)",
+            backgroundSize: "0.5rem 0.1875rem",
           }}
         />
       </div>
 
-      <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
+      <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
         {/* Title */}
         <motion.h2
           {...fadeInUp}
-          className="text-3xl md:text-4xl lg:text-[42px] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1] text-center mb-8"
+          className="text-3xl md:text-4xl lg:text-[2.625rem] 3xl:text-[3.2rem] font-medium text-accent-cream tracking-tight leading-[1.1] text-center mb-8"
         >
           Museum of Islamic Art Australia
           <br />
@@ -236,7 +236,7 @@ export default function ProjectTimelineSection() {
           <div
             className="absolute top-2 bottom-2 left-1 w-[2px] pointer-events-none"
             style={{
-              backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 1.5px, transparent 1.5px)`,
+              backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 0.09375rem, transparent 0.09375rem)`,
               backgroundSize: "3px 6px",
             }}
           />
@@ -249,12 +249,12 @@ export default function ProjectTimelineSection() {
                   style={{ background: TERRA }}
                 />
                 <p
-                  className="text-[12px] tracking-[0.1em] uppercase mb-2 font-semibold"
+                  className="text-[0.75rem] tracking-[0.1em] uppercase mb-2 font-semibold"
                   style={{ color: "#D7B893" }}
                 >
                   {m.date}
                 </p>
-                <p className="text-[13px] text-accent-cream/90 leading-relaxed">
+                <p className="text-[0.8125rem] text-accent-cream/90 leading-relaxed">
                   {m.body}
                 </p>
               </li>
@@ -274,8 +274,8 @@ export default function ProjectTimelineSection() {
                 <div
                   className="absolute top-[6px] left-0 right-0 h-[2px] pointer-events-none"
                   style={{
-                    backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 1.5px, transparent 1.5px)`,
-                    backgroundSize: "8px 3px",
+                    backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 0.09375rem, transparent 0.09375rem)`,
+                    backgroundSize: "0.5rem 0.1875rem",
                   }}
                 />
 
@@ -297,19 +297,19 @@ export default function ProjectTimelineSection() {
                       <span
                         className="absolute top-[14px] left-[5px] w-[2px] h-7 md:h-9"
                         style={{
-                          backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 1.5px, transparent 1.5px)`,
+                          backgroundImage: `radial-gradient(circle, ${WHEAT_DOT} 0.09375rem, transparent 0.09375rem)`,
                           backgroundSize: "3px 6px",
                         }}
                       />
                       {/* Date */}
                       <p
-                        className="text-[12px] md:text-[13px] 3xl:text-sm tracking-[0.1em] uppercase mb-3 font-semibold"
+                        className="text-[0.75rem] md:text-[0.8125rem] 3xl:text-sm tracking-[0.1em] uppercase mb-3 font-semibold"
                         style={{ color: "#D7B893" }}
                       >
                         {m.date}
                       </p>
                       {/* Body */}
-                      <p className="text-[13px] md:text-sm 3xl:text-base text-accent-cream/90 leading-relaxed max-w-[230px] 3xl:max-w-[300px]">
+                      <p className="text-[0.8125rem] md:text-sm 3xl:text-base text-accent-cream/90 leading-relaxed max-w-[14.375rem] 3xl:max-w-[16rem]">
                         {m.body}
                       </p>
                     </div>

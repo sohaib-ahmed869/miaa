@@ -6,7 +6,7 @@ import heroBgPattern from "../../../assets/images/GalaDinner/herobgpattern.png"
 
 export default function GalaHeroSection() {
   return (
-    <section className="relative h-auto md:h-screen md:min-h-[600px] md:max-h-[1200px] overflow-hidden flex flex-col">
+    <section className="relative h-auto md:h-screen md:min-h-[37.5rem] md:max-h-[1200px] overflow-hidden flex flex-col">
       {/* Top section — teal bg with pattern + centered text */}
       <div className="relative flex-none md:flex-[3] flex flex-col items-center justify-center bg-primary pt-28 pb-20 md:pt-32 md:pb-0 3xl:pt-36">
         {/* Hero background pattern */}

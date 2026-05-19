@@ -23,11 +23,11 @@ const PARAGRAPHS = [
 ]
 
 const FRAMES = [
-  { src: art5, alt: "Blue sphere artwork", credit: "Luminous Geometry \u2014", creditAuthor: "Zarah Hussain", top: "16%", left: "12%", size: "w-20 md:w-28 lg:w-36 3xl:w-48", parallaxFactor: 1.2 },
-  { src: art2, alt: "Prayer mat", credit: "Sacred Weave \u2014", creditAuthor: "Nada Rawhi Debs", top: "38%", left: "10%", size: "w-20 md:w-28 lg:w-36 3xl:w-48", parallaxFactor: 0.8 },
-  { src: art3, alt: "Green figurine", credit: "The Green Horse \u2014", creditAuthor: "Hossein Valamanesh", top: "62%", left: "16%", size: "w-20 md:w-28 lg:w-32 3xl:w-44", parallaxFactor: 1.5 },
-  { src: art1, alt: "Islamic metalwork", credit: "Patterns in Metal \u2014", creditAuthor: "Aisha Khalid", top: "18%", right: "17%", size: "w-24 md:w-32 lg:w-40 3xl:w-56", parallaxFactor: 1.0 },
-  { src: art4, alt: "One Thousand and One and Counting", credit: "One Thousand and One and Counting (1004 and counting) \u2014", creditAuthor: "Abdullah M Syed", top: "55%", right: "9%", size: "w-28 md:w-36 lg:w-48 3xl:w-64", parallaxFactor: 1.3 },
+  { src: art5, alt: "Blue sphere artwork", credit: "Luminous Geometry \u2014", creditAuthor: "Zarah Hussain", top: "16%", left: "12%", size: "w-20 md:w-28 lg:w-36 3xl:w-[10vw]", parallaxFactor: 1.2 },
+  { src: art2, alt: "Prayer mat", credit: "Sacred Weave \u2014", creditAuthor: "Nada Rawhi Debs", top: "38%", left: "10%", size: "w-20 md:w-28 lg:w-36 3xl:w-[10vw]", parallaxFactor: 0.8 },
+  { src: art3, alt: "Green figurine", credit: "The Green Horse \u2014", creditAuthor: "Hossein Valamanesh", top: "62%", left: "16%", size: "w-20 md:w-28 lg:w-32 3xl:w-[9vw]", parallaxFactor: 1.5 },
+  { src: art1, alt: "Islamic metalwork", credit: "Patterns in Metal \u2014", creditAuthor: "Aisha Khalid", top: "18%", right: "17%", size: "w-24 md:w-32 lg:w-40 3xl:w-[12vw]", parallaxFactor: 1.0 },
+  { src: art4, alt: "One Thousand and One and Counting", credit: "One Thousand and One and Counting (1004 and counting) \u2014", creditAuthor: "Abdullah M Syed", top: "55%", right: "9%", size: "w-28 md:w-36 lg:w-48 3xl:w-[13vw]", parallaxFactor: 1.3 },
 ]
 
 const ArtFrame = forwardRef(function ArtFrame(
@@ -68,7 +68,7 @@ const ArtFrame = forwardRef(function ArtFrame(
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.25 }}
-              className="mt-2.5 text-[9px] lg:text-[11px] 3xl:text-sm text-accent-cream leading-snug text-center italic"
+              className="mt-2.5 text-[0.5625rem] lg:text-[0.6875rem] 3xl:text-sm text-accent-cream leading-snug text-center italic"
             >
               {piece.credit}{" "}
               <span className="font-medium not-italic">{piece.creditAuthor}</span>
@@ -216,7 +216,7 @@ export default function IslamicArtPageSection() {
               <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-bg-deep to-transparent z-10 pointer-events-none" />
 
               <div ref={trackRef} className="will-change-transform pt-6">
-                <div className="text-[14px] md:text-[15px] lg:text-base 3xl:text-xl text-accent-cream leading-[1.7] tracking-wide space-y-3 md:space-y-4 text-left md:text-justify">
+                <div className="text-[0.875rem] md:text-[0.9375rem] lg:text-base 3xl:text-xl text-accent-cream leading-[1.7] tracking-wide space-y-3 md:space-y-4 text-left md:text-justify">
                   {PARAGRAPHS.map((para, pIdx) => {
                     const words = para.split(/\s+/)
                     return (

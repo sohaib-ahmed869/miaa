@@ -37,21 +37,21 @@ export default function LocationSection() {
             <span className="flex-shrink-0">
               <QuatrefoilIcon />
             </span>
-            <span className="text-[10px] 3xl:text-sm font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
+            <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase" style={{ color: "#7A3A42" }}>
               Location
             </span>
           </div>
           <div
             className="h-[2px] w-full"
             style={{
-              backgroundImage: "radial-gradient(circle, #38717A50 1.5px, transparent 1.5px)",
-              backgroundSize: "8px 3px",
+              backgroundImage: "radial-gradient(circle, #38717A50 0.09375rem, transparent 0.09375rem)",
+              backgroundSize: "0.5rem 0.1875rem",
               height: "2px",
             }}
           />
         </div>
 
-        <div className="max-w-[1400px] 3xl:max-w-[1800px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-16 md:py-24 3xl:py-32">
+        <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 py-16 md:py-24 3xl:py-32">
           {/* Top — How to Get Here */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr] gap-8 lg:gap-12 items-start">
             {/* Left — venue photo */}
@@ -99,7 +99,7 @@ export default function LocationSection() {
           {/* Bottom — Where to Find Us */}
           <motion.div
             {...fadeInUp}
-            className="mt-16 md:mt-24 bg-white rounded-2xl p-6 md:p-8 3xl:p-10 grid grid-cols-1 lg:grid-cols-[250px_1fr_auto] 3xl:grid-cols-[300px_1fr_auto] items-start"
+            className="mt-16 md:mt-24 bg-white rounded-2xl p-6 md:p-8 3xl:p-10 grid grid-cols-1 lg:grid-cols-[15.625rem_1fr_auto] items-start"
             style={{ columnGap: "1rem", rowGap: "1.5rem" }}
           >
             <h3 className="font-display text-lg md:text-xl 3xl:text-2xl font-normal text-primary tracking-tight uppercase whitespace-nowrap">

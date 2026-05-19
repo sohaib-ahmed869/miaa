@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Breakpoint — large screens (2560px native / 100% scale) */
+  /* Breakpoint — large screens (2K+ at 100% OS scale) */
   --breakpoint-3xl: 2200px;
 
   /* Font */
@@ -54,6 +54,17 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: rgba(33, 73, 82, 0.3) transparent;
+}
+
+/* Large-screen scaling — fluid root font so ALL rem-based Tailwind
+   utilities (text, spacing, sizing, images) scale proportionally.
+   Scales from 20px at 2200px → 36px at 3840px (2.25×), matching the
+   visual feel of the 1440p design on 4K monitors at 100% OS scaling. */
+@media (min-width: 2200px) {
+  html {
+    /* 20px at 2200vw → 36px at 3840vw */
+    font-size: clamp(20px, 0.976vw - 1.47px, 36px);
+  }
 }
 
 /* Base resets */
