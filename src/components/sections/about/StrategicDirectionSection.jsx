@@ -6,6 +6,7 @@ import ic1 from "../../../assets/images/About/ic1.png"
 import ic2 from "../../../assets/images/About/ic2.png"
 import ic4 from "../../../assets/images/About/ic4.png"
 import ix3 from "../../../assets/images/About/ix3.png"
+import ic5 from "../../../assets/images/About/ic5.png"
 
 const PILLARS = [
   {
@@ -32,6 +33,12 @@ const PILLARS = [
     body:
       "Collect, preserve and display art and cultural material that reflects the diverse experiences and expressions of Islamic art and culture both here and abroad.",
   },
+  {
+    icon: ic5,
+    title: "Education & Research",
+    body:
+      "Collect, preserve and display art and cultural material that reflects the diverse experiences and expressions of Islamic art and culture both here and abroad."
+  }
 ]
 
 function QuatrefoilMarker({ size = 11 }) {
@@ -129,9 +136,6 @@ export default function StrategicDirectionSection() {
               className="bg-bg-teal/25 border border-accent-wheat/15 p-6 3xl:p-8 flex flex-col gap-4 flex-shrink-0 w-[260px] md:w-[18.75rem] lg:w-0 lg:flex-1 hover:bg-bg-teal/40 transition-colors duration-300"
             >
               <img src={pillar.icon} alt="" className="w-10 h-10 3xl:w-14 3xl:h-14 object-contain" />
-              <h3 className="text-accent-cream font-semibold text-[0.9375rem] md:text-base 3xl:text-lg leading-tight">
-                {pillar.title}
-              </h3>
               <p className="text-accent-cream/75 text-[0.8125rem] 3xl:text-base leading-relaxed">
                 {pillar.body}
               </p>

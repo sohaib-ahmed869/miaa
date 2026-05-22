@@ -51,7 +51,14 @@ export default function GalaHeroSection() {
             transition={{ duration: 0.6, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-6 md:mt-8 mb-8 md:mb-12"
           >
-            <CTAButton to="/gala-dinner/tickets" className="px-6">Buy Ticket</CTAButton>
+            <CTAButton
+              href="https://tickets.miaaustralia.org/checkout/view-event/id/8327602/chk/17d4/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6"
+            >
+              Buy Ticket
+            </CTAButton>
           </motion.div>
         </div>
       </div>

@@ -147,9 +147,12 @@ export default function Footer() {
             backgroundSize: "700px",
             backgroundRepeat: "repeat",
             backgroundPosition: "center",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, #000 0%, #000 40%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to bottom, #000 0%, #000 40%, transparent 100%)",
           }}
         />
-        <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent to-accent-cream" />
         <motion.div {...fadeInUp} className="relative z-10 w-full px-6 md:px-10 lg:px-16 3xl:px-24 pt-10 pb-10 text-center">
           <div className="text-sm md:text-[0.9375rem] 3xl:text-base leading-[1.8] text-primary italic max-w-3xl 3xl:max-w-4xl mx-auto">
             <p className="font-medium">MIAA is proudly located on beautiful Dharug country in Granville, Western Sydney.</p>

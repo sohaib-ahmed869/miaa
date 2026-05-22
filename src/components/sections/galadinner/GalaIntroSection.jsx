@@ -24,7 +24,7 @@ export default function GalaIntroSection() {
           {/* Left — Text content */}
           <motion.div {...fadeInLeft} className="flex-1">
             <h2 className="font-display text-2xl md:text-3xl 3xl:text-[3.2rem] font-medium text-primary leading-tight tracking-wide mb-6 uppercase">
-              From Vision to Reality<br />Architectural Design Reveal
+              From Vision to Reality:<br />Architectural Design Reveal
             </h2>
             <div className="flex flex-col gap-4 text-base 3xl:text-xl text-primary leading-relaxed font-medium tracking-wide max-w-[31.25rem]">
               <p>

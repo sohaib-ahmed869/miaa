@@ -110,7 +110,14 @@ export default function GalaEventDetailsSection() {
               </p>
             </div>
             <div className="mt-6">
-              <CTAButton to="/gala-dinner/tickets" className="px-6">Buy Ticket</CTAButton>
+              <CTAButton
+                href="https://tickets.miaaustralia.org/checkout/view-event/id/8327602/chk/17d4/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6"
+              >
+                Buy Ticket
+              </CTAButton>
             </div>
           </motion.div>
         </div>

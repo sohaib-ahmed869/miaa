@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import heroImg from "../../../assets/images/Homepage/Hero.png"
 import ornament from "../../../assets/images/Homepage/Ornament_1.png"
 import heroTopRight from "../../../assets/images/Homepage/herotoprightelement.png"
+import GalaBanner from "./GalaBanner"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -103,6 +104,9 @@ export default function HeroSection() {
           />
         </motion.div>
       </div>
+
+      {/* Scrolling Gala Dinner banner — bottom of hero */}
+      <GalaBanner />
     </section>
   )
 }

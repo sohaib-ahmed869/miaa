@@ -1,6 +1,31 @@
 import { motion } from "framer-motion"
 import { fadeInLeft, fadeInRight } from "../../../lib/motion"
 import sydneyMap from "../../../assets/images/About/sydney.png"
+import sydneyMapWithout from "../../../assets/images/About/sydney_without.png"
+
+// The "without" map shows first; then the full map (with the extra state)
+// slowly fades in on top when the section scrolls into view.
+function MapCrossfade({ className = "" }) {
+  return (
+    <div className={`relative ${className}`}>
+      <img
+        src={sydneyMapWithout}
+        alt="Map silhouette of Western Sydney"
+        className="w-full h-auto object-contain"
+      />
+      <motion.img
+        src={sydneyMap}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-contain"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-120px" }}
+        transition={{ duration: 2.2, ease: "easeInOut", delay: 0.4 }}
+      />
+    </div>
+  )
+}
 
 function QuatrefoilMarker({ size = 11 }) {
   return (
@@ -47,20 +72,12 @@ export default function WesternSydneySection() {
           {...fadeInLeft}
           className="hidden lg:flex absolute left-0 top-0 bottom-0 w-[55%] items-center justify-start pointer-events-none"
         >
-          <img
-            src={sydneyMap}
-            alt="Map silhouette of Western Sydney"
-            className="w-full h-auto object-contain -ml-[3%]"
-          />
+          <MapCrossfade className="w-full -ml-[3%]" />
         </motion.div>
 
         {/* Mobile/tablet — map above content, normal flow */}
         <div className="lg:hidden mb-8 flex justify-center">
-          <img
-            src={sydneyMap}
-            alt="Map silhouette of Western Sydney"
-            className="w-full max-w-sm h-auto object-contain"
-          />
+          <MapCrossfade className="w-full max-w-sm" />
         </div>
 
         {/* Right content — pushed right on lg so map overlaps slightly */}
