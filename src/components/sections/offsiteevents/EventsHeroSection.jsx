@@ -38,7 +38,8 @@ export default function EventsHeroSection() {
               <img
                 src={photo.src}
                 alt={photo.alt}
-                className="w-full h-full object-cover"
+                className="w-full object-cover block"
+                style={{ height: "100%" }}
               />
             </div>
           ))}

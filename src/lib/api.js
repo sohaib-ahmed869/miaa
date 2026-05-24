@@ -1,7 +1,7 @@
 // Tiny fetch wrapper for the MIAA backend.
 // Configure the base URL with `VITE_API_URL` in `.env.local`; defaults to localhost:4000.
 
-const BASE = (import.meta.env.VITE_API_URL || "https://miaa-backend.onrender.com").replace(/\/$/, "")
+const BASE = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "")
 
 async function request(path, { method = "GET", body, headers, signal } = {}) {
   const res = await fetch(`${BASE}${path}`, {
@@ -37,6 +37,7 @@ export const api = {
     const qs = new URLSearchParams(params).toString()
     return request(`/api/events${qs ? `?${qs}` : ""}`)
   },
+  eventById: (id) => request(`/api/events/${encodeURIComponent(id)}`),
   previousEvents: (params = {}) => {
     const qs = new URLSearchParams(params).toString()
     return request(`/api/previous-events${qs ? `?${qs}` : ""}`)

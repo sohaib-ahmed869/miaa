@@ -69,7 +69,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-          className="flex justify-end 3xl:pr-[25%]"
+          className="flex justify-end"
         >
           <p className="text-sm md:text-[0.9375rem] text-accent-cream leading-relaxed max-w-md 3xl:max-w-lg text-left font-medium">
             Explore our website to discover information about Australia&apos;s

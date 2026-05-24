@@ -5,11 +5,11 @@
   --breakpoint-3xl: 2200px;
 
   /* Font */
-  --font-sans: "Avenir", "Avenir Next", system-ui, sans-serif;
+  --font-sans: "Avenir", "Avenir Next", "Nunito Sans", system-ui, sans-serif;
   --font-barlow: "Barlow", system-ui, sans-serif;
   --font-display: "Cormorant Garamond", "Georgia", serif;
   --font-script: "Marck Script", "Cormorant Garamond", cursive;
-  --font-aeonik: "Aeonik", "Avenir", system-ui, sans-serif;
+  --font-aeonik: "Aeonik", "Avenir", "Nunito Sans", system-ui, sans-serif;
 
   /* Primary */
   --color-primary: #214952;
@@ -60,10 +60,10 @@ html {
    utilities (text, spacing, sizing, images) scale proportionally.
    Scales from 20px at 2200px → 36px at 3840px (2.25×), matching the
    visual feel of the 1440p design on 4K monitors at 100% OS scaling. */
-@media (min-width: 2200px) {
+@media (min-width: 2000px) {
   html {
-    /* 20px at 2200vw → 36px at 3840vw */
-    font-size: clamp(20px, 0.976vw - 1.47px, 36px);
+    /* 22px at 2000vw → ~32px at 2560vw → 50px at 3840vw */
+    font-size: clamp(22px, 1.406vw - 4px, 50px);
   }
 }
 
@@ -82,8 +82,15 @@ body {
   /* Match the loader + hero teal so there's never a white flash between scenes */
   background-color: #214952;
   color: #1B1E1E;
+  font-weight: 490;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.15;
 }
 
 /* Loader - prevent scroll while loading */

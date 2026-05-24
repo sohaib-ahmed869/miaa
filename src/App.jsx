@@ -5,6 +5,7 @@ import About from "./pages/About"
 import IslamicArt from "./pages/IslamicArt"
 import OffsiteEvents from "./pages/OffsiteEvents"
 import Events from "./pages/Events"
+import EventDetail from "./pages/EventDetail"
 import CommunityEngagement from "./pages/CommunityEngagement"
 import Timeline from "./pages/Timeline"
 import Contact from "./pages/Contact"
@@ -14,6 +15,7 @@ import Volunteer from "./pages/Volunteer"
 import SupportUs from "./pages/SupportUs"
 import GalaDinner from "./pages/GalaDinner"
 import GalaDinnerTicketing from "./pages/GalaDinnerTicketing"
+import SMWF from "./pages/SMWF"
 
 import AdminLayout from "./admin/components/AdminLayout"
 import ProtectedRoute from "./admin/components/ProtectedRoute"
@@ -56,6 +58,7 @@ export default function App() {
           <Route path="islamic-art" element={<IslamicArt />} />
           <Route path="offsite-events" element={<OffsiteEvents />} />
           <Route path="events" element={<Events />} />
+          <Route path="event/:id" element={<EventDetail />} />
           <Route path="community-engagement" element={<CommunityEngagement />} />
           <Route path="timeline" element={<Timeline />} />
           <Route path="contact" element={<Contact />} />
@@ -65,6 +68,7 @@ export default function App() {
           <Route path="support-us" element={<SupportUs />} />
           <Route path="gala-dinner" element={<GalaDinner />} />
           <Route path="gala-dinner/tickets" element={<GalaDinnerTicketing />} />
+          <Route path="smwf" element={<SMWF />} />
         </Route>
       </Routes>
     </BrowserRouter>

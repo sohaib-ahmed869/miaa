@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { label: "About Us", path: "/about" },
   { label: "Islamic Art in Australia", path: "/islamic-art" },
   { label: "MIAA Offsite Events", path: "/offsite-events" },
+  { label: "Sydney Muslim Writers Festival", path: "/smwf" },
   { label: "Education & Community Engagement", path: "/community-engagement" },
   { label: "Timeline & Construction", path: "/timeline" },
   // { label: "Updates & Blogs", path: "/blog" },
@@ -13,7 +14,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   { label: "Islamic Art in Australia", path: "/islamic-art" },
   { label: "MIAA Off-Site Events", path: "/offsite-events" },
-  { label: "Sydney Muslim Writers Festival", path: "/events" },
+  { label: "Sydney Muslim Writers Festival", path: "/smwf" },
   { label: "Community Engagement & Education", path: "/community-engagement" },
   { label: "MIAA Timeline & Construction", path: "/timeline" },
   { label: "Contact Us", path: "/contact" },

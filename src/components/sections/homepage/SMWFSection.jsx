@@ -14,7 +14,7 @@ const carouselImages = [...baseImages, ...baseImages]
 
 function QuatrefoilIcon() {
   return (
-    <svg width="10" height="10" viewBox="0 0 100 100" fill="#fff">
+    <svg width="13" height="13" viewBox="0 0 100 100" fill="#fff">
       <circle cx="50" cy="22" r="25" />
       <circle cx="50" cy="78" r="25" />
       <circle cx="22" cy="50" r="25" />
@@ -30,7 +30,7 @@ function BannerStrip({ text, count = 30 }) {
       {Array.from({ length: count }).map((_, i) => (
         <span
           key={i}
-          className="inline-flex items-center gap-2 text-white font-aeonik text-[0.8125rem] 3xl:text-base font-normal tracking-wide flex-shrink-0"
+          className="inline-flex items-center gap-2.5 text-white font-aeonik text-base 3xl:text-xl font-normal tracking-wide flex-shrink-0"
         >
           <QuatrefoilIcon />
           {text}
@@ -51,7 +51,7 @@ export default function SMWFSection() {
               <img
                 src={smwfLogo}
                 alt="Sydney Muslim Writers Festival"
-                className="h-20 3xl:h-28 w-auto"
+                className="h-12 3xl:h-12 w-44 3xl:w-52 object-contain block"
               />
             </div>
 
@@ -93,23 +93,27 @@ export default function SMWFSection() {
             <div
               className="absolute z-10 flex justify-center"
               style={{
-                top: "-20%",
-                bottom: "-20%",
-                left: "-10%",
-                right: "-10%",
-                transform: "rotate(-10deg)",
+                top: "-25%",
+                bottom: "-25%",
+                left: "0",
+                right: "0",
+                transform: "translateX(-2.5rem)",
               }}
             >
-              <div className="smwf-vertical-carousel flex flex-col gap-7 items-center">
+              <div className="smwf-vertical-carousel flex flex-col items-center">
                 {carouselImages.map((src, i) => (
                   <div
                     key={i}
-                    className="flex-shrink-0 w-[270px] md:w-[20.625rem] 3xl:w-[16vw] rounded-lg overflow-hidden border-[3px] border-white/90"
+                    className="flex-shrink-0 w-[380px] md:w-[29rem] 3xl:w-[22vw] rounded-lg overflow-hidden"
+                    style={{
+                      transform: `translateX(${i === 0 ? "0.2rem" : `${1.75 + (i - 1) * 1.75}rem`}) rotate(-0.3deg)`,
+                      marginTop: i === 0 ? 0 : "-1.5rem",
+                    }}
                   >
                     <img
                       src={src}
                       alt="SMWF event"
-                      className="w-full aspect-[16/10] object-cover block"
+                      className="w-full object-cover block"
                     />
                   </div>
                 ))}
@@ -120,12 +124,12 @@ export default function SMWFSection() {
             <div
               className="absolute z-20"
               style={{
-                top: 35,
+                top: 5,
                 left: -300,
                 right: -300,
-                transform: "rotate(18deg)",
+                transform: "rotate(13deg)",
                 backgroundColor: "#DD613E",
-                padding: "10px 0",
+                padding: "14px 0",
               }}
             >
               <div className="smwf-banner-top">
@@ -142,7 +146,7 @@ export default function SMWFSection() {
                 right: -300,
                 transform: "rotate(-18deg)",
                 backgroundColor: "#4656CD",
-                padding: "10px 0",
+                padding: "14px 0",
               }}
             >
               <div className="smwf-banner-bottom">

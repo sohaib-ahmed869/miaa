@@ -1,9 +1,18 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { fadeInUp, staggerContainer, staggerItem } from "../../../lib/motion"
 import CTAButton from "../../ui/Button"
 import { useCMS } from "../../../hooks/useCMS"
 import { api } from "../../../lib/api"
+
+function slugify(s = "") {
+  return String(s)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+}
 
 import offsiteImg1 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-01.png"
 import offsiteImg2 from "../../../assets/images/Homepage/Offsite program images/offsiteimg-02.png"
@@ -75,40 +84,45 @@ export default function OffsiteEventsSection() {
           {...staggerContainer}
           className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-white/15 gap-y-6 md:gap-y-0 mb-20"
         >
-          {upcomingEvents.map((event, i) => (
-            <motion.div
-              key={event._id || i}
-              {...staggerItem}
-              className="group md:px-6"
-            >
-              {/* Date & location — right-aligned */}
-              <div className="mb-4 text-right">
-                <p className="text-3xl md:text-[2.125rem] 3xl:text-[2.6rem] font-semibold tracking-wide text-[#D0A270]" >
-                  {event.date}
-                </p>
-                <p className="text-[0.6875rem] 3xl:text-sm text-white mt-1 tracking-wide italic">
-                  {event.location}
-                </p>
-              </div>
+          {upcomingEvents.map((event, i) => {
+            const slug = event.slug || event._id || slugify(event.title)
+            return (
+              <motion.div
+                key={event._id || i}
+                {...staggerItem}
+                className="group md:px-6"
+              >
+                <Link to={`/event/${slug}`} className="block">
+                  {/* Date & location — right-aligned */}
+                  <div className="mb-4 text-right">
+                    <p className="text-3xl md:text-[2.125rem] 3xl:text-[2.6rem] font-semibold tracking-wide text-[#D0A270]" >
+                      {event.date}
+                    </p>
+                    <p className="text-[0.6875rem] 3xl:text-sm text-white mt-1 tracking-wide italic">
+                      {event.location}
+                    </p>
+                  </div>
 
-              {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden rounded-lg mb-5">
-                <img
-                  src={event.imageUrl || event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+                  {/* Image */}
+                  <div className="aspect-[4/3] overflow-hidden rounded-lg mb-5">
+                    <img
+                      src={event.imageUrl || event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
 
-              {/* Text */}
-              <h3 className="text-[0.9375rem] 3xl:text-lg font-semibold text-white mb-2">
-                {event.title}
-              </h3>
-              <p className="text-[0.8125rem] 3xl:text-base text-white/90 leading-relaxed">
-                {event.description}
-              </p>
-            </motion.div>
-          ))}
+                  {/* Text */}
+                  <h3 className="text-[0.9375rem] 3xl:text-lg font-semibold text-white mb-2 group-hover:text-accent-caramel transition-colors">
+                    {event.title}
+                  </h3>
+                  <p className="text-[0.8125rem] 3xl:text-base text-white/90 leading-relaxed">
+                    {event.description}
+                  </p>
+                </Link>
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         {/* Previous Events — 2 column layout */}

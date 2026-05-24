@@ -13,13 +13,34 @@ import { SkeletonCardGrid } from "../components/Skeleton"
 
 const EMPTY = {
   category: "offsite",
+  slug: "",
   date: "",
+  time: "",
   location: "",
   title: "",
+  subtitle: "",
   description: "",
+  longDescription: "",
+  format: "",
+  admission: "",
+  rsvpUrl: "",
+  rsvpLabel: "",
+  highlights: [
+    { tag: "", title: "", body: "" },
+    { tag: "", title: "", body: "" },
+    { tag: "", title: "", body: "" },
+  ],
   imageKey: "",
   order: 0,
   published: true,
+}
+
+function slugify(s = "") {
+  return String(s)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
 }
 
 export default function EventsAdmin() {
@@ -48,11 +69,20 @@ export default function EventsAdmin() {
 
   const open = (item) => {
     if (item) {
+      const next = { ...EMPTY, ...item }
+      // Ensure highlights always has 3 slots so the form renders the editor consistently.
+      const existing = Array.isArray(item.highlights) ? item.highlights : []
+      next.highlights = [0, 1, 2].map(
+        (i) => existing[i] || { tag: "", title: "", body: "" }
+      )
       setEditing(item._id)
-      setForm({ ...EMPTY, ...item })
+      setForm(next)
     } else {
       setEditing("new")
-      setForm(EMPTY)
+      setForm({
+        ...EMPTY,
+        highlights: EMPTY.highlights.map((h) => ({ ...h })),
+      })
     }
     setError("")
   }
@@ -66,11 +96,22 @@ export default function EventsAdmin() {
     setBusy(true)
     setError("")
     try {
+      const payload = {
+        ...form,
+        slug: slugify(form.slug || form.title),
+        highlights: (form.highlights || [])
+          .map((h) => ({
+            tag: (h.tag || "").trim(),
+            title: (h.title || "").trim(),
+            body: (h.body || "").trim(),
+          }))
+          .filter((h) => h.tag || h.title || h.body),
+      }
       if (editing === "new") {
-        await adminApi.createEvent(form)
+        await adminApi.createEvent(payload)
         notify("Event created")
       } else {
-        await adminApi.updateEvent(editing, form)
+        await adminApi.updateEvent(editing, payload)
         notify("Event saved")
       }
       close()
@@ -241,14 +282,148 @@ export default function EventsAdmin() {
               placeholder="Islamic Art Showcase"
             />
           </Field>
-          <Field label="Description">
+          <Field
+            label="URL Slug"
+            hint="Public URL will be /event/<slug>. Leave blank to auto-generate from the title."
+          >
+            <TextInput
+              value={form.slug}
+              onChange={(e) => setForm({ ...form, slug: e.target.value })}
+              onBlur={(e) => setForm({ ...form, slug: slugify(e.target.value) })}
+              placeholder={slugify(form.title || "")}
+            />
+          </Field>
+          <div className="grid grid-cols-2 gap-4">
+            <Field label="Time" hint="Optional — shown in the detail page hero">
+              <TextInput
+                value={form.time}
+                onChange={(e) => setForm({ ...form, time: e.target.value })}
+                placeholder="6:00 PM – 9:00 PM"
+              />
+            </Field>
+            <Field label="Format" hint="e.g. In-person, Virtual, Hybrid">
+              <TextInput
+                value={form.format}
+                onChange={(e) => setForm({ ...form, format: e.target.value })}
+                placeholder="In-person"
+              />
+            </Field>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Field label="Admission" hint="e.g. Free / RSVP, $25, Members Only">
+              <TextInput
+                value={form.admission}
+                onChange={(e) => setForm({ ...form, admission: e.target.value })}
+                placeholder="Free / RSVP"
+              />
+            </Field>
+            <Field label="RSVP Button Label" hint="Defaults to “RSVP for Event”">
+              <TextInput
+                value={form.rsvpLabel}
+                onChange={(e) => setForm({ ...form, rsvpLabel: e.target.value })}
+                placeholder="RSVP for Event"
+              />
+            </Field>
+          </div>
+          <Field
+            label="RSVP Link"
+            hint="External URL or internal path. Leave blank to point at /contact."
+          >
+            <TextInput
+              value={form.rsvpUrl}
+              onChange={(e) => setForm({ ...form, rsvpUrl: e.target.value })}
+              placeholder="https://example.com/rsvp or /contact"
+            />
+          </Field>
+          <Field
+            label="Subtitle"
+            hint="Big tagline shown above the long description on the detail page."
+          >
+            <TextInput
+              value={form.subtitle}
+              onChange={(e) => setForm({ ...form, subtitle: e.target.value })}
+              placeholder="A gathering of stories, art, and community."
+            />
+          </Field>
+          <Field label="Short Description" hint="Shown on event cards.">
             <TextArea
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
-              rows={4}
+              rows={3}
               placeholder="Short blurb shown beneath the event title…"
             />
           </Field>
+          <Field
+            label="Long Description"
+            hint="Full body for the detail page. Separate paragraphs with a blank line."
+          >
+            <TextArea
+              value={form.longDescription}
+              onChange={(e) =>
+                setForm({ ...form, longDescription: e.target.value })
+              }
+              rows={8}
+              placeholder="The full story of the event…"
+            />
+          </Field>
+
+          <div className="border-t border-primary/10 pt-5">
+            <p className="text-[0.625rem] tracking-[0.2em] uppercase text-primary/55 mb-1">
+              What to Expect
+            </p>
+            <p className="text-[0.6875rem] text-primary/50 mb-4">
+              Three cards rendered on the detail page. Leave a row blank to hide it.
+            </p>
+            <div className="flex flex-col gap-5">
+              {form.highlights.map((h, i) => (
+                <div
+                  key={i}
+                  className="border border-primary/10 rounded-sm p-4 bg-white"
+                >
+                  <p className="text-[0.625rem] tracking-[0.2em] uppercase text-primary/45 mb-3">
+                    Card {i + 1}
+                  </p>
+                  <div className="grid grid-cols-2 gap-3 mb-3">
+                    <Field label="Tag">
+                      <TextInput
+                        value={h.tag}
+                        onChange={(e) => {
+                          const next = [...form.highlights]
+                          next[i] = { ...next[i], tag: e.target.value }
+                          setForm({ ...form, highlights: next })
+                        }}
+                        placeholder="Welcome"
+                      />
+                    </Field>
+                    <Field label="Title">
+                      <TextInput
+                        value={h.title}
+                        onChange={(e) => {
+                          const next = [...form.highlights]
+                          next[i] = { ...next[i], title: e.target.value }
+                          setForm({ ...form, highlights: next })
+                        }}
+                        placeholder="Arrival & Refreshments"
+                      />
+                    </Field>
+                  </div>
+                  <Field label="Body">
+                    <TextArea
+                      value={h.body}
+                      onChange={(e) => {
+                        const next = [...form.highlights]
+                        next[i] = { ...next[i], body: e.target.value }
+                        setForm({ ...form, highlights: next })
+                      }}
+                      rows={3}
+                      placeholder="Describe this part of the program…"
+                    />
+                  </Field>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <ImageUpload
             folder="events"
             currentKey={form.imageKey}

@@ -32,7 +32,12 @@ export default function CTAButton({
 
   const content = (
     <>
-      <span className="relative z-10">{children}</span>
+      <span
+        className="relative z-10 inline-block"
+        style={{ transform: "scaleY(1.55)", transformOrigin: "center" }}
+      >
+        {children}
+      </span>
       {showArrow && (
         <span className="relative z-10 inline-flex overflow-hidden w-[13px] h-[13px] 3xl:w-4 3xl:h-4">
           {/* Default arrow — slides out top-right on hover */}
