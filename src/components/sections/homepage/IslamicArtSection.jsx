@@ -69,9 +69,24 @@ const artPieces = [
 
 export default function IslamicArtSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [lightboxIndex, setLightboxIndex] = useState(null)
   const containerRef = useRef(null)
   const sectionRef = useRef(null)
   const frameRefs = useRef([])
+
+  useEffect(() => {
+    if (lightboxIndex === null) return
+    const onKey = (e) => {
+      if (e.key === "Escape") setLightboxIndex(null)
+    }
+    window.addEventListener("keydown", onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      window.removeEventListener("keydown", onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [lightboxIndex])
 
   // Track mouse globally — normalised to -1 … 1 based on window center
   const mouseX = useMotionValue(0)
@@ -130,16 +145,18 @@ export default function IslamicArtSection() {
             className="grid grid-cols-3 gap-3 w-full items-start"
           >
             {mobileTopFrames.map((piece, i) => (
-              <div
+              <button
+                type="button"
                 key={i}
-                className={`aspect-[3/4] overflow-hidden ${i % 2 === 1 ? "mt-8" : ""}`}
+                onClick={() => setLightboxIndex(i)}
+                className={`aspect-[3/4] overflow-hidden cursor-pointer ${i % 2 === 1 ? "mt-8" : ""}`}
               >
                 <img
                   src={piece.src}
                   alt={piece.alt}
                   className="w-full h-full object-cover block"
                 />
-              </div>
+              </button>
             ))}
           </motion.div>
 
@@ -168,16 +185,18 @@ export default function IslamicArtSection() {
             className="grid grid-cols-2 gap-3 w-full items-start"
           >
             {mobileBottomFrames.map((piece, i) => (
-              <div
+              <button
+                type="button"
                 key={i}
-                className={`aspect-[3/4] overflow-hidden ${i % 2 === 1 ? "mt-10" : ""}`}
+                onClick={() => setLightboxIndex(mobileTopFrames.length + i)}
+                className={`aspect-[3/4] overflow-hidden cursor-pointer ${i % 2 === 1 ? "mt-10" : ""}`}
               >
                 <img
                   src={piece.src}
                   alt={piece.alt}
                   className="w-full h-full object-cover block"
                 />
-              </div>
+              </button>
             ))}
           </motion.div>
         </div>
@@ -216,6 +235,7 @@ export default function IslamicArtSection() {
                 isHovered={hoveredIndex === i}
                 onHover={() => setHoveredIndex(i)}
                 onLeave={() => setHoveredIndex(null)}
+                onClick={() => setLightboxIndex(i)}
                 springX={springX}
                 springY={springY}
               />
@@ -223,6 +243,57 @@ export default function IslamicArtSection() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox — opens when an art image is clicked (mobile + desktop) */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[200] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 md:p-10"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(null)}
+              aria-label="Close"
+              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-2xl leading-none transition-colors"
+            >
+              ×
+            </button>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative flex flex-col md:flex-row items-center md:items-stretch gap-4 md:gap-8 max-w-[95vw] md:max-w-[90vw] max-h-[90vh]"
+            >
+              <div className="flex-shrink-0 flex items-center justify-center max-h-[60vh] md:max-h-[85vh]">
+                <img
+                  src={artPieces[lightboxIndex].src}
+                  alt={artPieces[lightboxIndex].alt}
+                  className="max-h-[60vh] md:max-h-[85vh] max-w-full w-auto h-auto object-contain border-4 border-primary bg-accent-cream"
+                />
+              </div>
+
+              {artPieces[lightboxIndex].credit && (
+                <div className="md:w-72 lg:w-80 md:self-end text-white text-center md:text-left">
+                  <p className="italic text-sm md:text-base leading-snug">
+                    {artPieces[lightboxIndex].credit}
+                  </p>
+                  <p className="mt-1 not-italic font-medium text-base md:text-lg">
+                    {artPieces[lightboxIndex].creditAuthor}
+                  </p>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
@@ -230,7 +301,7 @@ export default function IslamicArtSection() {
 import { forwardRef } from "react"
 
 const ArtFrame = forwardRef(function ArtFrame(
-  { piece, index, isHovered, onHover, onLeave, springX, springY },
+  { piece, index, isHovered, onHover, onLeave, onClick, springX, springY },
   ref,
 ) {
   const factor = piece.parallaxFactor
@@ -253,6 +324,7 @@ const ArtFrame = forwardRef(function ArtFrame(
         style={{ x: mx, y: my }}
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
+        onClick={onClick}
       >
         <div className="border-[4px] border-primary overflow-hidden">
           <img

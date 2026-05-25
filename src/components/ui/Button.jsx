@@ -14,6 +14,7 @@ export default function CTAButton({
   icon: Icon = ArrowUpRight,
   showArrow = true,
   className,
+  scaleY = 1.15,
   ...props
 }) {
   const base = clsx(
@@ -34,7 +35,7 @@ export default function CTAButton({
     <>
       <span
         className="relative z-10 inline-block"
-        style={{ transform: "scaleY(1.55)", transformOrigin: "center" }}
+        style={{ transform: `scaleY(${scaleY})`, transformOrigin: "center" }}
       >
         {children}
       </span>

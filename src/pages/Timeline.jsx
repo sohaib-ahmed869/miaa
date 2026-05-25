@@ -1,6 +1,7 @@
 import TimelineHeroSection from "../components/sections/timeline/TimelineHeroSection"
 import ArchitectureSection from "../components/sections/timeline/ArchitectureSection"
 import RPInfrastructureSection from "../components/sections/timeline/RPInfrastructureSection"
+import TimelineVideoSection from "../components/sections/timeline/TimelineVideoSection"
 import ProjectTimelineSection from "../components/sections/timeline/ProjectTimelineSection"
 
 export default function Timeline() {
@@ -9,6 +10,7 @@ export default function Timeline() {
       <TimelineHeroSection />
       <ArchitectureSection />
       <RPInfrastructureSection />
+      <TimelineVideoSection />
       <ProjectTimelineSection />
     </>
   )

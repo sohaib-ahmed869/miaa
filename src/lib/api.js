@@ -1,5 +1,5 @@
 // Tiny fetch wrapper for the MIAA backend.
-// Configure the base URL with `VITE_API_URL` in `.env.local`; defaults to localhost:4000.
+// Configure the base URL with `VITE_API_URL` in `.env.local`; defaults to localhost:3000.
 
 const BASE = (import.meta.env.VITE_API_URL || "https://miaa-backend.onrender.com").replace(/\/$/, "")
 
