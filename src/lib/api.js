@@ -37,6 +37,7 @@ export const api = {
     const qs = new URLSearchParams(params).toString()
     return request(`/api/events${qs ? `?${qs}` : ""}`)
   },
+  eventById: (id) => request(`/api/events/${encodeURIComponent(id)}`),
   previousEvents: (params = {}) => {
     const qs = new URLSearchParams(params).toString()
     return request(`/api/previous-events${qs ? `?${qs}` : ""}`)
