@@ -1,12 +1,8 @@
 import { motion } from "framer-motion"
 import { fadeInUp, staggerContainer, staggerItem } from "../../../lib/motion"
 
-<<<<<<< Updated upstream
-import smwf1 from "../../../assets/images/Homepage/SMWF/SMWF-02.jpg"
-import smwf2 from "../../../assets/images/Homepage/SMWF/SMWF-03.jpg"
-=======
+
 import bannerIcon from "../../../assets/images/Homepage/SMWF/banner-icon.svg"
->>>>>>> Stashed changes
 
 const INDIVIDUAL_TICKETS = [
   { name: "Adults",     age: "26 and Above", priceLabel: "Normal", price: "$40" },

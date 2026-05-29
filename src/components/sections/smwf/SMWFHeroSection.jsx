@@ -3,13 +3,8 @@ import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight, Plus, X } from "lucide-react"
 
-<<<<<<< Updated upstream
-import heroImage from "../../../assets/images/Homepage/SMWF/SMWF-02.jpg"
-import smwfLogo from "../../../assets/images/Homepage/SMWF/smwflogo.png"
-import bgPattern from "../../../assets/images/Homepage/SMWF/SMWF-BGPATTERN.png"
-=======
+
 const MotionLink = motion.create(Link)
->>>>>>> Stashed changes
 
 import logoCollab from "../../../assets/images/Homepage/SMWF/logo-collab.svg"
 import heroPhoto from "../../../assets/images/Homepage/SMWF/hero-photo.jpg"

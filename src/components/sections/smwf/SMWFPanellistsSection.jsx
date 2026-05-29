@@ -2,11 +2,6 @@ import { motion } from "framer-motion"
 import { fadeInUp, staggerContainer, staggerItem } from "../../../lib/motion"
 import { Plus } from "lucide-react"
 
-<<<<<<< Updated upstream
-import smwf1 from "../../../assets/images/Homepage/SMWF/SMWF-02.jpg"
-import smwf2 from "../../../assets/images/Homepage/SMWF/SMWF-03.jpg"
-import smwf3 from "../../../assets/images/Homepage/SMWF/SMWF-04.jpg"
-=======
 import jumaanaAbdu          from "../../../assets/images/Homepage/SMWF/panellists/jumaana-abdu.jpg"
 import michaelMohammedAhmad from "../../../assets/images/Homepage/SMWF/panellists/michael-mohammed-ahmad.jpg"
 import zohraAly             from "../../../assets/images/Homepage/SMWF/panellists/zohra-aly.png"
@@ -40,7 +35,6 @@ import nurShkembi           from "../../../assets/images/Homepage/SMWF/panellist
 import annaThwaites         from "../../../assets/images/Homepage/SMWF/panellists/anna-thwaites.jpg"
 import julideTurker         from "../../../assets/images/Homepage/SMWF/panellists/julide-turker.png"
 import jihadYassine         from "../../../assets/images/Homepage/SMWF/panellists/jihad-yassine.png"
->>>>>>> Stashed changes
 
 const SECTION_BG = "#F3EFEB"
 const INK         = "#124039"
