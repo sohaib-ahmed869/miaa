@@ -15,15 +15,15 @@ export default function AboutHeroSection() {
   useGSAP(() => {
     gsap.fromTo(
       imgRef.current,
-      { yPercent: -8 },
+      { yPercent: -12 },
       {
-        yPercent: 8,
+        yPercent: 12,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: true,
+          scrub: 1,
         },
       }
     )

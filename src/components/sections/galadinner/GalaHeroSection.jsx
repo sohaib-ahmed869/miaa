@@ -1,14 +1,40 @@
+import { useRef } from "react"
 import { motion } from "framer-motion"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
 import CTAButton from "../../ui/Button"
 
 import heroImg from "../../../assets/images/GalaDinner/hero.jpg"
 import heroBgPattern from "../../../assets/images/GalaDinner/herobgpattern.png"
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function GalaHeroSection() {
+  const sectionRef = useRef(null)
+  const imgRef = useRef(null)
+
+  useGSAP(() => {
+    gsap.fromTo(
+      imgRef.current,
+      { yPercent: -12 },
+      {
+        yPercent: 12,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      }
+    )
+  }, { scope: sectionRef })
+
   return (
-    <section className="relative h-auto md:h-screen md:min-h-[37.5rem] md:max-h-[1200px] overflow-hidden flex flex-col">
+    <section ref={sectionRef} className="relative h-auto md:h-screen md:min-h-[37.5rem] md:max-h-[1200px] overflow-hidden flex flex-col">
       {/* Top section — teal bg with pattern + centered text */}
-      <div className="relative flex-none md:flex-[3] flex flex-col items-center justify-center bg-primary pt-28 pb-20 md:pt-32 md:pb-0 3xl:pt-36">
+      <div className="relative flex-none md:flex-1 flex flex-col items-center justify-center bg-primary pt-28 pb-20 md:pt-32 md:pb-0 3xl:pt-36">
         {/* Hero background pattern */}
         <div className="absolute inset-0">
           <img src={heroBgPattern} alt="" className="w-full h-full object-cover" />
@@ -63,12 +89,13 @@ export default function GalaHeroSection() {
         </div>
       </div>
 
-      {/* Hero image — slides up into view */}
-      <div className="relative flex-none md:flex-[1.5] w-full h-[70vh] sm:h-[65vh] md:h-auto bg-primary">
+      {/* Hero image — parallax scroll */}
+      <div className="relative flex-none md:flex-1 w-full h-[70vh] sm:h-[65vh] md:h-auto bg-primary overflow-hidden">
         <img
+          ref={imgRef}
           src={heroImg}
           alt="MIAA Inaugural Gala Dinner"
-          className="w-full object-cover object-top block"
+          className="w-full object-cover object-top block will-change-transform scale-110"
           style={{ height: "100%" }}
         />
       </div>

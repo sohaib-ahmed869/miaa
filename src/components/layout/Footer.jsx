@@ -260,7 +260,7 @@ export default function Footer() {
             {/* Copyright */}
             <div className="flex flex-col gap-1 pb-4 lg:pb-8 3xl:pb-10">
               <p className="text-sm 3xl:text-base text-primary">
-                &copy; 2025 Museum of Islamic Art Australia
+                &copy; 2026 Museum of Islamic Art Australia
               </p>
               <p className="text-sm 3xl:text-base text-primary">
                 Website by{" "}

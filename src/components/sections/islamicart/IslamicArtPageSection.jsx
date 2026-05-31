@@ -3,7 +3,11 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ZoomIn, ZoomOut, X } from "lucide-react"
+import { ZoomIn, ZoomOut, X, ChevronLeft, ChevronRight } from "lucide-react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Pagination, Autoplay } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/pagination"
 
 import art1 from "../../../assets/images/Homepage/Art in Aus.png"
 import art2 from "../../../assets/images/Homepage/Art in Aus-1.png"
@@ -24,9 +28,9 @@ const PARAGRAPHS = [
 ]
 
 const FRAMES = [
-  { src: art5, alt: "(2011). 99 channel SD video sculpture installation, audio, and 98 paintings: acrylic, watercolour and gouache on dye diffusion thermal transfer prints. Installation view (detail) for Destiny Disrupted, Griffith University Art Museum. Courtesy the artist and Milani Gallery, Brisbane. Photograph by Carl Warner.", credit: "99 \u2014", creditAuthor: "Khaled Sabsabi", top: "3%", left: "4%", size: "w-28 md:w-36 lg:w-44 3xl:w-[14vw]", parallaxFactor: 1.2 },
-  { src: art2, alt: "(2025). Clay, cardamom, size variable. Installation view at Liverpool Powerhouse. Courtesy the artist. Photograph by Kamil Abdullahi.", credit: "Udub-Core \u2014", creditAuthor: "Idil Abdullahi", top: "35%", left: "2%", size: "w-28 md:w-40 lg:w-44 3xl:w-[14vw]", parallaxFactor: 0.8 },
-  { src: art3, alt: "(2008), Borderlands series surfboard: digital decal fibreglass, polystyrene and carbon fibre, wire stand, vinyl, 194 x 45 x 8cm. Courtesy the artist. Artist acknowledgment Mark Rabbidge for production. Photograph by Phillip George.", credit: "Inshalla \u2014", creditAuthor: "Phillip George", top: "68%", left: "10%", size: "w-24 md:w-36 lg:w-40 3xl:w-[12vw]", parallaxFactor: 1.5, hoverWidth: "w-[20rem] 3xl:w-[24rem] left-1/2 -translate-x-1/2 relative" },
+  { src: art5, alt: "(2011). 99 channel SD video sculpture installation, audio, and 98 paintings: acrylic, watercolour and gouache on dye diffusion thermal transfer prints. Installation view (detail) for Destiny Disrupted, Griffith University Art Museum. Courtesy the artist and Milani Gallery, Brisbane. Photograph by Carl Warner.", credit: "99 \u2014", creditAuthor: "Khaled Sabsabi", top: "3%", left: "4%", size: "w-28 md:w-36 lg:w-44 3xl:w-[14vw]", parallaxFactor: 1.2, hoverWidth: "w-[14rem] lg:w-[16rem] 3xl:w-[18rem] relative left-1/2 -translate-x-1/2" },
+  { src: art2, alt: "(2025). Clay, cardamom, size variable. Installation view at Liverpool Powerhouse. Courtesy the artist. Photograph by Kamil Abdullahi.", credit: "Udub-Core \u2014", creditAuthor: "Idil Abdullahi", top: "35%", left: "2%", size: "w-28 md:w-40 lg:w-44 3xl:w-[14vw]", parallaxFactor: 0.8, hoverWidth: "w-[16rem] lg:w-[18rem] 3xl:w-[20rem] relative left-1/2 -translate-x-1/2" },
+  { src: art3, alt: "(2008), Borderlands series surfboard: digital decal fibreglass, polystyrene and carbon fibre, wire stand, vinyl, 194 x 45 x 8cm. Courtesy the artist. Artist acknowledgment Mark Rabbidge for production. Photograph by Phillip George.", credit: "Inshalla \u2014", creditAuthor: "Phillip George", top: "68%", left: "12%", size: "w-28 md:w-40 lg:w-48 3xl:w-[14vw]", parallaxFactor: 1.5, hoverWidth: "w-[16rem] lg:w-[18rem] 3xl:w-[20rem] relative left-1/2 -translate-x-1/2" },
   { src: art1, alt: "(2014-). Hand-stitched white prayer caps (topi), Perspex dome and light, 107 (Dia.) x 60 cm. Image courtesy the artist and Gallery Sally Dan Cuthbert, \u00a9the artist. In Private Collection. Photograph by Abdullah M. I. Syed.", credit: "Aura II \u2014", creditAuthor: "Abdullah M. I. Syed", top: "5%", right: "4%", size: "w-32 md:w-48 lg:w-48 3xl:w-[15vw]", parallaxFactor: 1.0 },
   { src: art4, alt: "(2008\u20132021), Folded US$ Bills and staple pins. Image courtesy the artist. Photograph by Mahmood Ali.", credit: "Flying Rug \u2014", creditAuthor: "Abdullah M. I. Syed", top: "52%", right: "4%", size: "w-28 md:w-40 lg:w-44 3xl:w-[14vw]", parallaxFactor: 1.3 },
 ]
@@ -95,6 +99,7 @@ export default function IslamicArtPageSection() {
   const trackRef = useRef(null)
   const viewportRef = useRef(null)
   const indicatorRef = useRef(null)
+  const swiperRef = useRef(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const [zoom, setZoom] = useState(1)
@@ -292,6 +297,78 @@ export default function IslamicArtPageSection() {
 
       </div>
 
+      {/* Mobile art gallery — swipeable Swiper carousel */}
+      <div className="md:hidden pb-10 relative">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          onSwiper={(s) => { swiperRef.current = s }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          speed={800}
+          spaceBetween={16}
+          slidesPerView={1.2}
+          centeredSlides
+          loop
+          style={{
+            "--swiper-pagination-color": "#D7B893",
+            "--swiper-pagination-bullet-inactive-color": "#D7B893",
+            "--swiper-pagination-bullet-inactive-opacity": "0.35",
+          }}
+        >
+          {FRAMES.filter((_, i) => i !== 1).map((piece) => (
+            <SwiperSlide key={piece.creditAuthor + piece.credit}>
+              <div
+                onClick={() => openLightbox(FRAMES.indexOf(piece))}
+                className="px-1 cursor-pointer"
+              >
+                {/* Image wrapper — buttons are centered relative to this */}
+                <div className="relative">
+                  <div className="border-[4px] border-secondary-terra overflow-hidden">
+                    <div className="border-[4px] border-white">
+                      <img
+                        src={piece.src}
+                        alt={piece.alt}
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="pb-8">
+                  <p className="mt-3 text-[0.6875rem] text-accent-cream/60 leading-snug text-center">
+                    {piece.alt}
+                  </p>
+                  <p className="mt-1.5 text-sm text-accent-cream text-center">
+                    <span className="font-medium">
+                      {piece.credit.replace(" \u2014", "")}
+                    </span>
+                    {" ~ "}
+                    <span className="font-bold">{piece.creditAuthor}</span>
+                  </p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Custom nav arrows — positioned over the image area */}
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="absolute left-1 top-0 z-30 w-8 h-8 rounded-full bg-primary/60 backdrop-blur-sm flex items-center justify-center text-accent-cream active:scale-90 transition-transform"
+          style={{ top: "calc(50% - 5rem)", transform: "translateY(-50%)" }}
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="absolute right-1 top-0 z-30 w-8 h-8 rounded-full bg-primary/60 backdrop-blur-sm flex items-center justify-center text-accent-cream active:scale-90 transition-transform"
+          style={{ top: "calc(50% - 5rem)", transform: "translateY(-50%)" }}
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
       {/* Lightbox modal — same style as homepage art + gala venue map */}
       <AnimatePresence>
         {lightboxIndex !== null && (
@@ -305,35 +382,35 @@ export default function IslamicArtPageSection() {
             onMouseLeave={handleMouseUp}
           >
             {/* Top bar */}
-            <div className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-accent-wheat/15">
-              <div>
-                <h3 className="font-display text-lg md:text-xl 3xl:text-2xl text-accent-cream uppercase tracking-wide">
+            <div className="flex items-center justify-between px-4 md:px-10 py-3 md:py-5 border-b border-accent-wheat/15">
+              <div className="min-w-0 flex-1 mr-3">
+                <h3 className="font-display text-base md:text-xl 3xl:text-2xl text-accent-cream uppercase tracking-wide truncate">
                   {FRAMES[lightboxIndex].credit}
                 </h3>
-                <p className="text-sm 3xl:text-base text-accent-wheat">
+                <p className="text-sm 3xl:text-base text-accent-wheat truncate">
                   {FRAMES[lightboxIndex].creditAuthor}
                 </p>
-                <p className="text-xs 3xl:text-sm text-accent-cream/50 mt-1">
+                <p className="hidden md:block text-xs 3xl:text-sm text-accent-cream/50 mt-1">
                   {FRAMES[lightboxIndex].alt}
                 </p>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-xs 3xl:text-sm text-accent-cream/50 mr-2">{Math.round(zoom * 100)}%</span>
+              <div className="flex items-center gap-2 md:gap-3 shrink-0">
+                <span className="hidden md:inline text-xs 3xl:text-sm text-accent-cream/50 mr-2">{Math.round(zoom * 100)}%</span>
                 <button
                   onClick={() => { setZoom((z) => Math.min(z + 0.5, 4)); setDrag({ x: 0, y: 0 }) }}
-                  className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
+                  className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
                 >
                   <ZoomIn className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => { setZoom((z) => Math.max(z - 0.5, 0.5)); setDrag({ x: 0, y: 0 }) }}
-                  className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
+                  className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
                 >
                   <ZoomOut className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setLightboxIndex(null)}
-                  className="w-9 h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
+                  className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-accent-wheat/25 text-accent-cream flex items-center justify-center hover:bg-accent-cream/10 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -342,14 +419,14 @@ export default function IslamicArtPageSection() {
 
             {/* Image area — draggable */}
             <div
-              className="flex-1 overflow-hidden flex items-center justify-center select-none"
+              className="flex-1 overflow-hidden flex items-center justify-center select-none px-4 md:px-0"
               style={{ cursor: dragging ? "grabbing" : "grab" }}
               onMouseDown={handleMouseDown}
             >
               <img
                 src={FRAMES[lightboxIndex].src}
                 alt={FRAMES[lightboxIndex].alt}
-                className="max-h-[80vh] w-auto transition-transform duration-150"
+                className="max-h-[75vh] md:max-h-[80vh] max-w-full w-auto transition-transform duration-150"
                 draggable={false}
                 style={{
                   transform: `scale(${zoom}) translate(${drag.x / zoom}px, ${drag.y / zoom}px)`,
@@ -357,10 +434,13 @@ export default function IslamicArtPageSection() {
               />
             </div>
 
-            {/* Bottom hint */}
-            <div className="px-6 md:px-10 py-3 border-t border-accent-wheat/15 text-center">
-              <p className="text-[0.6875rem] 3xl:text-sm text-accent-cream/40 tracking-wider">
-                Drag to pan &middot; Use controls to zoom &middot; Click &times; to close
+            {/* Bottom bar — description on mobile + hint */}
+            <div className="px-4 md:px-10 py-2 md:py-3 border-t border-accent-wheat/15">
+              <p className="md:hidden text-[0.625rem] text-accent-cream/50 leading-relaxed text-center mb-1.5 line-clamp-3">
+                {FRAMES[lightboxIndex].alt}
+              </p>
+              <p className="text-[0.625rem] md:text-[0.6875rem] 3xl:text-sm text-accent-cream/40 tracking-wider text-center">
+                Pinch to zoom &middot; Tap &times; to close
               </p>
             </div>
           </motion.div>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
 import { fadeInUp } from "../../../lib/motion"
 import CTAButton from "../../ui/Button"
@@ -166,6 +166,51 @@ function chunk(arr, size) {
     out.push(arr.slice(i, i + size))
   }
   return out
+}
+
+function SnakeConnector({ isEvenRow }) {
+  const ref = useRef(null)
+  const [h, setH] = useState(0)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    setH(el.offsetHeight)
+    const ro = new ResizeObserver(() => setH(el.offsetHeight))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
+  const W = 30
+  const R = 18
+  const S = 1.5 // half stroke width
+  const r = R - S
+
+  let d = ""
+  if (h > 0) {
+    d = isEvenRow
+      ? `M 0,${S} H ${W - R} A ${r},${r} 0 0 1 ${W - S},${R} V ${h - R} A ${r},${r} 0 0 1 ${W - R},${h - S} H 0`
+      : `M ${W},${S} H ${R} A ${r},${r} 0 0 0 ${S},${R} V ${h - R} A ${r},${r} 0 0 0 ${R},${h - S} H ${W}`
+  }
+
+  return (
+    <div
+      ref={ref}
+      className="absolute pointer-events-none"
+      style={{
+        top: 6,
+        bottom: -9,
+        [isEvenRow ? "right" : "left"]: -30,
+        width: W,
+      }}
+    >
+      {h > 0 && (
+        <svg width={W} height={h} className="block overflow-visible" fill="none">
+          <path d={d} stroke={WHEAT_LINE} strokeWidth="3" strokeLinecap="round" />
+        </svg>
+      )}
+    </div>
+  )
 }
 
 export default function ProjectTimelineSection() {
@@ -366,69 +411,8 @@ export default function ProjectTimelineSection() {
                   ))}
                 </div>
 
-                {/* Snake connector between this row and the next — fixed-radius rounded
-                    rectangle built from divs so the stroke width and corner radius stay
-                    constant regardless of row height */}
-                {!isLastRow && (
-                  <div
-                    className="absolute pointer-events-none"
-                    style={{
-                      top: 6,
-                      bottom: -9,
-                      [isEvenRow ? "right" : "left"]: -30,
-                      width: 30,
-                    }}
-                  >
-                    {/* Top horizontal segment up to the corner */}
-                    <div
-                      className="absolute top-0 h-[4px]"
-                      style={{
-                        background: WHEAT_LINE,
-                        [isEvenRow ? "left" : "right"]: 0,
-                        [isEvenRow ? "right" : "left"]: 18,
-                      }}
-                    />
-                    {/* Top corner */}
-                    <div
-                      className="absolute top-0 w-[20px] h-[20px]"
-                      style={{
-                        [isEvenRow ? "right" : "left"]: 0,
-                        borderTop: `4px solid ${WHEAT_LINE}`,
-                        ...(isEvenRow
-                          ? { borderRight: `4px solid ${WHEAT_LINE}`, borderTopRightRadius: 20 }
-                          : { borderLeft: `4px solid ${WHEAT_LINE}`, borderTopLeftRadius: 20 }),
-                      }}
-                    />
-                    {/* Vertical segment */}
-                    <div
-                      className="absolute top-[20px] bottom-[20px] w-[4px]"
-                      style={{
-                        background: WHEAT_LINE,
-                        [isEvenRow ? "right" : "left"]: 0,
-                      }}
-                    />
-                    {/* Bottom corner */}
-                    <div
-                      className="absolute bottom-0 w-[20px] h-[20px]"
-                      style={{
-                        [isEvenRow ? "right" : "left"]: 0,
-                        borderBottom: `4px solid ${WHEAT_LINE}`,
-                        ...(isEvenRow
-                          ? { borderRight: `4px solid ${WHEAT_LINE}`, borderBottomRightRadius: 20 }
-                          : { borderLeft: `4px solid ${WHEAT_LINE}`, borderBottomLeftRadius: 20 }),
-                      }}
-                    />
-                    {/* Bottom horizontal segment back to the row */}
-                    <div
-                      className="absolute bottom-0 h-[4px]"
-                      style={{
-                        background: WHEAT_LINE,
-                        [isEvenRow ? "left" : "right"]: 0,
-                        [isEvenRow ? "right" : "left"]: 18,
-                      }}
-                    />
-                  </div>
-                )}
+                {/* Snake connector — single SVG path, no seam gaps */}
+                {!isLastRow && <SnakeConnector isEvenRow={isEvenRow} />}
               </div>
             )
           })}
