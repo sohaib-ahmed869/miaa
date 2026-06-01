@@ -6,7 +6,7 @@
   src: url("./assets/fonts/Aeonik-Regular.woff2") format("woff2"),
        url("./assets/fonts/Aeonik-Regular.woff")  format("woff"),
        url("./assets/fonts/Aeonik-Regular.ttf")   format("truetype");
-  font-weight: 100 900;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -28,11 +28,11 @@
   --breakpoint-4xl: 3200px;
 
   /* Font */
-  --font-sans: "Aeonik", "Avenir", "Nunito Sans", system-ui, sans-serif;
+  --font-sans: "Avenir", "Segoe UI", "Nunito Sans", system-ui, sans-serif;
   --font-barlow: "Barlow", system-ui, sans-serif;
   --font-display: "Cormorant Garamond", "Georgia", serif;
   --font-script: "Marck Script", "Cormorant Garamond", cursive;
-  --font-aeonik: "Aeonik", "Avenir", "Nunito Sans", system-ui, sans-serif;
+  --font-aeonik: "Aeonik", "Avenir", "Segoe UI", "Nunito Sans", system-ui, sans-serif;
 
   /* Primary */
   --color-primary: #214952;
@@ -112,9 +112,9 @@ body {
   /* Match the loader + hero teal so there's never a white flash between scenes */
   background-color: #214952;
   color: #1B1E1E;
-  font-weight: 490;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
