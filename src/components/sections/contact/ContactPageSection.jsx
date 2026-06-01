@@ -130,7 +130,7 @@ export default function ContactPageSection() {
                     aria-label={label}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="w-10 h-10 3xl:w-12 3xl:h-12 flex items-center justify-center bg-primary/40 border border-accent-wheat/20 text-accent-cream hover:bg-secondary-terra hover:border-secondary-terra transition-colors"
+                    className="w-10 h-10 3xl:w-16 3xl:h-16 flex items-center justify-center bg-primary/40 border border-accent-wheat/20 text-accent-cream hover:bg-secondary-terra hover:border-secondary-terra transition-colors [&_svg]:3xl:w-6 [&_svg]:3xl:h-6"
                   >
                     <Icon />
                   </a>
