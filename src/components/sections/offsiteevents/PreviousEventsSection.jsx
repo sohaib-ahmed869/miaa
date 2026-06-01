@@ -53,6 +53,11 @@ export default function PreviousEventsSection() {
                     >
                       {event.title}
                     </p>
+                    {event.subtitle && (
+                      <p className="text-sm 3xl:text-base text-primary mt-0.5">
+                        {event.subtitle}
+                      </p>
+                    )}
 
                     {/* Hover image */}
                     <AnimatePresence>

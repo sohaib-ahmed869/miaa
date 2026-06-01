@@ -177,6 +177,11 @@ export default function OffsiteEventsSection() {
                     >
                       {event.title}
                     </p>
+                    {event.subtitle && (
+                      <p className="text-sm 3xl:text-base text-white/50 mt-0.5">
+                        {event.subtitle}
+                      </p>
+                    )}
 
                     {/* Hover image — appears on the right of the hovered item */}
                     <AnimatePresence>

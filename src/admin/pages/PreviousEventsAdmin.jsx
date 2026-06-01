@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import { motion } from "framer-motion"
-import { Plus, Pencil, Trash2 } from "lucide-react"
+import { Plus, Pencil, Trash2, LayoutGrid, List } from "lucide-react"
 import { adminApi } from "../auth"
 import PageHeader from "../components/PageHeader"
 import Button from "../components/Button"
@@ -11,7 +11,13 @@ import { Field, TextInput, NumberInput, Select, Checkbox } from "../components/F
 import { useToast } from "../components/Toast"
 import { SkeletonList } from "../components/Skeleton"
 
-const EMPTY = { title: "", imageKey: "", date: "", surface: "homepage", order: 0, published: true }
+const EMPTY = { title: "", subtitle: "", imageKey: "", date: "", surface: "homepage", order: 0, published: true }
+
+const SURFACE_OPTIONS = [
+  { value: "all", label: "All" },
+  { value: "homepage", label: "Homepage" },
+  { value: "offsite", label: "Offsite" },
+]
 
 export default function PreviousEventsAdmin() {
   const [items, setItems] = useState([])
@@ -20,7 +26,14 @@ export default function PreviousEventsAdmin() {
   const [busy, setBusy] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [filter, setFilter] = useState("all")
+  const [view, setView] = useState("list")
   const { notify } = useToast()
+
+  const filtered = useMemo(
+    () => filter === "all" ? items : items.filter((it) => it.surface === filter),
+    [items, filter]
+  )
 
   const load = async () => {
     setLoading(true)
@@ -92,18 +105,55 @@ export default function PreviousEventsAdmin() {
         }
       />
 
+      {/* Toolbar — filter + view toggle */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-1.5">
+          {SURFACE_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setFilter(opt.value)}
+              className={`px-3 py-1.5 rounded-full text-[0.6875rem] tracking-[0.15em] uppercase transition-colors ${
+                filter === opt.value
+                  ? "bg-primary text-white"
+                  : "bg-white border border-primary/15 text-primary/70 hover:border-primary/30"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+        <div className="flex items-center gap-1 bg-white border border-primary/15 rounded-sm overflow-hidden">
+          <button
+            onClick={() => setView("list")}
+            className={`p-1.5 transition-colors ${view === "list" ? "bg-primary text-white" : "text-primary/50 hover:text-primary"}`}
+            title="List view"
+          >
+            <List className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => setView("grid")}
+            className={`p-1.5 transition-colors ${view === "grid" ? "bg-primary text-white" : "text-primary/50 hover:text-primary"}`}
+            title="Grid view"
+          >
+            <LayoutGrid className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
       {loading ? (
         <SkeletonList count={5} withThumb />
-      ) : items.length === 0 ? (
+      ) : filtered.length === 0 ? (
         <EmptyState title="No previous events" hint="They&apos;ll appear in the public lists once added." />
-      ) : (
+      ) : view === "list" ? (
+        /* ── List view ── */
         <motion.ul
+          key="list"
           initial="hidden"
           animate="visible"
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.04 } } }}
           className="bg-white border border-primary/10 rounded-sm divide-y divide-primary/8 overflow-hidden"
         >
-          {items.map((it) => (
+          {filtered.map((it) => (
             <motion.li
               key={it._id}
               variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } }}
@@ -117,7 +167,7 @@ export default function PreviousEventsAdmin() {
               <div className="flex-1 min-w-0">
                 <p className="text-primary text-sm font-medium truncate">{it.title}</p>
                 <p className="text-[0.6875rem] text-primary/55 tracking-wide uppercase">
-                  {it.surface} {it.date && `· ${it.date}`}
+                  {it.surface} {it.subtitle && `· ${it.subtitle}`} {it.date && `· ${it.date}`}
                 </p>
               </div>
               <button
@@ -135,6 +185,52 @@ export default function PreviousEventsAdmin() {
             </motion.li>
           ))}
         </motion.ul>
+      ) : (
+        /* ── Grid view ── */
+        <motion.div
+          key="grid"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.04 } } }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          {filtered.map((it) => (
+            <motion.div
+              key={it._id}
+              variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } }}
+              className="bg-white border border-primary/10 rounded-sm overflow-hidden group"
+            >
+              <div className="aspect-[4/3] bg-accent-cream overflow-hidden">
+                {it.imageUrl && (
+                  <img src={it.imageUrl} alt="" className="w-full h-full object-cover" />
+                )}
+              </div>
+              <div className="px-3 py-3">
+                <p className="text-primary text-sm font-medium truncate">{it.title}</p>
+                {it.subtitle && (
+                  <p className="text-[0.6875rem] text-primary/50 truncate">{it.subtitle}</p>
+                )}
+                <p className="text-[0.625rem] text-primary/45 tracking-wide uppercase mt-1">
+                  {it.surface} {it.date && `· ${it.date}`}
+                </p>
+                <div className="flex items-center gap-3 mt-2 pt-2 border-t border-primary/8">
+                  <button
+                    onClick={() => open(it)}
+                    className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.15em] uppercase text-primary hover:text-secondary-terra transition-colors"
+                  >
+                    <Pencil className="w-3 h-3" /> Edit
+                  </button>
+                  <button
+                    onClick={() => remove(it._id)}
+                    className="inline-flex items-center gap-1 text-[0.625rem] tracking-[0.15em] uppercase text-primary/50 hover:text-rose-600 transition-colors"
+                  >
+                    <Trash2 className="w-3 h-3" /> Delete
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       )}
 
       <Drawer
@@ -159,6 +255,13 @@ export default function PreviousEventsAdmin() {
             <TextInput
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
+            />
+          </Field>
+          <Field label="Subtitle" hint="Optional — e.g. 'ISRA Academy'">
+            <TextInput
+              value={form.subtitle}
+              onChange={(e) => setForm({ ...form, subtitle: e.target.value })}
+              placeholder="e.g. ISRA Academy"
             />
           </Field>
           <div className="grid grid-cols-2 gap-4">
