@@ -30,7 +30,7 @@ export default function AboutHeroSection() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} className="relative bg-bg-deep overflow-hidden">
+    <section ref={sectionRef} className="relative bg-bg-deep overflow-hidden 3xl:h-[85vh] 3xl:flex 3xl:flex-col">
       {/* Dotted divider under navbar — matches the nav overlay style */}
       <div
         className="absolute top-20 md:top-24 3xl:top-28 left-4 sm:left-6 md:left-10 lg:left-16 3xl:left-24 right-4 sm:right-6 md:right-10 lg:right-16 h-[2px] pointer-events-none"
@@ -56,14 +56,14 @@ export default function AboutHeroSection() {
       </div>
 
       {/* Hero image + floating ornament */}
-      <div className="relative">
+      <div className="relative 3xl:flex-1">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="w-full"
         >
-          <div className="w-full h-[70vh] sm:h-[65vh] md:h-[26.25rem] lg:h-[32.5rem] 3xl:h-[45vh] overflow-hidden">
+          <div className="w-full h-[70vh] sm:h-[65vh] md:h-[26.25rem] lg:h-[32.5rem] 3xl:h-full overflow-hidden">
             <img
               ref={imgRef}
               src={heroImg}

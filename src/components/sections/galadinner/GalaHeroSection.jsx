@@ -32,7 +32,7 @@ export default function GalaHeroSection() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} className="relative h-auto md:h-screen md:min-h-[37.5rem] md:max-h-[1200px] overflow-hidden flex flex-col">
+    <section ref={sectionRef} className="relative h-auto md:h-screen md:min-h-[37.5rem] md:max-h-[1200px] 3xl:max-h-none 3xl:h-screen overflow-hidden flex flex-col">
       {/* Top section — teal bg with pattern + centered text */}
       <div className="relative flex-none md:flex-1 flex flex-col items-center justify-center bg-primary pt-28 pb-20 md:pt-32 md:pb-0 3xl:pt-36">
         {/* Hero background pattern */}

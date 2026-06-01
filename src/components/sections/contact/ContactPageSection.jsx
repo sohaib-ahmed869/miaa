@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
+import ReCAPTCHA from "react-google-recaptcha"
 import { fadeInLeft, fadeInRight } from "../../../lib/motion"
 import CTAButton from "../../ui/Button"
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || ""
 
 const TOPICS = [
   "General Inquiry",
@@ -57,11 +60,19 @@ export default function ContactPageSection() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState("")
+  const recaptchaRef = useRef(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (submitting) return
     setError("")
+
+    const captchaToken = recaptchaRef.current?.getValue()
+    if (RECAPTCHA_SITE_KEY && !captchaToken) {
+      setError("Please complete the CAPTCHA.")
+      return
+    }
+
     const form = e.currentTarget
     const data = new FormData(form)
     const payload = {
@@ -70,6 +81,7 @@ export default function ContactPageSection() {
       topic: data.get("topic") || "",
       message: data.get("message"),
       source: "contact-page",
+      ...(captchaToken && { captchaToken }),
     }
     setSubmitting(true)
     try {
@@ -78,6 +90,7 @@ export default function ContactPageSection() {
       form.reset()
     } catch (err) {
       setError(err.message || "Could not submit. Please try again.")
+      recaptchaRef.current?.reset()
     } finally {
       setSubmitting(false)
     }
@@ -207,6 +220,16 @@ export default function ContactPageSection() {
                     className="w-full bg-transparent field-dotted-line text-sm 3xl:text-base text-white placeholder:text-white/30 focus:outline-none transition-colors resize-none"
                   />
                 </div>
+
+                {RECAPTCHA_SITE_KEY && (
+                  <div className="3xl:scale-150 3xl:origin-top-left 3xl:mb-8">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={RECAPTCHA_SITE_KEY}
+                      theme="dark"
+                    />
+                  </div>
+                )}
 
                 {error && (
                   <p className="text-sm 3xl:text-base text-secondary-terra" role="alert">{error}</p>

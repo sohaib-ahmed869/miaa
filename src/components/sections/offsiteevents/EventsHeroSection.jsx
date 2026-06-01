@@ -5,9 +5,9 @@ import hero2 from "../../../assets/images/MIAEvents/events-hero-2.png"
 import hero3 from "../../../assets/images/MIAEvents/events-hero-3.png"
 
 const HERO_PHOTOS = [
-  { src: hero1, alt: "Meet the award-winning author book launch" },
-  { src: hero2, alt: "MIAA community panel discussion" },
-  { src: hero3, alt: "Visitors connecting at a MIAA event" },
+  { src: hero1, alt: "Meet the award-winning author book launch", aspect: 300 / 417 },
+  { src: hero2, alt: "MIAA community panel discussion", aspect: 691 / 417 },
+  { src: hero3, alt: "Visitors connecting at a MIAA event", aspect: 409 / 417 },
 ]
 
 export default function EventsHeroSection() {
@@ -33,13 +33,13 @@ export default function EventsHeroSection() {
           {loopPhotos.map((photo, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[85vw] md:w-[42vw] lg:w-[44vw] 3xl:w-[32vw] h-[17.5rem] md:h-[23.75rem] lg:h-[28.125rem] overflow-hidden"
+              className="flex-shrink-0 h-[17.5rem] md:h-[23.75rem] lg:h-[28.125rem] overflow-hidden rounded-sm"
+              style={{ aspectRatio: photo.aspect }}
             >
               <img
                 src={photo.src}
                 alt={photo.alt}
-                className="w-full object-cover block"
-                style={{ height: "100%" }}
+                className="w-full h-full object-cover block"
               />
             </div>
           ))}

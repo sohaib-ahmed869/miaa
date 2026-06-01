@@ -125,10 +125,10 @@ export default function DirectorMessageSection() {
     <section
       ref={sectionRef}
       className="relative bg-bg-deep min-h-screen flex flex-col"
-      style={{ clipPath: "inset(0 0 0 0)" }}
+      style={{ clipPath: "inset(0 0 0 0)", fontSize: "clamp(18px, 1.22vw - 8.84px, 38px)" }}
     >
       {/* Section label + dotted divider */}
-      <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 pt-24 md:pt-28 pb-12 md:pb-16">
+      <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 pt-24 md:pt-28 3xl:pt-[120px] pb-12 md:pb-16 3xl:pb-[60px]">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
           <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
@@ -145,7 +145,7 @@ export default function DirectorMessageSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] w-full mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pb-10 md:pb-16">
+      <div className="relative z-10 max-w-[1400px] 3xl:max-w-[2400px] w-full mx-auto px-6 md:px-10 lg:px-16 3xl:px-24 pb-10 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-stretch">
           {/* Left — heading at top, director card aligned with panel bottom */}
           <motion.div {...fadeInLeft} className="flex flex-col">
