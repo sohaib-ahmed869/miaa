@@ -57,7 +57,7 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
           <div className="absolute inset-0 bg-gradient-to-b from-bg-deep/70 via-bg-deep/60 to-bg-deep" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 sm:pt-32 md:pt-40 3xl:pt-48 pb-16 sm:pb-20 md:pb-28 3xl:pb-36">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 sm:pt-32 md:pt-40 3xl:pt-48 pb-14 sm:pb-20 md:pb-28 3xl:pb-36">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-8 md:mt-14 flex flex-wrap gap-x-6 sm:gap-x-10 gap-y-5 text-accent-cream"
+            className="mt-14 md:mt-14 flex flex-wrap gap-x-6 sm:gap-x-10 gap-y-5 text-accent-cream"
           >
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 3xl:w-12 3xl:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
@@ -299,7 +299,7 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
           <div className="max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-6 md:px-10 lg:px-16 3xl:px-24">
             <motion.div
               {...fadeInUp}
-              className="flex items-end justify-between mb-12 md:mb-14"
+              className="flex flex-wrap items-end justify-between gap-6 mb-12 md:mb-14"
             >
               <div>
                 <p className="text-[0.6875rem] 3xl:text-sm tracking-[0.3em] uppercase text-accent-wheat mb-4">
@@ -309,7 +309,7 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
                   Other Upcoming Events
                 </h2>
               </div>
-              <CTAButton to="/offsite-events" className="hidden md:inline-flex">
+              <CTAButton to="/offsite-events">
                 View All
               </CTAButton>
             </motion.div>

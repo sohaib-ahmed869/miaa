@@ -170,9 +170,9 @@ export default function Footer() {
             <p className="text-sm 3xl:text-base text-primary leading-relaxed max-w-xs 3xl:max-w-sm">
               Museum of Islamic Art Australia is an initiative of
               the{" "}
-              <span className="underline">
+              <a href="https://isra.org.au" target="_blank" rel="noopener noreferrer" className="underline">
                 Islamic Sciences and Research Academy (ISRA)
-              </span>
+              </a>
               . Funded by the Government of New South Wales WestInvest Program.
             </p>
           </div>

@@ -71,42 +71,22 @@ export default function DirectorMessageSection() {
         })
       })
 
-      // Mobile: pin entire section but trigger when message panel is in view.
-      // Pin and scrub run as separate triggers so the pin holds for a beat
-      // after the text finishes scrolling — otherwise the bottom of the
-      // section pops up the instant the scrub completes.
+      // Mobile: single pinned ScrollTrigger that scrubs the text.
+      // Using one trigger (instead of separate pin + scrub) prevents the
+      // section below from jittering while the user scrolls the panel.
       mm.add("(max-width: 767px)", () => {
-        const startFn = () => {
-          const panelTop = viewport.getBoundingClientRect().top - sectionRef.current.getBoundingClientRect().top
-          return `top -${panelTop - window.innerHeight * 0.15}px`
-        }
-
-        // Pin the entire section (panel + teal background below it) until the
-        // user has fully scrolled past the section. This keeps the green teal
-        // region beneath the panel from shifting up while the panel is in view.
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: startFn,
-          end: "bottom top",
-          pin: true,
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        })
-
-        // The text scrub runs only inside the first 1.3vh of the pin.
-        // After that, the panel stays in place with the last paragraph visible,
-        // and the green teal below the panel remains locked until the user
-        // scrolls completely past the section.
         gsap.to(track, {
           y: () => -getOverflow(),
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: startFn,
-            end: () => `+=${window.innerHeight * 1.3}`,
+            start: "top top",
+            end: () => `+=${window.innerHeight * 2}`,
+            pin: true,
+            pinSpacing: true,
             scrub: 1,
             invalidateOnRefresh: true,
+            anticipatePin: 1,
           },
         })
       })
@@ -128,7 +108,7 @@ export default function DirectorMessageSection() {
       style={{ clipPath: "inset(0 0 0 0)", fontSize: "clamp(18px, 1.22vw - 8.84px, 38px)" }}
     >
       {/* Section label + dotted divider */}
-      <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 pt-24 md:pt-28 3xl:pt-[120px] pb-12 md:pb-16 3xl:pb-[60px]">
+      <div className="relative z-10 px-6 md:px-10 lg:px-16 3xl:px-24 pt-14 md:pt-28 3xl:pt-[120px] pb-6 md:pb-16 3xl:pb-[60px]">
         <div className="flex items-center gap-2 mb-2">
           <QuatrefoilMarker />
           <span className="text-[0.625rem] 3xl:text-sm font-normal tracking-[0.2em] uppercase text-secondary-terra">
@@ -155,7 +135,7 @@ export default function DirectorMessageSection() {
               MIAA&apos;s Director
             </h2>
 
-            <div className="mt-auto pt-16">
+            <div className="mt-auto pt-6 md:pt-16">
               <div className="w-24 h-24 md:w-28 md:h-28 3xl:w-36 3xl:h-36 rounded-full overflow-hidden border-2 border-accent-wheat/30 mb-5">
                 <img
                   src={directorImg}
@@ -165,7 +145,7 @@ export default function DirectorMessageSection() {
               </div>
 
               <p
-                className="text-3xl md:text-4xl 3xl:text-5xl text-accent-cream leading-tight mb-5"
+                className="text-3xl md:text-4xl 3xl:text-5xl text-accent-cream leading-tight mb-2 md:mb-5"
                 style={{ fontFamily: "var(--font-script)" }}
               >
                 Professor Mehmet Ozalp

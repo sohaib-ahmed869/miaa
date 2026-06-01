@@ -187,7 +187,7 @@ export default function PeopleSection() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex flex-col lg:flex-row lg:items-start p-8 md:p-10 lg:p-12 gap-8 lg:gap-10">
+              <div className="flex flex-col lg:flex-row lg:items-start p-8 md:p-10 lg:p-12 gap-8 lg:gap-10 overflow-y-auto max-h-[90vh]">
                 {/* Portrait — left column with floating ornaments */}
                 <div className="flex-shrink-0 lg:w-[35%] relative">
                   <img
@@ -216,7 +216,7 @@ export default function PeopleSection() {
                 </div>
 
                 {/* Details — right column, scrollable */}
-                <div className="flex-1 min-w-0 overflow-y-auto max-h-[60vh] lg:max-h-[75vh]">
+                <div className="flex-1 min-w-0">
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-primary tracking-tight leading-tight">
                     {selected.name}
                   </h3>
