@@ -1,7 +1,7 @@
 // Tiny fetch wrapper for the MIAA backend.
-// Configure the base URL with `VITE_API_URL` in `.env.local`; defaults to localhost:3000.
+// Configure the base URL with `VITE_API_URL` in `.env.local`.
 
-const BASE = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "")
+const BASE = (import.meta.env.VITE_API_URL || "https://miaa-backend.onrender.com").replace(/\/$/, "")
 
 async function request(path, { method = "GET", body, headers, signal } = {}) {
   const res = await fetch(`${BASE}${path}`, {
