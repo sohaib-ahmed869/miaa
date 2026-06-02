@@ -57,7 +57,7 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
           <div className="absolute inset-0 bg-gradient-to-b from-bg-deep/70 via-bg-deep/60 to-bg-deep" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24 pt-28 sm:pt-32 md:pt-40 3xl:pt-48 pb-14 sm:pb-20 md:pb-28 3xl:pb-36">
+        <div className="relative z-10 max-w-[1400px] 3xl:max-w-[3200px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24 pt-20 sm:pt-28 md:pt-40 3xl:pt-48 pb-14 sm:pb-20 md:pb-28 3xl:pb-36">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl 3xl:text-[6.5rem] font-medium text-accent-cream tracking-tight leading-[1.05] max-w-5xl"
+            className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl 3xl:text-[6.5rem] font-medium text-accent-cream tracking-tight leading-[1.05] max-w-5xl"
           >
             {event.title}
           </motion.h1>
@@ -110,8 +110,8 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="w-9 h-9 3xl:w-12 3xl:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+            <div className="flex items-start gap-3">
+              <span className="w-9 h-9 3xl:w-12 3xl:h-12 flex-shrink-0 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
                 <MapPin className="w-4 h-4 3xl:w-5 3xl:h-5" strokeWidth={2} />
               </span>
               <div>
