@@ -97,6 +97,7 @@ export default function OffsiteEventsSection() {
         >
           {upcomingEvents.map((event, i) => {
             const slug = event.slug || event._id || slugify(event.title)
+            const cardLink = event.redirectUrl || `/event/${slug}`
             const showDivider = (i + 1) % 3 !== 0 && i !== upcomingEvents.length - 1
             return (
               <motion.div
@@ -104,7 +105,7 @@ export default function OffsiteEventsSection() {
                 {...staggerItem}
                 className={`group md:px-6 ${showDivider ? "md:border-r md:border-white/15" : ""}`}
               >
-                <Link to={`/event/${slug}`} className="block">
+                <Link to={cardLink} className="block">
                   {/* Date & location */}
                   <div className="mb-4">
                     <p className="text-2xl md:text-3xl 3xl:text-[2.4rem] tracking-wide text-[#D0A270] font-medium">

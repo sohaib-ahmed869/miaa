@@ -320,9 +320,10 @@ export default function EventDetailSection({ event, relatedEvents = [] }) {
             >
               {relatedEvents.slice(0, 3).map((rel, i) => {
                 const relSlug = rel.slug || rel._id || slugify(rel.title)
+                const relLink = rel.redirectUrl || `/event/${relSlug}`
                 return (
                   <motion.div key={rel._id || i} {...staggerItem}>
-                    <Link to={`/event/${relSlug}`} className="group block">
+                    <Link to={relLink} className="group block">
                       <div className="aspect-[4/3] overflow-hidden rounded-lg mb-5">
                         <img
                           src={rel.imageUrl || rel.image}

@@ -17,7 +17,7 @@ export default function GalaSponsorshipSection() {
             <h2 className="font-display text-3xl md:text-[2.625rem] 3xl:text-[3.2rem] font-medium text-primary leading-none tracking-tight mb-10 mt-0 uppercase">
               Sponsorship<br />Opportunities
             </h2>
-            <CTAButton href="https://drive.google.com/file/d/1072ktfGFYxJMQHalRFTKSyhICR5ONtEo/view?usp=sharing" target="_blank" rel="noreferrer noopener">Download Sponsorship Package</CTAButton>
+            <CTAButton href="/Gala Dinner - Sponsorship Package.pdf" download>Download Sponsorship Package</CTAButton>
           </motion.div>
 
           {/* Right — Description */}

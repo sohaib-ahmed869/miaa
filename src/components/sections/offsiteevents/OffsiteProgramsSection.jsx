@@ -82,13 +82,14 @@ export default function OffsiteProgramsSection() {
         >
           {upcomingEvents.map((event, i) => {
             const slug = event.slug || event._id || slugify(event.title)
+            const cardLink = event.redirectUrl || `/event/${slug}`
             return (
               <motion.div
                 key={event._id || i}
                 {...staggerItem}
                 className={`group md:px-6 ${(i + 1) % 3 !== 0 && i !== upcomingEvents.length - 1 ? "md:border-r md:border-white/15" : ""}`}
               >
-                <Link to={`/event/${slug}`} className="block">
+                <Link to={cardLink} className="block">
                   {/* Date & location — left-aligned */}
                   <div className="mb-4">
                     <p className="text-2xl md:text-3xl 3xl:text-[2.4rem] tracking-wide text-[#D0A270] font-medium">

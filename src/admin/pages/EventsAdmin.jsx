@@ -25,6 +25,7 @@ const EMPTY = {
   admission: "",
   rsvpUrl: "",
   rsvpLabel: "",
+  redirectUrl: "",
   highlights: [
     { tag: "", title: "", body: "" },
     { tag: "", title: "", body: "" },
@@ -360,6 +361,16 @@ export default function EventsAdmin() {
               value={form.rsvpUrl}
               onChange={(e) => setForm({ ...form, rsvpUrl: e.target.value })}
               placeholder="https://example.com/rsvp or /contact"
+            />
+          </Field>
+          <Field
+            label="Redirect URL"
+            hint="Override the detail page. Clicking the event card goes here instead of /event/<slug>. e.g. /gala-dinner"
+          >
+            <TextInput
+              value={form.redirectUrl}
+              onChange={(e) => setForm({ ...form, redirectUrl: e.target.value })}
+              placeholder="/gala-dinner"
             />
           </Field>
           <Field
