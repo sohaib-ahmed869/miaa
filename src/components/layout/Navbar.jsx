@@ -67,7 +67,7 @@ export default function Navbar() {
             </MotionLink>
           )}
           <CTAButton to="/support-us" className="pointer-events-auto !hidden lg:!inline-flex !px-4 !py-3 3xl:!px-4 3xl:!py-2.5 !text-[0.6875rem] 3xl:!text-[0.6875rem]">
-            Follow Our Journey
+            Support Us
           </CTAButton>
           {/* Reserve the hamburger slot here so the CTAs sit left of it at the top of the page */}
           <span className="w-[80px] h-[48px] 3xl:w-28 3xl:h-16" aria-hidden="true" />
@@ -130,7 +130,7 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-3">
                   <CTAButton to="/support-us" onClick={() => setMenuOpen(false)} className="!hidden lg:!inline-flex !px-4 !py-3 3xl:!px-4 3xl:!py-2.5 !text-[0.6875rem] 3xl:!text-[0.6875rem]">
-                    Follow Our Journey
+                    Support Us
                   </CTAButton>
                   <button
                     onClick={() => setMenuOpen(false)}
