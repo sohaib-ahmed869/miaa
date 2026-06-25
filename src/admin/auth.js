@@ -103,6 +103,13 @@ export const adminApi = {
   listNewsletter: () => request("/api/newsletter"),
   deleteSubscriber: (id) => request(`/api/newsletter/${id}`, { method: "DELETE" }),
 
+  // brevo event→list mappings (Ticket Tailor sync routing)
+  listEventLists: () => request("/api/brevo-lists"),
+  createEventList: (payload) => request("/api/brevo-lists", { method: "POST", body: payload }),
+  updateEventList: (id, payload) =>
+    request(`/api/brevo-lists/${id}`, { method: "PATCH", body: payload }),
+  deleteEventList: (id) => request(`/api/brevo-lists/${id}`, { method: "DELETE" }),
+
   // blog
   listBlog: () => request("/api/blog/admin/all"),
   createBlog: (payload) => request("/api/blog", { method: "POST", body: payload }),

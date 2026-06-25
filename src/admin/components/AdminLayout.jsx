@@ -10,6 +10,7 @@ import {
   LayoutDashboard,
   ExternalLink,
   FileText,
+  Ticket,
 } from "lucide-react"
 import { clearSession, getAdminUser } from "../auth"
 import { ToastProvider } from "./Toast"
@@ -24,6 +25,7 @@ const NAV = [
   { to: "/admin/blog", label: "Blog Posts", icon: FileText },
   { to: "/admin/contact", label: "Contact Submissions", icon: Inbox },
   { to: "/admin/newsletter", label: "Newsletter", icon: Mail },
+  { to: "/admin/event-lists", label: "Event Lists", icon: Ticket },
 ]
 
 function NavItem({ item }) {
